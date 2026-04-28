@@ -1,0 +1,7 @@
+/Users/varshajadhav/music-recommender/backend/src/main/java/com/music/recommender/MusicRecommenderApplication.java
+/Users/varshajadhav/music-recommender/backend/src/main/java/com/music/recommender/config/WebConfig.java
+/Users/varshajadhav/music-recommender/backend/src/main/java/com/music/recommender/controller/RecommendationController.java
+/Users/varshajadhav/music-recommender/backend/src/main/java/com/music/recommender/model/RecommendationRequest.java
+/Users/varshajadhav/music-recommender/backend/src/main/java/com/music/recommender/model/RecommendationResponse.java
+/Users/varshajadhav/music-recommender/backend/src/main/java/com/music/recommender/model/Song.java
+/Users/varshajadhav/music-recommender/backend/src/main/java/com/music/recommender/service/RecommendationService.java

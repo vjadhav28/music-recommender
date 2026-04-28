@@ -1,0 +1,7 @@
+com/music/recommender/model/Song.class
+com/music/recommender/service/RecommendationService.class
+com/music/recommender/MusicRecommenderApplication.class
+com/music/recommender/controller/RecommendationController.class
+com/music/recommender/model/RecommendationRequest.class
+com/music/recommender/model/RecommendationResponse.class
+com/music/recommender/config/WebConfig.class
