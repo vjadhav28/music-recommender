@@ -64,6 +64,8 @@ export default function App() {
     setError(null);
     setRecommendations(null);
     setLastRequest({ mood, genre, activity, language });
+    
+    console.log('[v0] Sending request:', { mood, genre, activity, language });
 
     try {
       const res = await fetch(apiUrl, {
@@ -78,6 +80,7 @@ export default function App() {
       }
 
       const data = await res.json();
+      console.log('[v0] Received recommendations:', data);
       setRecommendations(data);
       setHistory((previous) => {
         const entry = {
@@ -85,6 +88,7 @@ export default function App() {
           mood,
           genre,
           activity,
+          language,
           summary: data?.summary || '',
           createdAt: new Date().toISOString(),
         };
@@ -156,6 +160,7 @@ export default function App() {
                         mood: entry.mood,
                         genre: entry.genre,
                         activity: entry.activity,
+                        language: entry.language || 'en',
                       })
                     }
                   />

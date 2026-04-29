@@ -1654,5 +1654,321 @@
       ],
       "timestamp": "2026-04-29T12:31:00.376Z"
     }
+  ],
+  "anonymous-1777466010162": [
+    {
+      "mood": "Happy",
+      "genre": "Hip-Hop",
+      "activity": "",
+      "songs": [
+        {
+          "title": "Walking on Sunshine",
+          "artist": "Katrina & The Waves",
+          "genre": "Pop",
+          "year": 1985,
+          "reason": "uplifting melody that matches your mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "appleMusic": "https://music.apple.com/search?term=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "youtubeMusic": "https://music.youtube.com/search?q=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "amazonMusic": "https://music.amazon.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves"
+          },
+          "audioFeatures": {
+            "energy": 0.92,
+            "danceability": 0.88,
+            "valence": 0.95
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Levitating",
+          "artist": "Dua Lipa",
+          "genre": "Pop",
+          "year": 2020,
+          "reason": "feel-good track perfect for today",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Levitating%20Dua%20Lipa",
+            "appleMusic": "https://music.apple.com/search?term=Levitating%20Dua%20Lipa",
+            "youtubeMusic": "https://music.youtube.com/search?q=Levitating%20Dua%20Lipa",
+            "amazonMusic": "https://music.amazon.com/search/Levitating%20Dua%20Lipa"
+          },
+          "audioFeatures": {
+            "energy": 0.8,
+            "danceability": 0.87,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Good as Hell",
+          "artist": "Lizzo",
+          "genre": "Pop",
+          "year": 2016,
+          "reason": "energetic vibe with positive lyrics",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Good%20as%20Hell%20Lizzo",
+            "appleMusic": "https://music.apple.com/search?term=Good%20as%20Hell%20Lizzo",
+            "youtubeMusic": "https://music.youtube.com/search?q=Good%20as%20Hell%20Lizzo",
+            "amazonMusic": "https://music.amazon.com/search/Good%20as%20Hell%20Lizzo"
+          },
+          "audioFeatures": {
+            "energy": 0.85,
+            "danceability": 0.75,
+            "valence": 0.92
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "I Will Follow You into the Dark",
+          "artist": "Death Cab for Cutie",
+          "genre": "Indie",
+          "year": 2005,
+          "reason": "classic feel-good anthem",
+          "links": {
+            "spotify": "https://open.spotify.com/search/I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab%20for%20Cutie",
+            "appleMusic": "https://music.apple.com/search?term=I%20Will%20Follow%20You%20into%20the%20Dark",
+            "youtubeMusic": "https://music.youtube.com/search?q=I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab",
+            "amazonMusic": "https://music.amazon.com/search/I%20Will%20Follow%20You%20into%20the%20Dark"
+          },
+          "audioFeatures": {
+            "energy": 0.65,
+            "danceability": 0.45,
+            "valence": 0.68
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Don't Stop Me Now",
+          "artist": "Queen",
+          "genre": "Rock",
+          "year": 1978,
+          "reason": "modern pop hit with infectious energy",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Don%27t%20Stop%20Me%20Now%20Queen",
+            "appleMusic": "https://music.apple.com/search?term=Dont%20Stop%20Me%20Now%20Queen",
+            "youtubeMusic": "https://music.youtube.com/search?q=Dont%20Stop%20Me%20Now%20Queen",
+            "amazonMusic": "https://music.amazon.com/search/Don%27t%20Stop%20Me%20Now%20Queen"
+          },
+          "audioFeatures": {
+            "energy": 0.88,
+            "danceability": 0.82,
+            "valence": 0.89
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:33:30.163Z"
+    }
+  ],
+  "anonymous-1777466026329": [
+    {
+      "mood": "Sad",
+      "genre": "Classical",
+      "activity": "",
+      "songs": [
+        {
+          "title": "Hurt",
+          "artist": "Johnny Cash",
+          "genre": "Country",
+          "year": 2002,
+          "reason": "emotionally resonant and deeply moving",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Hurt%20Johnny%20Cash",
+            "appleMusic": "https://music.apple.com/search?term=Hurt%20Johnny%20Cash",
+            "youtubeMusic": "https://music.youtube.com/search?q=Hurt%20Johnny%20Cash",
+            "amazonMusic": "https://music.amazon.com/search/Hurt%20Johnny%20Cash"
+          },
+          "audioFeatures": {
+            "energy": 0.3,
+            "danceability": 0.2,
+            "valence": 0.15
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Black",
+          "artist": "Pearl Jam",
+          "genre": "Rock",
+          "year": 1991,
+          "reason": "cathartic ballad for introspective moments",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Black%20Pearl%20Jam",
+            "appleMusic": "https://music.apple.com/search?term=Black%20Pearl%20Jam",
+            "youtubeMusic": "https://music.youtube.com/search?q=Black%20Pearl%20Jam",
+            "amazonMusic": "https://music.amazon.com/search/Black%20Pearl%20Jam"
+          },
+          "audioFeatures": {
+            "energy": 0.45,
+            "danceability": 0.25,
+            "valence": 0.3
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Someone Like You",
+          "artist": "Adele",
+          "genre": "Pop",
+          "year": 2011,
+          "reason": "powerful vocals paired with melancholic instrumentation",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Someone%20Like%20You%20Adele",
+            "appleMusic": "https://music.apple.com/search?term=Someone%20Like%20You%20Adele",
+            "youtubeMusic": "https://music.youtube.com/search?q=Someone%20Like%20You%20Adele",
+            "amazonMusic": "https://music.amazon.com/search/Someone%20Like%20You%20Adele"
+          },
+          "audioFeatures": {
+            "energy": 0.35,
+            "danceability": 0.35,
+            "valence": 0.25
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "The Night We Met",
+          "artist": "Lord Huron",
+          "genre": "Indie",
+          "year": 2015,
+          "reason": "haunting melody that captures the feeling",
+          "links": {
+            "spotify": "https://open.spotify.com/search/The%20Night%20We%20Met%20Lord%20Huron",
+            "appleMusic": "https://music.apple.com/search?term=The%20Night%20We%20Met%20Lord%20Huron",
+            "youtubeMusic": "https://music.youtube.com/search?q=The%20Night%20We%20Met%20Lord%20Huron",
+            "amazonMusic": "https://music.amazon.com/search/The%20Night%20We%20Met%20Lord%20Huron"
+          },
+          "audioFeatures": {
+            "energy": 0.4,
+            "danceability": 0.3,
+            "valence": 0.35
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Mad World",
+          "artist": "Gary Jules",
+          "genre": "Alternative",
+          "year": 2001,
+          "reason": "thoughtful lyrics reflecting the mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Mad%20World%20Gary%20Jules",
+            "appleMusic": "https://music.apple.com/search?term=Mad%20World%20Gary%20Jules",
+            "youtubeMusic": "https://music.youtube.com/search?q=Mad%20World%20Gary%20Jules",
+            "amazonMusic": "https://music.amazon.com/search/Mad%20World%20Gary%20Jules"
+          },
+          "audioFeatures": {
+            "energy": 0.25,
+            "danceability": 0.15,
+            "valence": 0.2
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:33:46.330Z"
+    }
+  ],
+  "anonymous-1777466145632": [
+    {
+      "mood": "happy",
+      "songs": [
+        {
+          "title": "Ek Ajnabee Haseena Se",
+          "artist": "Kishore Kumar",
+          "genre": "Bollywood",
+          "year": 1963,
+          "reason": "uplifting melody that matches your mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Ek%20Ajnabee%20Haseena%20Se%20Kishore%20Kumar",
+            "appleMusic": "https://music.apple.com/search?term=Ek%20Ajnabee%20Haseena%20Se",
+            "youtubeMusic": "https://music.youtube.com/search?q=Ek%20Ajnabee%20Haseena%20Se%20Kishore",
+            "amazonMusic": "https://music.amazon.com/search/Ek%20Ajnabee%20Haseena%20Se"
+          },
+          "audioFeatures": {
+            "energy": 0.75,
+            "danceability": 0.72,
+            "valence": 0.85
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Bura Na Mano Holi Hai",
+          "artist": "Amitabh Bachchan",
+          "genre": "Bollywood",
+          "year": 1975,
+          "reason": "feel-good track perfect for today",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Bura%20Na%20Mano%20Holi%20Hai%20Amitabh%20Bachchan",
+            "appleMusic": "https://music.apple.com/search?term=Bura%20Na%20Mano%20Holi%20Hai%20Amitabh",
+            "youtubeMusic": "https://music.youtube.com/search?q=Bura%20Na%20Mano%20Holi%20Hai%20Amitabh",
+            "amazonMusic": "https://music.amazon.com/search/Bura%20Na%20Mano%20Holi%20Hai"
+          },
+          "audioFeatures": {
+            "energy": 0.85,
+            "danceability": 0.8,
+            "valence": 0.9
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:35:45.634Z"
+    }
   ]
 }
