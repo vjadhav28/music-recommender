@@ -2,10 +2,25 @@ import React, { useState } from 'react';
 
 const MOODS = ['Happy', 'Sad', 'Energetic', 'Relaxed', 'Romantic', 'Focused', 'Angry', 'Nostalgic'];
 
+const LANGUAGES = [
+  'Any',
+  'English',
+  'Spanish',
+  'Hindi',
+  'French',
+  'Korean',
+  'Japanese',
+  'Portuguese',
+  'Arabic',
+  'German',
+  'Italian',
+];
+
 export default function MoodInput({ onSubmit, loading }) {
   const [mood, setMood] = useState('');
   const [genre, setGenre] = useState('');
   const [activity, setActivity] = useState('');
+  const [language, setLanguage] = useState('Any');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +30,7 @@ export default function MoodInput({ onSubmit, loading }) {
       mood: mood.trim(),
       genre: genre.trim(),
       activity: activity.trim(),
+      language: language === 'Any' ? '' : language,
     });
   };
 
@@ -59,6 +75,23 @@ export default function MoodInput({ onSubmit, loading }) {
           onChange={(e) => setActivity(e.target.value)}
           className="text-input"
         />
+      </div>
+
+      <div className="form-section">
+        <label>04 — Language</label>
+        <div className="mood-grid">
+          {LANGUAGES.map((l) => (
+            <button
+              key={l}
+              type="button"
+              onClick={() => setLanguage(l)}
+              className={`mood-chip ${language === l ? 'active' : ''}`}
+              aria-pressed={language === l}
+            >
+              {l}
+            </button>
+          ))}
+        </div>
       </div>
 
       <button type="submit" disabled={!mood || loading} className="primary-btn">

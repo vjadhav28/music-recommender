@@ -50,17 +50,17 @@ export default function App() {
     }
   }, [history]);
 
-  const handleSubmit = async ({ mood, genre, activity }) => {
+  const handleSubmit = async ({ mood, genre, activity, language }) => {
     setLoading(true);
     setError(null);
     setRecommendations(null);
-    setLastRequest({ mood, genre, activity });
+    setLastRequest({ mood, genre, activity, language });
 
     try {
       const res = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mood, genre, activity }),
+        body: JSON.stringify({ mood, genre, activity, language }),
       });
 
       if (!res.ok) {
@@ -76,6 +76,7 @@ export default function App() {
           mood,
           genre,
           activity,
+          language,
           summary: data?.summary || '',
           createdAt: new Date().toISOString(),
         };
@@ -145,6 +146,7 @@ export default function App() {
                   mood: entry.mood,
                   genre: entry.genre,
                   activity: entry.activity,
+                  language: entry.language,
                 })
               }
             />
