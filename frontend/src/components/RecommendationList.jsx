@@ -8,7 +8,9 @@ export default function RecommendationList({ data, request }) {
   return (
     <div className="recommendations-shell">
       <div className="recommendation-header">
-        <h2>Your playlist</h2>
+        <h2>
+          Your <em>set.</em>
+        </h2>
         {request?.mood && (
           <div className="request-badges">
             <span>{request.mood}</span>
@@ -23,13 +25,18 @@ export default function RecommendationList({ data, request }) {
       <div className="recommendation-grid">
         {data.songs.map((song, idx) => (
           <article key={`${song.title}-${song.artist}-${idx}`} className="song-card">
-            <div className="song-index">{idx + 1}</div>
+            <div className="song-index">{String(idx + 1).padStart(2, '0')}</div>
             <div className="song-content">
               <h3>{song.title}</h3>
-              <p className="song-artist">{song.artist}</p>
-              <span className="song-genre">{song.genre}</span>
-              <p className="song-reason">{song.reason}</p>
+              <div className="song-meta">
+                <p className="song-artist">{song.artist}</p>
+                {song.genre && <span className="song-genre">{song.genre}</span>}
+              </div>
+              {song.reason && <p className="song-reason">{song.reason}</p>}
             </div>
+            <button type="button" className="song-play" aria-label={`Preview ${song.title}`}>
+              ▶
+            </button>
           </article>
         ))}
       </div>

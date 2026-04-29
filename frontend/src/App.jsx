@@ -5,6 +5,19 @@ import RequestHistory from './components/RequestHistory';
 
 const HISTORY_STORAGE_KEY = 'music-recommender-history';
 
+const MARQUEE_WORDS = [
+  'Late night drives',
+  'Sunday mornings',
+  'Coding in flow',
+  'Heartbreak hours',
+  'Pre-game energy',
+  'Rainy afternoons',
+  'First date jitters',
+  'Long hauls',
+  'Friday wind-down',
+  'Solo dance party',
+];
+
 function buildApiUrl() {
   const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
   return `${apiBase}/api/recommendations`;
@@ -75,12 +88,47 @@ export default function App() {
     }
   };
 
+  const marqueeItems = [...MARQUEE_WORDS, ...MARQUEE_WORDS];
+
   return (
     <div className="app-shell">
-      <header className="app-header">
-        <h1>🎵 Music Recommender Studio</h1>
-        <p>Describe your vibe and get a tuned playlist in seconds.</p>
+      <header className="top-bar">
+        <div className="brand">
+          <span className="brand-dot" aria-hidden="true"></span>
+          SONAR
+        </div>
+        <div className="equalizer" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </header>
+
+      <section className="hero">
+        <span className="hero-eyebrow">Now playing · your vibe</span>
+        <h1>
+          Find your <span className="accent">next</span>
+          <br />
+          favorite <span className="accent">song.</span>
+        </h1>
+        <p>
+          Tell us how you feel and what you&apos;re doing. We&apos;ll tune a playlist that fits the moment — not yesterday&apos;s
+          algorithm.
+        </p>
+
+        <div className="marquee" aria-hidden="true">
+          <div className="marquee-track">
+            {marqueeItems.map((word, i) => (
+              <React.Fragment key={`${word}-${i}`}>
+                <span>{word}</span>
+                <span className="dot">●</span>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <main className="layout-grid">
         <section className="surface panel">
@@ -103,19 +151,22 @@ export default function App() {
           </div>
 
           <div className="side-panel-section">
-            <h2>Tip</h2>
-            <p>Include both mood and activity for tighter recommendations (for example: focused + coding).</p>
+            <h2>Pro tip</h2>
+            <p className="tip-card">
+              Pair a mood with an activity for sharper picks. Try <strong>focused + coding</strong> or{' '}
+              <strong>nostalgic + driving</strong>.
+            </p>
           </div>
         </aside>
       </main>
 
       <section className="results-area">
-        {error && <div className="alert-error">⚠️ {error}</div>}
+        {error && <div className="alert-error">{error}</div>}
 
         {loading && (
           <div className="loading-state">
-            <div className="spinner"></div>
-            <p>Composing recommendations...</p>
+            <div className="vinyl" aria-hidden="true"></div>
+            <p>Tuning your frequency</p>
           </div>
         )}
 
