@@ -142,59 +142,31 @@ export const EXTENDED_SONG_DATABASE = {
       }
     },
     { 
-      title: 'Bura Na Mano Holi Hai', 
-      artist: 'Amitabh Bachchan', 
+      title: 'Kholo Kholo Sajni', 
+      artist: 'Shreya Ghoshal', 
       genre: 'Bollywood', 
-      year: 1975,
+      year: 2008,
       language: 'hi',
-      audioFeatures: { energy: 0.85, danceability: 0.80, valence: 0.90 },
+      audioFeatures: { energy: 0.80, danceability: 0.78, valence: 0.88 },
       links: {
-        spotify: 'https://open.spotify.com/search/Bura%20Na%20Mano%20Holi%20Hai%20Amitabh%20Bachchan',
-        appleMusic: 'https://music.apple.com/search?term=Bura%20Na%20Mano%20Holi%20Hai%20Amitabh',
-        youtubeMusic: 'https://music.youtube.com/search?q=Bura%20Na%20Mano%20Holi%20Hai%20Amitabh',
-        amazonMusic: 'https://music.amazon.com/search/Bura%20Na%20Mano%20Holi%20Hai',
+        spotify: 'https://open.spotify.com/search/Kholo%20Kholo%20Sajni%20Shreya%20Ghoshal',
+        appleMusic: 'https://music.apple.com/search?term=Kholo%20Kholo%20Sajni%20Shreya',
+        youtubeMusic: 'https://music.youtube.com/search?q=Kholo%20Kholo%20Sajni%20Shreya',
+        amazonMusic: 'https://music.amazon.com/search/Kholo%20Kholo%20Sajni',
       }
     },
     { 
-      title: 'Ek Ajnabee Haseena Se', 
-      artist: 'Kishore Kumar', 
-      genre: 'Bollywood', 
-      year: 1963,
-      language: 'hi',
-      audioFeatures: { energy: 0.75, danceability: 0.72, valence: 0.85 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Ek%20Ajnabee%20Haseena%20Se%20Kishore%20Kumar',
-        appleMusic: 'https://music.apple.com/search?term=Ek%20Ajnabee%20Haseena%20Se',
-        youtubeMusic: 'https://music.youtube.com/search?q=Ek%20Ajnabee%20Haseena%20Se%20Kishore',
-        amazonMusic: 'https://music.amazon.com/search/Ek%20Ajnabee%20Haseena%20Se',
-      }
-    },
-    { 
-      title: 'Vivir Mi Vida', 
-      artist: 'Marc Anthony', 
+      title: 'Hazme Tuyo', 
+      artist: 'Aventura', 
       genre: 'Latino', 
-      year: 2004,
+      year: 2009,
       language: 'es',
-      audioFeatures: { energy: 0.88, danceability: 0.85, valence: 0.92 },
+      audioFeatures: { energy: 0.78, danceability: 0.82, valence: 0.88 },
       links: {
-        spotify: 'https://open.spotify.com/search/Vivir%20Mi%20Vida%20Marc%20Anthony',
-        appleMusic: 'https://music.apple.com/search?term=Vivir%20Mi%20Vida%20Marc%20Anthony',
-        youtubeMusic: 'https://music.youtube.com/search?q=Vivir%20Mi%20Vida%20Marc%20Anthony',
-        amazonMusic: 'https://music.amazon.com/search/Vivir%20Mi%20Vida%20Marc%20Anthony',
-      }
-    },
-    { 
-      title: 'Despacito', 
-      artist: 'Luis Fonsi ft. Daddy Yankee', 
-      genre: 'Latino', 
-      year: 2017,
-      language: 'es',
-      audioFeatures: { energy: 0.82, danceability: 0.90, valence: 0.88 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Despacito%20Luis%20Fonsi',
-        appleMusic: 'https://music.apple.com/search?term=Despacito%20Luis%20Fonsi',
-        youtubeMusic: 'https://music.youtube.com/search?q=Despacito%20Luis%20Fonsi',
-        amazonMusic: 'https://music.amazon.com/search/Despacito%20Luis%20Fonsi',
+        spotify: 'https://open.spotify.com/search/Hazme%20Tuyo%20Aventura',
+        appleMusic: 'https://music.apple.com/search?term=Hazme%20Tuyo%20Aventura',
+        youtubeMusic: 'https://music.youtube.com/search?q=Hazme%20Tuyo%20Aventura',
+        amazonMusic: 'https://music.amazon.com/search/Hazme%20Tuyo%20Aventura',
       }
     },
   ],
@@ -340,6 +312,34 @@ export const EXTENDED_SONG_DATABASE = {
       }
     },
     { 
+      title: 'Dil Sambhal Jaa', 
+      artist: 'Jagjit Singh', 
+      genre: 'Bollywood', 
+      year: 1981,
+      language: 'hi',
+      audioFeatures: { energy: 0.35, danceability: 0.20, valence: 0.28 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Dil%20Sambhal%20Jaa%20Jagjit%20Singh',
+        appleMusic: 'https://music.apple.com/search?term=Dil%20Sambhal%20Jaa',
+        youtubeMusic: 'https://music.youtube.com/search?q=Dil%20Sambhal%20Jaa%20Jagjit',
+        amazonMusic: 'https://music.amazon.com/search/Dil%20Sambhal%20Jaa',
+      }
+    },
+    { 
+      title: 'Janam Janam Se Pehle', 
+      artist: 'Lata Mangeshkar', 
+      genre: 'Bollywood', 
+      year: 1975,
+      language: 'hi',
+      audioFeatures: { energy: 0.32, danceability: 0.18, valence: 0.25 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Janam%20Janam%20Se%20Pehle%20Lata',
+        appleMusic: 'https://music.apple.com/search?term=Janam%20Janam%20Se%20Pehle',
+        youtubeMusic: 'https://music.youtube.com/search?q=Janam%20Janam%20Se%20Pehle%20Lata',
+        amazonMusic: 'https://music.amazon.com/search/Janam%20Janam%20Se%20Pehle',
+      }
+    },
+    { 
       title: 'Lloraras', 
       artist: 'Oscar D\'León', 
       genre: 'Latino', 
@@ -351,6 +351,20 @@ export const EXTENDED_SONG_DATABASE = {
         appleMusic: 'https://music.apple.com/search?term=Lloraras%20Oscar%20D%20Leon',
         youtubeMusic: 'https://music.youtube.com/search?q=Lloraras%20Oscar%20D%20Leon',
         amazonMusic: 'https://music.amazon.com/search/Lloraras%20Oscar%20D%20Leon',
+      }
+    },
+    { 
+      title: 'A Pedir Tu Mano', 
+      artist: 'Juan Luis Guerra', 
+      genre: 'Latino', 
+      year: 1989,
+      language: 'es',
+      audioFeatures: { energy: 0.38, danceability: 0.32, valence: 0.22 },
+      links: {
+        spotify: 'https://open.spotify.com/search/A%20Pedir%20Tu%20Mano%20Juan%20Luis%20Guerra',
+        appleMusic: 'https://music.apple.com/search?term=A%20Pedir%20Tu%20Mano',
+        youtubeMusic: 'https://music.youtube.com/search?q=A%20Pedir%20Tu%20Mano%20Juan%20Luis%20Guerra',
+        amazonMusic: 'https://music.amazon.com/search/A%20Pedir%20Tu%20Mano',
       }
     },
   ],
@@ -481,6 +495,62 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/Ella%20Baila%20Sola%20Eslabon',
       }
     },
+    { 
+      title: 'Saira', 
+      artist: 'Badshah', 
+      genre: 'Bollywood', 
+      year: 2018,
+      language: 'hi',
+      audioFeatures: { energy: 0.86, danceability: 0.82, valence: 0.83 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Saira%20Badshah',
+        appleMusic: 'https://music.apple.com/search?term=Saira%20Badshah',
+        youtubeMusic: 'https://music.youtube.com/search?q=Saira%20Badshah',
+        amazonMusic: 'https://music.amazon.com/search/Saira%20Badshah',
+      }
+    },
+    { 
+      title: 'Tattoo Waaliye', 
+      artist: 'Kanika Kapoor', 
+      genre: 'Bollywood', 
+      year: 2014,
+      language: 'hi',
+      audioFeatures: { energy: 0.84, danceability: 0.81, valence: 0.81 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Tattoo%20Waaliye%20Kanika%20Kapoor',
+        appleMusic: 'https://music.apple.com/search?term=Tattoo%20Waaliye%20Kanika%20Kapoor',
+        youtubeMusic: 'https://music.youtube.com/search?q=Tattoo%20Waaliye%20Kanika%20Kapoor',
+        amazonMusic: 'https://music.amazon.com/search/Tattoo%20Waaliye%20Kanika',
+      }
+    },
+    { 
+      title: 'Don\'t Stop the Music', 
+      artist: 'Rihanna', 
+      genre: 'Pop', 
+      year: 2007,
+      language: 'en',
+      audioFeatures: { energy: 0.91, danceability: 0.89, valence: 0.83 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Don%27t%20Stop%20the%20Music%20Rihanna',
+        appleMusic: 'https://music.apple.com/search?term=Dont%20Stop%20the%20Music%20Rihanna',
+        youtubeMusic: 'https://music.youtube.com/search?q=Dont%20Stop%20the%20Music%20Rihanna',
+        amazonMusic: 'https://music.amazon.com/search/Dont%20Stop%20the%20Music%20Rihanna',
+      }
+    },
+    { 
+      title: 'Cuerpo Mojado', 
+      artist: 'Ricky Martin', 
+      genre: 'Latino', 
+      year: 1994,
+      language: 'es',
+      audioFeatures: { energy: 0.87, danceability: 0.90, valence: 0.86 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Cuerpo%20Mojado%20Ricky%20Martin',
+        appleMusic: 'https://music.apple.com/search?term=Cuerpo%20Mojado%20Ricky%20Martin',
+        youtubeMusic: 'https://music.youtube.com/search?q=Cuerpo%20Mojado%20Ricky%20Martin',
+        amazonMusic: 'https://music.amazon.com/search/Cuerpo%20Mojado%20Ricky%20Martin',
+      }
+    },
   ],
   'relaxed': [
     { 
@@ -582,17 +652,101 @@ export const EXTENDED_SONG_DATABASE = {
       }
     },
     { 
-      title: 'Encantada', 
-      artist: 'Conjunto Clásico', 
-      genre: 'Latino', 
-      year: 2000,
-      language: 'es',
-      audioFeatures: { energy: 0.28, danceability: 0.22, valence: 0.68 },
+      title: 'River Flows in You', 
+      artist: 'Yiruma', 
+      genre: 'Piano', 
+      year: 2001,
+      language: 'en',
+      audioFeatures: { energy: 0.20, danceability: 0.10, valence: 0.62 },
       links: {
-        spotify: 'https://open.spotify.com/search/Encantada%20Conjunto%20Clasico',
-        appleMusic: 'https://music.apple.com/search?term=Encantada%20Conjunto%20Clasico',
-        youtubeMusic: 'https://music.youtube.com/search?q=Encantada%20Conjunto%20Clasico',
-        amazonMusic: 'https://music.amazon.com/search/Encantada%20Conjunto%20Clasico',
+        spotify: 'https://open.spotify.com/search/River%20Flows%20in%20You%20Yiruma',
+        appleMusic: 'https://music.apple.com/search?term=River%20Flows%20in%20You%20Yiruma',
+        youtubeMusic: 'https://music.youtube.com/search?q=River%20Flows%20in%20You%20Yiruma',
+        amazonMusic: 'https://music.amazon.com/search/River%20Flows%20in%20You%20Yiruma',
+      }
+    },
+    { 
+      title: 'Bohemian Rhapsody', 
+      artist: 'Queen', 
+      genre: 'Rock', 
+      year: 1975,
+      language: 'en',
+      audioFeatures: { energy: 0.38, danceability: 0.32, valence: 0.65 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Bohemian%20Rhapsody%20Queen',
+        appleMusic: 'https://music.apple.com/search?term=Bohemian%20Rhapsody%20Queen',
+        youtubeMusic: 'https://music.youtube.com/search?q=Bohemian%20Rhapsody%20Queen',
+        amazonMusic: 'https://music.amazon.com/search/Bohemian%20Rhapsody%20Queen',
+      }
+    },
+    { 
+      title: 'Raag Bhairav', 
+      artist: 'Pandit Ravi Shankar', 
+      genre: 'Classical', 
+      year: 1962,
+      language: 'hi',
+      audioFeatures: { energy: 0.28, danceability: 0.16, valence: 0.62 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Raag%20Bhairav%20Pandit%20Ravi%20Shankar',
+        appleMusic: 'https://music.apple.com/search?term=Raag%20Bhairav%20Pandit%20Ravi',
+        youtubeMusic: 'https://music.youtube.com/search?q=Raag%20Bhairav%20Pandit%20Ravi%20Shankar',
+        amazonMusic: 'https://music.amazon.com/search/Raag%20Bhairav%20Pandit%20Ravi',
+      }
+    },
+    { 
+      title: 'Sarangi Ki Sargam', 
+      artist: 'Hari Prasad Chaurasia', 
+      genre: 'Bollywood', 
+      year: 1992,
+      language: 'hi',
+      audioFeatures: { energy: 0.24, danceability: 0.12, valence: 0.60 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Sarangi%20Ki%20Sargam%20Hari%20Prasad',
+        appleMusic: 'https://music.apple.com/search?term=Sarangi%20Ki%20Sargam',
+        youtubeMusic: 'https://music.youtube.com/search?q=Sarangi%20Ki%20Sargam%20Hari%20Prasad',
+        amazonMusic: 'https://music.amazon.com/search/Sarangi%20Ki%20Sargam',
+      }
+    },
+    { 
+      title: 'Raag Malkauns', 
+      artist: 'Ajay Jahangirpur', 
+      genre: 'Bollywood', 
+      year: 1995,
+      language: 'hi',
+      audioFeatures: { energy: 0.26, danceability: 0.14, valence: 0.64 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Raag%20Malkauns%20Ajay%20Jahangirpur',
+        appleMusic: 'https://music.apple.com/search?term=Raag%20Malkauns%20Ajay',
+        youtubeMusic: 'https://music.youtube.com/search?q=Raag%20Malkauns%20Ajay%20Jahangirpur',
+        amazonMusic: 'https://music.amazon.com/search/Raag%20Malkauns%20Ajay',
+      }
+    },
+    { 
+      title: 'Sereno', 
+      artist: 'Jorge Glem', 
+      genre: 'Latino', 
+      year: 2001,
+      language: 'es',
+      audioFeatures: { energy: 0.30, danceability: 0.22, valence: 0.66 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Sereno%20Jorge%20Glem',
+        appleMusic: 'https://music.apple.com/search?term=Sereno%20Jorge%20Glem',
+        youtubeMusic: 'https://music.youtube.com/search?q=Sereno%20Jorge%20Glem',
+        amazonMusic: 'https://music.amazon.com/search/Sereno%20Jorge%20Glem',
+      }
+    },
+    { 
+      title: 'Tranquilidad', 
+      artist: 'Willie Colón', 
+      genre: 'Latino', 
+      year: 1987,
+      language: 'es',
+      audioFeatures: { energy: 0.28, danceability: 0.20, valence: 0.64 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Tranquilidad%20Willie%20Colon',
+        appleMusic: 'https://music.apple.com/search?term=Tranquilidad%20Willie%20Colon',
+        youtubeMusic: 'https://music.youtube.com/search?q=Tranquilidad%20Willie%20Colon',
+        amazonMusic: 'https://music.amazon.com/search/Tranquilidad%20Willie%20Colon',
       }
     },
   ],
@@ -737,6 +891,48 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/Lagrimas%20y%20Flores',
       }
     },
+    { 
+      title: 'Pyar Bina Chai', 
+      artist: 'Sonu Nigam', 
+      genre: 'Bollywood', 
+      year: 2001,
+      language: 'hi',
+      audioFeatures: { energy: 0.48, danceability: 0.38, valence: 0.76 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Pyar%20Bina%20Chai%20Sonu%20Nigam',
+        appleMusic: 'https://music.apple.com/search?term=Pyar%20Bina%20Chai%20Sonu%20Nigam',
+        youtubeMusic: 'https://music.youtube.com/search?q=Pyar%20Bina%20Chai%20Sonu%20Nigam',
+        amazonMusic: 'https://music.amazon.com/search/Pyar%20Bina%20Chai%20Sonu',
+      }
+    },
+    { 
+      title: 'Mere Dil Ki Basti Mein', 
+      artist: 'Jagjit Singh', 
+      genre: 'Bollywood', 
+      year: 1993,
+      language: 'hi',
+      audioFeatures: { energy: 0.50, danceability: 0.40, valence: 0.79 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Mere%20Dil%20Ki%20Basti%20Mein%20Jagjit',
+        appleMusic: 'https://music.apple.com/search?term=Mere%20Dil%20Ki%20Basti%20Mein',
+        youtubeMusic: 'https://music.youtube.com/search?q=Mere%20Dil%20Ki%20Basti%20Mein%20Jagjit',
+        amazonMusic: 'https://music.amazon.com/search/Mere%20Dil%20Ki%20Basti%20Mein',
+      }
+    },
+    { 
+      title: 'La Vida Es Bella', 
+      artist: 'Cristian Castro', 
+      genre: 'Latino', 
+      year: 1999,
+      language: 'es',
+      audioFeatures: { energy: 0.56, danceability: 0.46, valence: 0.83 },
+      links: {
+        spotify: 'https://open.spotify.com/search/La%20Vida%20Es%20Bella%20Cristian%20Castro',
+        appleMusic: 'https://music.apple.com/search?term=La%20Vida%20Es%20Bella%20Cristian',
+        youtubeMusic: 'https://music.youtube.com/search?q=La%20Vida%20Es%20Bella%20Cristian%20Castro',
+        amazonMusic: 'https://music.amazon.com/search/La%20Vida%20Es%20Bella%20Cristian',
+      }
+    },
   ],
   'focused': [
     { 
@@ -849,6 +1045,90 @@ export const EXTENDED_SONG_DATABASE = {
         appleMusic: 'https://music.apple.com/search?term=Ritmo%20Relajante%20Conjunto',
         youtubeMusic: 'https://music.youtube.com/search?q=Ritmo%20Relajante%20Conjunto%20Latino',
         amazonMusic: 'https://music.amazon.com/search/Ritmo%20Relajante%20Conjunto',
+      }
+    },
+    { 
+      title: 'Minuet in G', 
+      artist: 'Wolfgang Amadeus Mozart', 
+      genre: 'Classical', 
+      year: 1764,
+      language: 'en',
+      audioFeatures: { energy: 0.38, danceability: 0.35, valence: 0.72 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Minuet%20in%20G%20Wolfgang%20Amadeus%20Mozart',
+        appleMusic: 'https://music.apple.com/search?term=Minuet%20in%20G%20Wolfgang%20Amadeus%20Mozart',
+        youtubeMusic: 'https://music.youtube.com/search?q=Minuet%20in%20G%20Wolfgang%20Amadeus%20Mozart',
+        amazonMusic: 'https://music.amazon.com/search/Minuet%20in%20G%20Mozart',
+      }
+    },
+    { 
+      title: 'Four Seasons Winter', 
+      artist: 'Antonio Vivaldi', 
+      genre: 'Classical', 
+      year: 1725,
+      language: 'en',
+      audioFeatures: { energy: 0.42, danceability: 0.38, valence: 0.68 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Four%20Seasons%20Winter%20Antonio%20Vivaldi',
+        appleMusic: 'https://music.apple.com/search?term=Four%20Seasons%20Winter%20Antonio%20Vivaldi',
+        youtubeMusic: 'https://music.youtube.com/search?q=Four%20Seasons%20Winter%20Antonio%20Vivaldi',
+        amazonMusic: 'https://music.amazon.com/search/Four%20Seasons%20Winter%20Vivaldi',
+      }
+    },
+    { 
+      title: 'Meditation Study', 
+      artist: 'Erik Satie', 
+      genre: 'Classical', 
+      year: 1890,
+      language: 'en',
+      audioFeatures: { energy: 0.34, danceability: 0.28, valence: 0.70 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Meditation%20Study%20Erik%20Satie',
+        appleMusic: 'https://music.apple.com/search?term=Meditation%20Study%20Erik%20Satie',
+        youtubeMusic: 'https://music.youtube.com/search?q=Meditation%20Study%20Erik%20Satie',
+        amazonMusic: 'https://music.amazon.com/search/Meditation%20Study%20Erik%20Satie',
+      }
+    },
+    { 
+      title: 'Dhrupad Meditation', 
+      artist: 'Pandit Dagar Brothers', 
+      genre: 'Bollywood', 
+      year: 1985,
+      language: 'hi',
+      audioFeatures: { energy: 0.32, danceability: 0.20, valence: 0.65 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Dhrupad%20Meditation%20Pandit%20Dagar',
+        appleMusic: 'https://music.apple.com/search?term=Dhrupad%20Meditation%20Pandit%20Dagar',
+        youtubeMusic: 'https://music.youtube.com/search?q=Dhrupad%20Meditation%20Pandit%20Dagar',
+        amazonMusic: 'https://music.amazon.com/search/Dhrupad%20Meditation%20Pandit%20Dagar',
+      }
+    },
+    { 
+      title: 'Tabla Solo Raag', 
+      artist: 'Zakir Hussain', 
+      genre: 'Bollywood', 
+      year: 1988,
+      language: 'hi',
+      audioFeatures: { energy: 0.36, danceability: 0.25, valence: 0.62 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Tabla%20Solo%20Raag%20Zakir%20Hussain',
+        appleMusic: 'https://music.apple.com/search?term=Tabla%20Solo%20Raag%20Zakir%20Hussain',
+        youtubeMusic: 'https://music.youtube.com/search?q=Tabla%20Solo%20Raag%20Zakir%20Hussain',
+        amazonMusic: 'https://music.amazon.com/search/Tabla%20Solo%20Raag%20Zakir',
+      }
+    },
+    { 
+      title: 'Flauta Mágica', 
+      artist: 'Conjunto Acústico', 
+      genre: 'Latino', 
+      year: 2002,
+      language: 'es',
+      audioFeatures: { energy: 0.31, danceability: 0.24, valence: 0.63 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Flauta%20Magica%20Conjunto%20Acustico',
+        appleMusic: 'https://music.apple.com/search?term=Flauta%20Magica%20Conjunto%20Acustico',
+        youtubeMusic: 'https://music.youtube.com/search?q=Flauta%20Magica%20Conjunto%20Acustico',
+        amazonMusic: 'https://music.amazon.com/search/Flauta%20Magica%20Conjunto',
       }
     },
   ],
