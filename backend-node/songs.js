@@ -169,6 +169,48 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/Hazme%20Tuyo%20Aventura',
       }
     },
+    { 
+      title: 'Sabor a Mí', 
+      artist: 'Luis Miguel', 
+      genre: 'Latino', 
+      year: 1988,
+      language: 'es',
+      audioFeatures: { energy: 0.76, danceability: 0.80, valence: 0.86 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Sabor%20a%20Mi%20Luis%20Miguel',
+        appleMusic: 'https://music.apple.com/search?term=Sabor%20a%20Mi%20Luis%20Miguel',
+        youtubeMusic: 'https://music.youtube.com/search?q=Sabor%20a%20Mi%20Luis%20Miguel',
+        amazonMusic: 'https://music.amazon.com/search/Sabor%20a%20Mi%20Luis%20Miguel',
+      }
+    },
+    { 
+      title: 'Jab Tak Hai Jaan', 
+      artist: 'A.R. Rahman', 
+      genre: 'Bollywood', 
+      year: 2012,
+      language: 'hi',
+      audioFeatures: { energy: 0.80, danceability: 0.76, valence: 0.85 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Jab%20Tak%20Hai%20Jaan%20A.R.%20Rahman',
+        appleMusic: 'https://music.apple.com/search?term=Jab%20Tak%20Hai%20Jaan%20A.R.%20Rahman',
+        youtubeMusic: 'https://music.youtube.com/search?q=Jab%20Tak%20Hai%20Jaan%20A.R.%20Rahman',
+        amazonMusic: 'https://music.amazon.com/search/Jab%20Tak%20Hai%20Jaan',
+      }
+    },
+    { 
+      title: 'Maahi Ve', 
+      artist: 'Neha Kakkar', 
+      genre: 'Bollywood', 
+      year: 2014,
+      language: 'hi',
+      audioFeatures: { energy: 0.81, danceability: 0.79, valence: 0.87 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Maahi%20Ve%20Neha%20Kakkar',
+        appleMusic: 'https://music.apple.com/search?term=Maahi%20Ve%20Neha%20Kakkar',
+        youtubeMusic: 'https://music.youtube.com/search?q=Maahi%20Ve%20Neha%20Kakkar',
+        amazonMusic: 'https://music.amazon.com/search/Maahi%20Ve%20Neha%20Kakkar',
+      }
+    },
   ],
   'sad': [
     { 
@@ -551,6 +593,20 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/Cuerpo%20Mojado%20Ricky%20Martin',
       }
     },
+    { 
+      title: 'Livin La Vida Loca', 
+      artist: 'Cypress Hill', 
+      genre: 'Latino', 
+      year: 1993,
+      language: 'es',
+      audioFeatures: { energy: 0.84, danceability: 0.88, valence: 0.84 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Livin%20La%20Vida%20Loca%20Cypress%20Hill',
+        appleMusic: 'https://music.apple.com/search?term=Livin%20La%20Vida%20Loca%20Cypress%20Hill',
+        youtubeMusic: 'https://music.youtube.com/search?q=Livin%20La%20Vida%20Loca%20Cypress%20Hill',
+        amazonMusic: 'https://music.amazon.com/search/Livin%20La%20Vida%20Loca%20Cypress%20Hill',
+      }
+    },
   ],
   'relaxed': [
     { 
@@ -749,6 +805,20 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/Tranquilidad%20Willie%20Colon',
       }
     },
+    { 
+      title: 'Agua Clara', 
+      artist: 'Paquito D\'Rivera', 
+      genre: 'Latino', 
+      year: 1991,
+      language: 'es',
+      audioFeatures: { energy: 0.26, danceability: 0.18, valence: 0.61 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Agua%20Clara%20Paquito%20D%20Rivera',
+        appleMusic: 'https://music.apple.com/search?term=Agua%20Clara%20Paquito%20D%20Rivera',
+        youtubeMusic: 'https://music.youtube.com/search?q=Agua%20Clara%20Paquito%20D%20Rivera',
+        amazonMusic: 'https://music.amazon.com/search/Agua%20Clara%20Paquito%20D%20Rivera',
+      }
+    },
   ],
   'romantic': [
     { 
@@ -917,6 +987,20 @@ export const EXTENDED_SONG_DATABASE = {
         appleMusic: 'https://music.apple.com/search?term=Mere%20Dil%20Ki%20Basti%20Mein',
         youtubeMusic: 'https://music.youtube.com/search?q=Mere%20Dil%20Ki%20Basti%20Mein%20Jagjit',
         amazonMusic: 'https://music.amazon.com/search/Mere%20Dil%20Ki%20Basti%20Mein',
+      }
+    },
+    { 
+      title: 'Make You Feel My Love', 
+      artist: 'Adele', 
+      genre: 'Pop', 
+      year: 2008,
+      language: 'en',
+      audioFeatures: { energy: 0.45, danceability: 0.35, valence: 0.78 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Make%20You%20Feel%20My%20Love%20Adele',
+        appleMusic: 'https://music.apple.com/search?term=Make%20You%20Feel%20My%20Love%20Adele',
+        youtubeMusic: 'https://music.youtube.com/search?q=Make%20You%20Feel%20My%20Love%20Adele',
+        amazonMusic: 'https://music.amazon.com/search/Make%20You%20Feel%20My%20Love%20Adele',
       }
     },
     { 
@@ -1129,6 +1213,34 @@ export const EXTENDED_SONG_DATABASE = {
         appleMusic: 'https://music.apple.com/search?term=Flauta%20Magica%20Conjunto%20Acustico',
         youtubeMusic: 'https://music.youtube.com/search?q=Flauta%20Magica%20Conjunto%20Acustico',
         amazonMusic: 'https://music.amazon.com/search/Flauta%20Magica%20Conjunto',
+      }
+    },
+    { 
+      title: 'Música Para Meditar', 
+      artist: 'Ensemble Clásico', 
+      genre: 'Latino', 
+      year: 2003,
+      language: 'es',
+      audioFeatures: { energy: 0.27, danceability: 0.20, valence: 0.60 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Musica%20Para%20Meditar%20Ensemble',
+        appleMusic: 'https://music.apple.com/search?term=Musica%20Para%20Meditar%20Ensemble',
+        youtubeMusic: 'https://music.youtube.com/search?q=Musica%20Para%20Meditar%20Ensemble',
+        amazonMusic: 'https://music.amazon.com/search/Musica%20Para%20Meditar',
+      }
+    },
+    { 
+      title: 'Mantra Focus', 
+      artist: 'Dr. Thakur', 
+      genre: 'Bollywood', 
+      year: 1997,
+      language: 'hi',
+      audioFeatures: { energy: 0.29, danceability: 0.17, valence: 0.58 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Mantra%20Focus%20Dr%20Thakur',
+        appleMusic: 'https://music.apple.com/search?term=Mantra%20Focus%20Dr%20Thakur',
+        youtubeMusic: 'https://music.youtube.com/search?q=Mantra%20Focus%20Dr%20Thakur',
+        amazonMusic: 'https://music.amazon.com/search/Mantra%20Focus%20Dr%20Thakur',
       }
     },
   ],
