@@ -528,5 +528,395 @@
       ],
       "timestamp": "2026-04-29T12:22:15.070Z"
     }
+  ],
+  "anonymous-1777465402986": [
+    {
+      "mood": "Sad",
+      "genre": "Classical",
+      "activity": "",
+      "songs": [
+        {
+          "title": "The Night We Met",
+          "artist": "Lord Huron",
+          "genre": "Indie",
+          "year": 2015,
+          "reason": "emotionally resonant and deeply moving",
+          "links": {
+            "spotify": "https://open.spotify.com/search/The%20Night%20We%20Met%20Lord%20Huron",
+            "appleMusic": "https://music.apple.com/search?term=The%20Night%20We%20Met%20Lord%20Huron",
+            "youtubeMusic": "https://music.youtube.com/search?q=The%20Night%20We%20Met%20Lord%20Huron",
+            "amazonMusic": "https://music.amazon.com/search/The%20Night%20We%20Met%20Lord%20Huron"
+          },
+          "audioFeatures": {
+            "energy": 0.4,
+            "danceability": 0.3,
+            "valence": 0.35
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Black",
+          "artist": "Pearl Jam",
+          "genre": "Rock",
+          "year": 1991,
+          "reason": "cathartic ballad for introspective moments",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Black%20Pearl%20Jam",
+            "appleMusic": "https://music.apple.com/search?term=Black%20Pearl%20Jam",
+            "youtubeMusic": "https://music.youtube.com/search?q=Black%20Pearl%20Jam",
+            "amazonMusic": "https://music.amazon.com/search/Black%20Pearl%20Jam"
+          },
+          "audioFeatures": {
+            "energy": 0.45,
+            "danceability": 0.25,
+            "valence": 0.3
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Mad World",
+          "artist": "Gary Jules",
+          "genre": "Alternative",
+          "year": 2001,
+          "reason": "powerful vocals paired with melancholic instrumentation",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Mad%20World%20Gary%20Jules",
+            "appleMusic": "https://music.apple.com/search?term=Mad%20World%20Gary%20Jules",
+            "youtubeMusic": "https://music.youtube.com/search?q=Mad%20World%20Gary%20Jules",
+            "amazonMusic": "https://music.amazon.com/search/Mad%20World%20Gary%20Jules"
+          },
+          "audioFeatures": {
+            "energy": 0.25,
+            "danceability": 0.15,
+            "valence": 0.2
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Someone Like You",
+          "artist": "Adele",
+          "genre": "Pop",
+          "year": 2011,
+          "reason": "haunting melody that captures the feeling",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Someone%20Like%20You%20Adele",
+            "appleMusic": "https://music.apple.com/search?term=Someone%20Like%20You%20Adele",
+            "youtubeMusic": "https://music.youtube.com/search?q=Someone%20Like%20You%20Adele",
+            "amazonMusic": "https://music.amazon.com/search/Someone%20Like%20You%20Adele"
+          },
+          "audioFeatures": {
+            "energy": 0.35,
+            "danceability": 0.35,
+            "valence": 0.25
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Hurt",
+          "artist": "Johnny Cash",
+          "genre": "Country",
+          "year": 2002,
+          "reason": "thoughtful lyrics reflecting the mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Hurt%20Johnny%20Cash",
+            "appleMusic": "https://music.apple.com/search?term=Hurt%20Johnny%20Cash",
+            "youtubeMusic": "https://music.youtube.com/search?q=Hurt%20Johnny%20Cash",
+            "amazonMusic": "https://music.amazon.com/search/Hurt%20Johnny%20Cash"
+          },
+          "audioFeatures": {
+            "energy": 0.3,
+            "danceability": 0.2,
+            "valence": 0.15
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:23:22.986Z"
+    }
+  ],
+  "anonymous-1777465407223": [
+    {
+      "mood": "Sad",
+      "genre": "Classical",
+      "activity": "",
+      "songs": [
+        {
+          "title": "Hurt",
+          "artist": "Johnny Cash",
+          "genre": "Country",
+          "year": 2002,
+          "reason": "emotionally resonant and deeply moving",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Hurt%20Johnny%20Cash",
+            "appleMusic": "https://music.apple.com/search?term=Hurt%20Johnny%20Cash",
+            "youtubeMusic": "https://music.youtube.com/search?q=Hurt%20Johnny%20Cash",
+            "amazonMusic": "https://music.amazon.com/search/Hurt%20Johnny%20Cash"
+          },
+          "audioFeatures": {
+            "energy": 0.3,
+            "danceability": 0.2,
+            "valence": 0.15
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Someone Like You",
+          "artist": "Adele",
+          "genre": "Pop",
+          "year": 2011,
+          "reason": "cathartic ballad for introspective moments",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Someone%20Like%20You%20Adele",
+            "appleMusic": "https://music.apple.com/search?term=Someone%20Like%20You%20Adele",
+            "youtubeMusic": "https://music.youtube.com/search?q=Someone%20Like%20You%20Adele",
+            "amazonMusic": "https://music.amazon.com/search/Someone%20Like%20You%20Adele"
+          },
+          "audioFeatures": {
+            "energy": 0.35,
+            "danceability": 0.35,
+            "valence": 0.25
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Mad World",
+          "artist": "Gary Jules",
+          "genre": "Alternative",
+          "year": 2001,
+          "reason": "powerful vocals paired with melancholic instrumentation",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Mad%20World%20Gary%20Jules",
+            "appleMusic": "https://music.apple.com/search?term=Mad%20World%20Gary%20Jules",
+            "youtubeMusic": "https://music.youtube.com/search?q=Mad%20World%20Gary%20Jules",
+            "amazonMusic": "https://music.amazon.com/search/Mad%20World%20Gary%20Jules"
+          },
+          "audioFeatures": {
+            "energy": 0.25,
+            "danceability": 0.15,
+            "valence": 0.2
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Black",
+          "artist": "Pearl Jam",
+          "genre": "Rock",
+          "year": 1991,
+          "reason": "haunting melody that captures the feeling",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Black%20Pearl%20Jam",
+            "appleMusic": "https://music.apple.com/search?term=Black%20Pearl%20Jam",
+            "youtubeMusic": "https://music.youtube.com/search?q=Black%20Pearl%20Jam",
+            "amazonMusic": "https://music.amazon.com/search/Black%20Pearl%20Jam"
+          },
+          "audioFeatures": {
+            "energy": 0.45,
+            "danceability": 0.25,
+            "valence": 0.3
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "The Night We Met",
+          "artist": "Lord Huron",
+          "genre": "Indie",
+          "year": 2015,
+          "reason": "thoughtful lyrics reflecting the mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/The%20Night%20We%20Met%20Lord%20Huron",
+            "appleMusic": "https://music.apple.com/search?term=The%20Night%20We%20Met%20Lord%20Huron",
+            "youtubeMusic": "https://music.youtube.com/search?q=The%20Night%20We%20Met%20Lord%20Huron",
+            "amazonMusic": "https://music.amazon.com/search/The%20Night%20We%20Met%20Lord%20Huron"
+          },
+          "audioFeatures": {
+            "energy": 0.4,
+            "danceability": 0.3,
+            "valence": 0.35
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:23:27.224Z"
+    }
+  ],
+  "anonymous-1777465414789": [
+    {
+      "mood": "Sad",
+      "genre": "Classical",
+      "activity": "",
+      "songs": [
+        {
+          "title": "Hurt",
+          "artist": "Johnny Cash",
+          "genre": "Country",
+          "year": 2002,
+          "reason": "emotionally resonant and deeply moving",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Hurt%20Johnny%20Cash",
+            "appleMusic": "https://music.apple.com/search?term=Hurt%20Johnny%20Cash",
+            "youtubeMusic": "https://music.youtube.com/search?q=Hurt%20Johnny%20Cash",
+            "amazonMusic": "https://music.amazon.com/search/Hurt%20Johnny%20Cash"
+          },
+          "audioFeatures": {
+            "energy": 0.3,
+            "danceability": 0.2,
+            "valence": 0.15
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Black",
+          "artist": "Pearl Jam",
+          "genre": "Rock",
+          "year": 1991,
+          "reason": "cathartic ballad for introspective moments",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Black%20Pearl%20Jam",
+            "appleMusic": "https://music.apple.com/search?term=Black%20Pearl%20Jam",
+            "youtubeMusic": "https://music.youtube.com/search?q=Black%20Pearl%20Jam",
+            "amazonMusic": "https://music.amazon.com/search/Black%20Pearl%20Jam"
+          },
+          "audioFeatures": {
+            "energy": 0.45,
+            "danceability": 0.25,
+            "valence": 0.3
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Mad World",
+          "artist": "Gary Jules",
+          "genre": "Alternative",
+          "year": 2001,
+          "reason": "powerful vocals paired with melancholic instrumentation",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Mad%20World%20Gary%20Jules",
+            "appleMusic": "https://music.apple.com/search?term=Mad%20World%20Gary%20Jules",
+            "youtubeMusic": "https://music.youtube.com/search?q=Mad%20World%20Gary%20Jules",
+            "amazonMusic": "https://music.amazon.com/search/Mad%20World%20Gary%20Jules"
+          },
+          "audioFeatures": {
+            "energy": 0.25,
+            "danceability": 0.15,
+            "valence": 0.2
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "The Night We Met",
+          "artist": "Lord Huron",
+          "genre": "Indie",
+          "year": 2015,
+          "reason": "haunting melody that captures the feeling",
+          "links": {
+            "spotify": "https://open.spotify.com/search/The%20Night%20We%20Met%20Lord%20Huron",
+            "appleMusic": "https://music.apple.com/search?term=The%20Night%20We%20Met%20Lord%20Huron",
+            "youtubeMusic": "https://music.youtube.com/search?q=The%20Night%20We%20Met%20Lord%20Huron",
+            "amazonMusic": "https://music.amazon.com/search/The%20Night%20We%20Met%20Lord%20Huron"
+          },
+          "audioFeatures": {
+            "energy": 0.4,
+            "danceability": 0.3,
+            "valence": 0.35
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Someone Like You",
+          "artist": "Adele",
+          "genre": "Pop",
+          "year": 2011,
+          "reason": "thoughtful lyrics reflecting the mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Someone%20Like%20You%20Adele",
+            "appleMusic": "https://music.apple.com/search?term=Someone%20Like%20You%20Adele",
+            "youtubeMusic": "https://music.youtube.com/search?q=Someone%20Like%20You%20Adele",
+            "amazonMusic": "https://music.amazon.com/search/Someone%20Like%20You%20Adele"
+          },
+          "audioFeatures": {
+            "energy": 0.35,
+            "danceability": 0.35,
+            "valence": 0.25
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:23:34.789Z"
+    }
   ]
 }

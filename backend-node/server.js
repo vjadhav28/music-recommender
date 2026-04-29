@@ -114,6 +114,10 @@ const TRANSLATIONS = {
     summary: 'あなたの雰囲気に最適なプレイリスト',
     reason: 'この曲が合う理由: ',
   },
+  'hi': {
+    summary: 'आपके मूड के लिए सही प्लेलिस्ट',
+    reason: 'यह गाना क्यों फिट है: ',
+  },
 };
 
 // Reason templates

@@ -22,6 +22,7 @@ const LANGUAGES = [
   { code: 'fr', name: 'Français' },
   { code: 'de', name: 'Deutsch' },
   { code: 'ja', name: '日本語' },
+  { code: 'hi', name: 'हिन्दी' },
 ];
 
 export default function MoodInput({ onSubmit, loading }) {
