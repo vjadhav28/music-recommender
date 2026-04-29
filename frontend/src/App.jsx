@@ -21,6 +21,9 @@ const MARQUEE_WORDS = [
 
 function buildApiUrl() {
   const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
+  // In dev, vite proxies /api -> localhost:8080. In prod with no env var,
+  // we skip the network call entirely and serve the curated fallback.
+  if (!apiBase && import.meta.env.PROD) return null;
   return `${apiBase}/api/recommendations`;
 }
 
@@ -72,6 +75,14 @@ export default function App() {
         return [entry, ...previous].slice(0, 8);
       });
     };
+
+    if (!apiUrl) {
+      // No backend configured — serve curated fallback directly.
+      await new Promise((r) => setTimeout(r, 600));
+      finishWith(buildFallbackResponse({ mood, genre, activity, language }));
+      setLoading(false);
+      return;
+    }
 
     try {
       const res = await fetch(apiUrl, {
