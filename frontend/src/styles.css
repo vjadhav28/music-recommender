@@ -24,6 +24,11 @@ body {
   padding: 32px 18px 48px;
 }
 
+.app-shell.landing-shell {
+  max-width: none;
+  padding: 0;
+}
+
 .app-header {
   text-align: center;
   margin-bottom: 24px;
@@ -1354,7 +1359,7 @@ body {
 }
 
 .features {
-  padding: 120px 20px;
+  padding: 96px 20px;
   background: rgba(0, 0, 0, 0.3);
 }
 
@@ -1419,6 +1424,64 @@ body {
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
   line-height: 1.6;
+}
+
+.services {
+  padding: 104px 20px;
+  background:
+    linear-gradient(180deg, rgba(18, 22, 37, 0.72), rgba(9, 12, 24, 0.9)),
+    radial-gradient(circle at 18% 20%, rgba(15, 195, 167, 0.22), transparent 32%),
+    radial-gradient(circle at 84% 75%, rgba(255, 184, 77, 0.18), transparent 28%);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.service-card {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 18px;
+  min-height: 188px;
+  padding: 26px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+}
+
+.service-icon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #07131f;
+  background: linear-gradient(135deg, #61e0c8, #ffd166);
+}
+
+.service-card h3 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.service-card p {
+  margin: 0 0 16px;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.55;
+}
+
+.service-card span {
+  display: inline-flex;
+  color: #91f0dc;
+  font-size: 0.88rem;
+  line-height: 1.4;
 }
 
 .how-it-works {
@@ -1622,6 +1685,15 @@ body {
 
   .steps {
     gap: 16px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
   }
 
   .newsletter-form {

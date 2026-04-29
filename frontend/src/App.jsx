@@ -102,7 +102,7 @@ export default function App() {
   };
 
   return (
-    <div className={`app-shell ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`app-shell ${!showApp ? 'landing-shell' : ''} ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <button 
         className="theme-toggle" 
         onClick={() => setDarkMode(!darkMode)}

@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
-import { ArrowRight, Zap, Music, Heart, BarChart3, Globe } from 'lucide-react';
+import {
+  ArrowRight,
+  BarChart3,
+  Download,
+  Globe,
+  Headphones,
+  Heart,
+  ListMusic,
+  Music,
+  Sparkles,
+  Zap,
+} from 'lucide-react';
 
 const FEATURES = [
   {
@@ -29,6 +40,33 @@ const FEATURES = [
   },
 ];
 
+const SERVICES = [
+  {
+    icon: Sparkles,
+    title: 'Mood-Based Recommendations',
+    description: 'Turn a feeling, genre, and activity into a ready-to-play set of songs with clear reasons for every pick.',
+    detail: 'Best for daily listening, studying, working out, and winding down.',
+  },
+  {
+    icon: ListMusic,
+    title: 'Playlist Builder',
+    description: 'Shape recommendations into focused playlists that match the exact moment instead of a generic chart.',
+    detail: 'Includes summaries, song context, and repeatable prompts.',
+  },
+  {
+    icon: Headphones,
+    title: 'Listening Insights',
+    description: 'See patterns in recent prompts so the app can help you refine your taste over time.',
+    detail: 'Designed around moods, genres, activities, and languages.',
+  },
+  {
+    icon: Download,
+    title: 'Easy Playlist Export',
+    description: 'Save or share recommendation sets after you find a mix that fits.',
+    detail: 'Useful for keeping study, travel, party, or focus sessions organized.',
+  },
+];
+
 export default function LandingPage({ onStartClick }) {
   const [email, setEmail] = useState('');
 
@@ -49,6 +87,7 @@ export default function LandingPage({ onStartClick }) {
           </div>
           <div className="navbar-links">
             <a href="#features">Features</a>
+            <a href="#services">Services</a>
             <a href="#how-it-works">How It Works</a>
             <a href="#faq">FAQ</a>
           </div>
@@ -101,6 +140,32 @@ export default function LandingPage({ onStartClick }) {
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
               </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="services">
+        <div className="section-header">
+          <h2>Services Built Around Your Listening Moment</h2>
+          <p>From a quick vibe check to a saved playlist, MusicAI keeps discovery practical.</p>
+        </div>
+
+        <div className="services-grid">
+          {SERVICES.map((service, idx) => {
+            const Icon = service.icon;
+            return (
+              <article key={idx} className="service-card">
+                <div className="service-icon">
+                  <Icon size={26} />
+                </div>
+                <div>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <span>{service.detail}</span>
+                </div>
+              </article>
             );
           })}
         </div>
@@ -174,8 +239,8 @@ export default function LandingPage({ onStartClick }) {
             <h4>Product</h4>
             <ul>
               <li><a href="#features">Features</a></li>
-              <li><a href="#pricing">Pricing</a></li>
-              <li><a href="#blog">Blog</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
             </ul>
           </div>
           <div className="footer-section">

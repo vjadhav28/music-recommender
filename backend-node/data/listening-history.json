@@ -3171,5 +3171,655 @@
       ],
       "timestamp": "2026-04-29T12:56:38.948Z"
     }
+  ],
+  "anonymous-1777472246374": [
+    {
+      "mood": "Happy",
+      "genre": "Classical",
+      "activity": "",
+      "songs": [
+        {
+          "title": "That's What I Want",
+          "artist": "Lil Nas X",
+          "genre": "Hip-Hop",
+          "year": 2021,
+          "reason": "uplifting melody that matches your mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/That%20What%20I%20Want%20Lil%20Nas%20X",
+            "appleMusic": "https://music.apple.com/search?term=That%20What%20I%20Want%20Lil%20Nas%20X",
+            "youtubeMusic": "https://music.youtube.com/search?q=That%20What%20I%20Want%20Lil%20Nas%20X",
+            "amazonMusic": "https://music.amazon.com/search/That%20What%20I%20Want%20Lil%20Nas%20X"
+          },
+          "audioFeatures": {
+            "energy": 0.75,
+            "danceability": 0.8,
+            "valence": 0.85
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "I Will Follow You into the Dark",
+          "artist": "Death Cab for Cutie",
+          "genre": "Indie",
+          "year": 2005,
+          "reason": "feel-good track perfect for today",
+          "links": {
+            "spotify": "https://open.spotify.com/search/I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab%20for%20Cutie",
+            "appleMusic": "https://music.apple.com/search?term=I%20Will%20Follow%20You%20into%20the%20Dark",
+            "youtubeMusic": "https://music.youtube.com/search?q=I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab",
+            "amazonMusic": "https://music.amazon.com/search/I%20Will%20Follow%20You%20into%20the%20Dark"
+          },
+          "audioFeatures": {
+            "energy": 0.65,
+            "danceability": 0.45,
+            "valence": 0.68
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Good as Hell",
+          "artist": "Lizzo",
+          "genre": "Pop",
+          "year": 2016,
+          "reason": "energetic vibe with positive lyrics",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Good%20as%20Hell%20Lizzo",
+            "appleMusic": "https://music.apple.com/search?term=Good%20as%20Hell%20Lizzo",
+            "youtubeMusic": "https://music.youtube.com/search?q=Good%20as%20Hell%20Lizzo",
+            "amazonMusic": "https://music.amazon.com/search/Good%20as%20Hell%20Lizzo"
+          },
+          "audioFeatures": {
+            "energy": 0.85,
+            "danceability": 0.75,
+            "valence": 0.92
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Levitating",
+          "artist": "Dua Lipa",
+          "genre": "Pop",
+          "year": 2020,
+          "reason": "classic feel-good anthem",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Levitating%20Dua%20Lipa",
+            "appleMusic": "https://music.apple.com/search?term=Levitating%20Dua%20Lipa",
+            "youtubeMusic": "https://music.youtube.com/search?q=Levitating%20Dua%20Lipa",
+            "amazonMusic": "https://music.amazon.com/search/Levitating%20Dua%20Lipa"
+          },
+          "audioFeatures": {
+            "energy": 0.8,
+            "danceability": 0.87,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Walking on Sunshine",
+          "artist": "Katrina & The Waves",
+          "genre": "Pop",
+          "year": 1985,
+          "reason": "modern pop hit with infectious energy",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "appleMusic": "https://music.apple.com/search?term=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "youtubeMusic": "https://music.youtube.com/search?q=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "amazonMusic": "https://music.amazon.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves"
+          },
+          "audioFeatures": {
+            "energy": 0.92,
+            "danceability": 0.88,
+            "valence": 0.95
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T14:17:26.380Z"
+    }
+  ],
+  "anonymous-1777472266302": [
+    {
+      "mood": "Happy",
+      "genre": "Classical",
+      "activity": "",
+      "songs": [
+        {
+          "title": "Sabor a Mí",
+          "artist": "Luis Miguel",
+          "genre": "Latino",
+          "year": 1988,
+          "reason": "uplifting melody that matches your mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Sabor%20a%20Mi%20Luis%20Miguel",
+            "appleMusic": "https://music.apple.com/search?term=Sabor%20a%20Mi%20Luis%20Miguel",
+            "youtubeMusic": "https://music.youtube.com/search?q=Sabor%20a%20Mi%20Luis%20Miguel",
+            "amazonMusic": "https://music.amazon.com/search/Sabor%20a%20Mi%20Luis%20Miguel"
+          },
+          "audioFeatures": {
+            "energy": 0.76,
+            "danceability": 0.8,
+            "valence": 0.86
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Hazme Tuyo",
+          "artist": "Aventura",
+          "genre": "Latino",
+          "year": 2009,
+          "reason": "feel-good track perfect for today",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Hazme%20Tuyo%20Aventura",
+            "appleMusic": "https://music.apple.com/search?term=Hazme%20Tuyo%20Aventura",
+            "youtubeMusic": "https://music.youtube.com/search?q=Hazme%20Tuyo%20Aventura",
+            "amazonMusic": "https://music.amazon.com/search/Hazme%20Tuyo%20Aventura"
+          },
+          "audioFeatures": {
+            "energy": 0.78,
+            "danceability": 0.82,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Amor Eterno",
+          "artist": "Juan Gabriel",
+          "genre": "Latino",
+          "year": 1984,
+          "reason": "energetic vibe with positive lyrics",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Amor%20Eterno%20Juan%20Gabriel",
+            "appleMusic": "https://music.apple.com/search?term=Amor%20Eterno%20Juan%20Gabriel",
+            "youtubeMusic": "https://music.youtube.com/search?q=Amor%20Eterno%20Juan%20Gabriel",
+            "amazonMusic": "https://music.amazon.com/search/Amor%20Eterno%20Juan%20Gabriel"
+          },
+          "audioFeatures": {
+            "energy": 0.75,
+            "danceability": 0.78,
+            "valence": 0.85
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Hazme Tuyo",
+          "artist": "Aventura",
+          "genre": "Latino",
+          "year": 2009,
+          "reason": "classic feel-good anthem",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Hazme%20Tuyo%20Aventura",
+            "appleMusic": "https://music.apple.com/search?term=Hazme%20Tuyo%20Aventura",
+            "youtubeMusic": "https://music.youtube.com/search?q=Hazme%20Tuyo%20Aventura",
+            "amazonMusic": "https://music.amazon.com/search/Hazme%20Tuyo%20Aventura"
+          },
+          "audioFeatures": {
+            "energy": 0.78,
+            "danceability": 0.82,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Bachata Rosa",
+          "artist": "Juan Luis Guerra",
+          "genre": "Latino",
+          "year": 1990,
+          "reason": "modern pop hit with infectious energy",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Bachata%20Rosa%20Juan%20Luis%20Guerra",
+            "appleMusic": "https://music.apple.com/search?term=Bachata%20Rosa%20Juan%20Luis%20Guerra",
+            "youtubeMusic": "https://music.youtube.com/search?q=Bachata%20Rosa%20Juan%20Luis%20Guerra",
+            "amazonMusic": "https://music.amazon.com/search/Bachata%20Rosa"
+          },
+          "audioFeatures": {
+            "energy": 0.8,
+            "danceability": 0.85,
+            "valence": 0.9
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T14:17:46.304Z"
+    }
+  ],
+  "anonymous-1777472311590": [
+    {
+      "mood": "Happy",
+      "genre": "Jazz",
+      "activity": "",
+      "songs": [
+        {
+          "title": "I Will Follow You into the Dark",
+          "artist": "Death Cab for Cutie",
+          "genre": "Indie",
+          "year": 2005,
+          "reason": "uplifting melody that matches your mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab%20for%20Cutie",
+            "appleMusic": "https://music.apple.com/search?term=I%20Will%20Follow%20You%20into%20the%20Dark",
+            "youtubeMusic": "https://music.youtube.com/search?q=I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab",
+            "amazonMusic": "https://music.amazon.com/search/I%20Will%20Follow%20You%20into%20the%20Dark"
+          },
+          "audioFeatures": {
+            "energy": 0.65,
+            "danceability": 0.45,
+            "valence": 0.68
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Walking on Sunshine",
+          "artist": "Katrina & The Waves",
+          "genre": "Pop",
+          "year": 1985,
+          "reason": "feel-good track perfect for today",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "appleMusic": "https://music.apple.com/search?term=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "youtubeMusic": "https://music.youtube.com/search?q=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "amazonMusic": "https://music.amazon.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves"
+          },
+          "audioFeatures": {
+            "energy": 0.92,
+            "danceability": 0.88,
+            "valence": 0.95
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "That's What I Want",
+          "artist": "Lil Nas X",
+          "genre": "Hip-Hop",
+          "year": 2021,
+          "reason": "energetic vibe with positive lyrics",
+          "links": {
+            "spotify": "https://open.spotify.com/search/That%20What%20I%20Want%20Lil%20Nas%20X",
+            "appleMusic": "https://music.apple.com/search?term=That%20What%20I%20Want%20Lil%20Nas%20X",
+            "youtubeMusic": "https://music.youtube.com/search?q=That%20What%20I%20Want%20Lil%20Nas%20X",
+            "amazonMusic": "https://music.amazon.com/search/That%20What%20I%20Want%20Lil%20Nas%20X"
+          },
+          "audioFeatures": {
+            "energy": 0.75,
+            "danceability": 0.8,
+            "valence": 0.85
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Levitating",
+          "artist": "Dua Lipa",
+          "genre": "Pop",
+          "year": 2020,
+          "reason": "classic feel-good anthem",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Levitating%20Dua%20Lipa",
+            "appleMusic": "https://music.apple.com/search?term=Levitating%20Dua%20Lipa",
+            "youtubeMusic": "https://music.youtube.com/search?q=Levitating%20Dua%20Lipa",
+            "amazonMusic": "https://music.amazon.com/search/Levitating%20Dua%20Lipa"
+          },
+          "audioFeatures": {
+            "energy": 0.8,
+            "danceability": 0.87,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Good as Hell",
+          "artist": "Lizzo",
+          "genre": "Pop",
+          "year": 2016,
+          "reason": "modern pop hit with infectious energy",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Good%20as%20Hell%20Lizzo",
+            "appleMusic": "https://music.apple.com/search?term=Good%20as%20Hell%20Lizzo",
+            "youtubeMusic": "https://music.youtube.com/search?q=Good%20as%20Hell%20Lizzo",
+            "amazonMusic": "https://music.amazon.com/search/Good%20as%20Hell%20Lizzo"
+          },
+          "audioFeatures": {
+            "energy": 0.85,
+            "danceability": 0.75,
+            "valence": 0.92
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T14:18:31.593Z"
+    }
+  ],
+  "anonymous-1777472326417": [
+    {
+      "mood": "Happy",
+      "genre": "Jazz",
+      "activity": "",
+      "songs": [
+        {
+          "title": "Kholo Kholo Sajni",
+          "artist": "Shreya Ghoshal",
+          "genre": "Bollywood",
+          "year": 2008,
+          "reason": "uplifting melody that matches your mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Kholo%20Kholo%20Sajni%20Shreya%20Ghoshal",
+            "appleMusic": "https://music.apple.com/search?term=Kholo%20Kholo%20Sajni%20Shreya",
+            "youtubeMusic": "https://music.youtube.com/search?q=Kholo%20Kholo%20Sajni%20Shreya",
+            "amazonMusic": "https://music.amazon.com/search/Kholo%20Kholo%20Sajni"
+          },
+          "audioFeatures": {
+            "energy": 0.8,
+            "danceability": 0.78,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Jab Tak Hai Jaan",
+          "artist": "A.R. Rahman",
+          "genre": "Bollywood",
+          "year": 2012,
+          "reason": "feel-good track perfect for today",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Jab%20Tak%20Hai%20Jaan%20A.R.%20Rahman",
+            "appleMusic": "https://music.apple.com/search?term=Jab%20Tak%20Hai%20Jaan%20A.R.%20Rahman",
+            "youtubeMusic": "https://music.youtube.com/search?q=Jab%20Tak%20Hai%20Jaan%20A.R.%20Rahman",
+            "amazonMusic": "https://music.amazon.com/search/Jab%20Tak%20Hai%20Jaan"
+          },
+          "audioFeatures": {
+            "energy": 0.8,
+            "danceability": 0.76,
+            "valence": 0.85
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Maahi Ve",
+          "artist": "Neha Kakkar",
+          "genre": "Bollywood",
+          "year": 2014,
+          "reason": "energetic vibe with positive lyrics",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Maahi%20Ve%20Neha%20Kakkar",
+            "appleMusic": "https://music.apple.com/search?term=Maahi%20Ve%20Neha%20Kakkar",
+            "youtubeMusic": "https://music.youtube.com/search?q=Maahi%20Ve%20Neha%20Kakkar",
+            "amazonMusic": "https://music.amazon.com/search/Maahi%20Ve%20Neha%20Kakkar"
+          },
+          "audioFeatures": {
+            "energy": 0.81,
+            "danceability": 0.79,
+            "valence": 0.87
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Radha Kaise Na Jale",
+          "artist": "Lata Mangeshkar",
+          "genre": "Bollywood",
+          "year": 1993,
+          "reason": "classic feel-good anthem",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Radha%20Kaise%20Na%20Jale%20Lata%20Mangeshkar",
+            "appleMusic": "https://music.apple.com/search?term=Radha%20Kaise%20Na%20Jale",
+            "youtubeMusic": "https://music.youtube.com/search?q=Radha%20Kaise%20Na%20Jale%20Lata",
+            "amazonMusic": "https://music.amazon.com/search/Radha%20Kaise%20Na%20Jale"
+          },
+          "audioFeatures": {
+            "energy": 0.8,
+            "danceability": 0.75,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Madhuban Mein Radhika Nache",
+          "artist": "Hariharan",
+          "genre": "Bollywood",
+          "year": 1993,
+          "reason": "modern pop hit with infectious energy",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Madhuban%20Mein%20Radhika%20Nache",
+            "appleMusic": "https://music.apple.com/search?term=Madhuban%20Mein%20Radhika%20Nache",
+            "youtubeMusic": "https://music.youtube.com/search?q=Madhuban%20Mein%20Radhika%20Nache",
+            "amazonMusic": "https://music.amazon.com/search/Madhuban%20Mein%20Radhika%20Nache"
+          },
+          "audioFeatures": {
+            "energy": 0.82,
+            "danceability": 0.8,
+            "valence": 0.9
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T14:18:46.420Z"
+    }
+  ],
+  "anonymous-1777472336701": [
+    {
+      "mood": "Happy",
+      "genre": "Jazz",
+      "activity": "",
+      "songs": [
+        {
+          "title": "Bachata Rosa",
+          "artist": "Juan Luis Guerra",
+          "genre": "Latino",
+          "year": 1990,
+          "reason": "uplifting melody that matches your mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Bachata%20Rosa%20Juan%20Luis%20Guerra",
+            "appleMusic": "https://music.apple.com/search?term=Bachata%20Rosa%20Juan%20Luis%20Guerra",
+            "youtubeMusic": "https://music.youtube.com/search?q=Bachata%20Rosa%20Juan%20Luis%20Guerra",
+            "amazonMusic": "https://music.amazon.com/search/Bachata%20Rosa"
+          },
+          "audioFeatures": {
+            "energy": 0.8,
+            "danceability": 0.85,
+            "valence": 0.9
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Hazme Tuyo",
+          "artist": "Aventura",
+          "genre": "Latino",
+          "year": 2009,
+          "reason": "feel-good track perfect for today",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Hazme%20Tuyo%20Aventura",
+            "appleMusic": "https://music.apple.com/search?term=Hazme%20Tuyo%20Aventura",
+            "youtubeMusic": "https://music.youtube.com/search?q=Hazme%20Tuyo%20Aventura",
+            "amazonMusic": "https://music.amazon.com/search/Hazme%20Tuyo%20Aventura"
+          },
+          "audioFeatures": {
+            "energy": 0.78,
+            "danceability": 0.82,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Amor Eterno",
+          "artist": "Juan Gabriel",
+          "genre": "Latino",
+          "year": 1984,
+          "reason": "energetic vibe with positive lyrics",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Amor%20Eterno%20Juan%20Gabriel",
+            "appleMusic": "https://music.apple.com/search?term=Amor%20Eterno%20Juan%20Gabriel",
+            "youtubeMusic": "https://music.youtube.com/search?q=Amor%20Eterno%20Juan%20Gabriel",
+            "amazonMusic": "https://music.amazon.com/search/Amor%20Eterno%20Juan%20Gabriel"
+          },
+          "audioFeatures": {
+            "energy": 0.75,
+            "danceability": 0.78,
+            "valence": 0.85
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Hazme Tuyo",
+          "artist": "Aventura",
+          "genre": "Latino",
+          "year": 2009,
+          "reason": "classic feel-good anthem",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Hazme%20Tuyo%20Aventura",
+            "appleMusic": "https://music.apple.com/search?term=Hazme%20Tuyo%20Aventura",
+            "youtubeMusic": "https://music.youtube.com/search?q=Hazme%20Tuyo%20Aventura",
+            "amazonMusic": "https://music.amazon.com/search/Hazme%20Tuyo%20Aventura"
+          },
+          "audioFeatures": {
+            "energy": 0.78,
+            "danceability": 0.82,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Sabor a Mí",
+          "artist": "Luis Miguel",
+          "genre": "Latino",
+          "year": 1988,
+          "reason": "modern pop hit with infectious energy",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Sabor%20a%20Mi%20Luis%20Miguel",
+            "appleMusic": "https://music.apple.com/search?term=Sabor%20a%20Mi%20Luis%20Miguel",
+            "youtubeMusic": "https://music.youtube.com/search?q=Sabor%20a%20Mi%20Luis%20Miguel",
+            "amazonMusic": "https://music.amazon.com/search/Sabor%20a%20Mi%20Luis%20Miguel"
+          },
+          "audioFeatures": {
+            "energy": 0.76,
+            "danceability": 0.8,
+            "valence": 0.86
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T14:18:56.704Z"
+    }
   ]
 }
