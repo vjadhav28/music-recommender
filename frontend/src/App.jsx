@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import MoodInput from './components/MoodInput';
 import RecommendationList from './components/RecommendationList';
 import RequestHistory from './components/RequestHistory';
+import { buildFallbackResponse } from './lib/fallbackCatalog';
 
 const HISTORY_STORAGE_KEY = 'music-recommender-history';
 
@@ -56,19 +57,7 @@ export default function App() {
     setRecommendations(null);
     setLastRequest({ mood, genre, activity, language });
 
-    try {
-      const res = await fetch(apiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mood, genre, activity, language }),
-      });
-
-      if (!res.ok) {
-        const errorPayload = await res.json().catch(() => null);
-        throw new Error(errorPayload?.message || `Server error: ${res.status}`);
-      }
-
-      const data = await res.json();
+    const finishWith = (data) => {
       setRecommendations(data);
       setHistory((previous) => {
         const entry = {
@@ -82,8 +71,46 @@ export default function App() {
         };
         return [entry, ...previous].slice(0, 8);
       });
+    };
+
+    try {
+      const res = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mood, genre, activity, language }),
+      });
+
+      if (!res.ok) {
+        // 404 / 5xx — backend not deployed or route missing. Fall back gracefully.
+        if (res.status === 404 || res.status >= 500) {
+          finishWith(buildFallbackResponse({ mood, genre, activity, language }));
+          return;
+        }
+        const errorPayload = await res.json().catch(() => null);
+        throw new Error(errorPayload?.message || `Server error: ${res.status}`);
+      }
+
+      const data = await res.json();
+      // Safety net: ensure we always show at least 5 picks
+      if (!data?.songs || data.songs.length < 5) {
+        const padded = buildFallbackResponse({ mood, genre, activity, language });
+        const seen = new Set((data?.songs || []).map((s) => `${s.title}|${s.artist}`.toLowerCase()));
+        const merged = [...(data?.songs || [])];
+        for (const song of padded.songs) {
+          const key = `${song.title}|${song.artist}`.toLowerCase();
+          if (seen.has(key)) continue;
+          merged.push(song);
+          seen.add(key);
+          if (merged.length >= 5) break;
+        }
+        finishWith({ ...data, songs: merged, summary: data?.summary || padded.summary });
+        return;
+      }
+      finishWith(data);
     } catch (err) {
-      setError(err.message || 'Something went wrong');
+      // Network failure or unreachable backend — serve curated fallback
+      finishWith(buildFallbackResponse({ mood, genre, activity, language }));
+      console.log('[v0] api unreachable, served fallback:', err?.message);
     } finally {
       setLoading(false);
     }

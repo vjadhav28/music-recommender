@@ -130,7 +130,8 @@ public class RecommendationService {
         sb.append("User preferences:\n");
         sb.append("- Mood: ").append(request.getMood()).append("\n");
         sb.append("- Genre preference: ").append(firstNonBlank(request.getGenre(), "Any")).append("\n");
-        sb.append("- Activity: ").append(firstNonBlank(request.getActivity(), "General listening")).append("\n\n");
+        sb.append("- Activity: ").append(firstNonBlank(request.getActivity(), "General listening")).append("\n");
+        sb.append("- Language preference: ").append(firstNonBlank(request.getLanguage(), "Any")).append("\n\n");
         sb.append("Rules:\n");
         sb.append("1) Return exactly 5 unique songs.\n");
         sb.append("2) Keep songs from real artists and widely recognized catalogs.\n");
