@@ -8,7 +8,44 @@ AI-powered music recommendation system built with **React** (frontend) and **Spr
 - **Node.js 18+** and **npm**
 - **OpenAI API key**
 
-## Setup
+## Production Demo Deployment
+
+The recommended deployment path is a single Node service. The React app is built into
+`frontend/dist`, and `backend-node/server.js` serves both the static frontend and
+the `/api` endpoints.
+
+### Environment
+
+```bash
+NODE_ENV=production
+PORT=3001
+APP_ORIGIN=https://your-domain.example
+DATA_DIR=/persistent/data/path
+```
+
+- `APP_ORIGIN` is the only allowed browser origin for cross-origin requests.
+- `DATA_DIR` stores the SQLite database. Point this at a persistent volume in production.
+- The backend requires Node `>=22.5.0` because it uses Node's built-in SQLite module.
+
+### Build and Run
+
+```bash
+cd frontend
+npm install
+npm run build
+
+cd ../backend-node
+npm install
+NODE_ENV=production APP_ORIGIN=https://your-domain.example npm start
+```
+
+Health check:
+
+```bash
+curl https://your-domain.example/health
+```
+
+## Local Setup
 
 ### 1. Backend (Spring Boot)
 
