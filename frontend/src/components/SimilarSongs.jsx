@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Zap } from 'lucide-react';
+import { apiFetch, readApiError } from '../api';
 
 export default function SimilarSongs({ song, onSongSelect }) {
   const [similarSongs, setSimilarSongs] = useState([]);
@@ -11,7 +12,7 @@ export default function SimilarSongs({ song, onSongSelect }) {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('/api/similar-songs', {
+      const response = await apiFetch('/api/similar-songs', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -23,15 +24,14 @@ export default function SimilarSongs({ song, onSongSelect }) {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to fetch similar songs');
+        throw new Error(await readApiError(response, 'Failed to fetch similar songs'));
       }
 
       const data = await response.json();
       setSimilarSongs(data.similarSongs || []);
       setIsExpanded(true);
     } catch (err) {
-      setError(err.message);
-      console.error('Error fetching similar songs:', err);
+      setError(err instanceof TypeError ? 'Similar songs are temporarily unavailable' : err.message);
     } finally {
       setIsLoading(false);
     }
@@ -51,7 +51,7 @@ export default function SimilarSongs({ song, onSongSelect }) {
 
       {error && (
         <div className="similar-error">
-          Error: {error}
+          {error}
         </div>
       )}
 

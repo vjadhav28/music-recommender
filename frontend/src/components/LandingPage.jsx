@@ -69,10 +69,11 @@ const SERVICES = [
 
 export default function LandingPage({ onStartClick }) {
   const [email, setEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState('');
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    alert(`Thanks for subscribing with ${email}!`);
+    setNewsletterStatus('Updates are coming soon. Thanks for your interest.');
     setEmail('');
   };
 
@@ -225,6 +226,7 @@ export default function LandingPage({ onStartClick }) {
             />
             <button type="submit" className="btn-primary">Subscribe</button>
           </form>
+          {newsletterStatus && <p className="newsletter-status">{newsletterStatus}</p>}
         </div>
       </section>
 

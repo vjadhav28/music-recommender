@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, TrendingUp, Music } from 'lucide-react';
+import { apiFetch, readApiError } from '../api';
 
 export default function Analytics() {
   const [analytics, setAnalytics] = useState(null);
@@ -12,14 +13,15 @@ export default function Analytics() {
 
   const fetchAnalytics = async () => {
     try {
-      const response = await fetch('/api/analytics');
-      if (!response.ok) throw new Error('Failed to fetch analytics');
+      const response = await apiFetch('/api/analytics');
+      if (!response.ok) {
+        throw new Error(await readApiError(response, 'Failed to fetch analytics'));
+      }
       const data = await response.json();
       setAnalytics(data);
       setError(null);
     } catch (err) {
-      setError(err.message);
-      console.error('Error fetching analytics:', err);
+      setError(err instanceof TypeError ? 'Insights service is temporarily unreachable' : err.message);
     } finally {
       setIsLoading(false);
     }
@@ -37,7 +39,7 @@ export default function Analytics() {
   if (error || !analytics) {
     return (
       <div className="analytics-error">
-        <p>Unable to load analytics. {error && `Error: ${error}`}</p>
+        <p>Insights are temporarily unavailable. Recommendations will still work.</p>
       </div>
     );
   }

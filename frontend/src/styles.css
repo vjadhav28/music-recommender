@@ -372,6 +372,12 @@ body {
   opacity: 0.88;
 }
 
+.sync-note {
+  margin: 0 0 14px;
+  color: #91f0dc;
+  font-size: 0.88rem;
+}
+
 .recommendation-grid {
   display: grid;
   gap: 12px;
@@ -1609,6 +1615,12 @@ body {
 
 .newsletter-form input::placeholder {
   color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-status {
+  margin: 16px 0 0;
+  color: #91f0dc;
+  font-size: 0.95rem;
 }
 
 .footer {

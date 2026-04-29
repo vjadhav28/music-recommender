@@ -1,7 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { UserDB, HistoryDB, FavoritesDB, SongFeaturesDB } from './database.js';
+import fs from 'node:fs';
+import path from 'node:path';
+import { randomUUID } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { UserDB, HistoryDB, FavoritesDB } from './database.js';
 import { EXTENDED_SONG_DATABASE } from './songs.js';
 import { BehaviorLearning } from './behavior-learning.js';
 
@@ -9,14 +13,209 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const NODE_ENV = process.env.NODE_ENV || 'development';
+const IS_PRODUCTION = NODE_ENV === 'production';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const FRONTEND_DIST_DIR = path.resolve(__dirname, '../frontend/dist');
+const USER_ID_COOKIE = 'music_recommender_user_id';
+const USER_ID_PATTERN = /^[a-zA-Z0-9_-]{8,80}$/;
+const LANGUAGE_CODES = new Set(['en', 'es', 'fr', 'de', 'ja', 'hi']);
+const APP_ORIGINS = (process.env.APP_ORIGIN || (IS_PRODUCTION ? '' : 'http://localhost:5173,http://127.0.0.1:5173'))
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
-app.use(cors());
-app.use(express.json());
+app.set('trust proxy', 1);
 
-// Generate or get user ID from header or session
-function getUserId(req) {
-  return req.headers['x-user-id'] || req.query.userId || 'anonymous-' + Date.now();
+app.use((req, res, next) => {
+  const origin = req.get('origin');
+  if (origin && !APP_ORIGINS.includes(origin)) {
+    return res.status(403).json({ message: 'Origin is not allowed' });
+  }
+  return next();
+});
+
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || APP_ORIGINS.includes(origin)) {
+      callback(null, true);
+      return;
+    }
+    callback(null, false);
+  },
+  credentials: true,
+}));
+app.use(express.json({ limit: '20kb' }));
+
+function logError(message, error) {
+  console.error(message, {
+    message: error?.message,
+    stack: IS_PRODUCTION ? undefined : error?.stack,
+  });
 }
+
+function parseCookies(cookieHeader = '') {
+  return cookieHeader.split(';').reduce((cookies, cookie) => {
+    const [rawKey, ...rawValue] = cookie.trim().split('=');
+    if (!rawKey) return cookies;
+    cookies[rawKey] = decodeURIComponent(rawValue.join('=') || '');
+    return cookies;
+  }, {});
+}
+
+function isValidUserId(userId) {
+  return typeof userId === 'string' && USER_ID_PATTERN.test(userId);
+}
+
+function attachUserId(req, res, next) {
+  const suppliedUserId = req.get('x-user-id') || req.query.userId;
+  if (suppliedUserId && !isValidUserId(suppliedUserId)) {
+    return res.status(400).json({ message: 'Invalid user id' });
+  }
+
+  const cookies = parseCookies(req.get('cookie'));
+  let userId = suppliedUserId || cookies[USER_ID_COOKIE];
+
+  if (!isValidUserId(userId)) {
+    userId = `anon-${randomUUID()}`;
+    res.cookie(USER_ID_COOKIE, userId, {
+      httpOnly: true,
+      sameSite: 'lax',
+      secure: IS_PRODUCTION,
+      maxAge: 1000 * 60 * 60 * 24 * 365,
+    });
+  }
+
+  req.userId = userId;
+  return next();
+}
+
+function createRateLimiter({ windowMs, max }) {
+  const hits = new Map();
+
+  return (req, res, next) => {
+    const key = `${req.ip}:${req.userId || 'anonymous'}`;
+    const now = Date.now();
+    const current = hits.get(key);
+
+    if (!current || current.resetAt <= now) {
+      hits.set(key, { count: 1, resetAt: now + windowMs });
+      return next();
+    }
+
+    current.count += 1;
+    if (current.count > max) {
+      const retryAfter = Math.ceil((current.resetAt - now) / 1000);
+      res.set('Retry-After', String(retryAfter));
+      return res.status(429).json({ message: 'Too many requests. Please try again shortly.' });
+    }
+
+    return next();
+  };
+}
+
+const recommendationLimiter = createRateLimiter({ windowMs: 60_000, max: 30 });
+const analyticsLimiter = createRateLimiter({ windowMs: 60_000, max: 120 });
+const similarSongsLimiter = createRateLimiter({ windowMs: 60_000, max: 60 });
+const mutationLimiter = createRateLimiter({ windowMs: 60_000, max: 40 });
+
+function cleanString(value, maxLength) {
+  if (value == null) return '';
+  if (typeof value !== 'string') return null;
+  const cleaned = value.replace(/\s+/g, ' ').trim();
+  if (cleaned.length > maxLength) return null;
+  return cleaned;
+}
+
+function validateRecommendationPayload(body) {
+  const mood = cleanString(body?.mood, 40);
+  const genre = cleanString(body?.genre, 60);
+  const activity = cleanString(body?.activity, 60);
+  const language = body?.language == null || body?.language === ''
+    ? 'en'
+    : cleanString(body?.language, 8);
+
+  if (!mood) {
+    return { error: 'Mood is required and must be 40 characters or fewer' };
+  }
+  if (genre === null) {
+    return { error: 'Genre must be 60 characters or fewer' };
+  }
+  if (activity === null) {
+    return { error: 'Activity must be 60 characters or fewer' };
+  }
+  if (!language || !LANGUAGE_CODES.has(language)) {
+    return { error: 'Unsupported language' };
+  }
+
+  return {
+    value: {
+      mood,
+      genre,
+      activity,
+      language,
+    },
+  };
+}
+
+function validateSongIdentity(body) {
+  const title = cleanString(body?.title, 120);
+  const artist = cleanString(body?.artist, 120);
+  if (!title || !artist) {
+    return { error: 'Song title and artist are required' };
+  }
+  return { value: { title, artist } };
+}
+
+function validateSongPayload(song) {
+  const identity = validateSongIdentity(song);
+  if (identity.error) return identity;
+
+  const genre = cleanString(song?.genre, 60);
+  const reason = cleanString(song?.reason, 300);
+  if (genre === null || reason === null) {
+    return { error: 'Song fields are too long' };
+  }
+
+  return {
+    value: {
+      ...song,
+      title: identity.value.title,
+      artist: identity.value.artist,
+      genre: genre || '',
+      reason: reason || '',
+    },
+  };
+}
+
+function validatePreferences(preferences) {
+  if (!preferences || typeof preferences !== 'object' || Array.isArray(preferences)) {
+    return { error: 'Preferences must be an object' };
+  }
+
+  const allowedKeys = ['favoriteGenres', 'favoriteArtists', 'favoriteMoods', 'favoriteDecades', 'streamingServices'];
+  const sanitized = {};
+  for (const key of allowedKeys) {
+    if (preferences[key] == null) continue;
+    if (!Array.isArray(preferences[key]) || preferences[key].length > 50) {
+      return { error: `${key} must be an array with 50 items or fewer` };
+    }
+    sanitized[key] = preferences[key]
+      .map((item) => cleanString(item, 80))
+      .filter(Boolean);
+  }
+  return { value: sanitized };
+}
+
+function sendServerError(res, publicMessage, error) {
+  logError(publicMessage, error);
+  return res.status(500).json({
+    message: publicMessage,
+    error: IS_PRODUCTION ? undefined : error?.message,
+  });
+}
+
+app.use('/api', attachUserId);
 
 // Genre database
 const GENRES = {
@@ -226,9 +425,28 @@ function getRecommendations(mood, genre, activity, language = 'en') {
   if (filtered.length === 0) {
     filtered = languageFiltered;
   }
+
+  if (filtered.length < 5) {
+    const seen = new Set(filtered.map(song => `${song.title}-${song.artist}`));
+    const fallbackPool = [
+      ...languageFiltered,
+      ...songs,
+      ...Object.values(EXTENDED_SONG_DATABASE).flat().filter(song => song.language === language),
+      ...Object.values(EXTENDED_SONG_DATABASE).flat().filter(song => song.language === 'en'),
+    ];
+
+    for (const song of fallbackPool) {
+      const key = `${song.title}-${song.artist}`;
+      if (!seen.has(key)) {
+        filtered.push(song);
+        seen.add(key);
+      }
+      if (filtered.length >= 5) break;
+    }
+  }
   
   // Shuffle and select top 5
-  const shuffled = filtered.sort(() => Math.random() - 0.5).slice(0, 5);
+  const shuffled = [...filtered].sort(() => Math.random() - 0.5).slice(0, 5);
   
   // Get reasons
   const reasonTemplates = REASON_TEMPLATES[lowerMood] || REASON_TEMPLATES['happy'];
@@ -279,7 +497,7 @@ app.get('/health', (req, res) => {
 });
 
 // Genres endpoint
-app.get('/api/genres', (req, res) => {
+app.get('/api/genres', analyticsLimiter, (req, res) => {
   res.json(Object.keys(GENRES).map(genre => ({
     name: genre,
     ...GENRES[genre],
@@ -287,20 +505,16 @@ app.get('/api/genres', (req, res) => {
 });
 
 // Main recommendations endpoint
-app.post('/api/recommendations', (req, res) => {
-  const { mood, genre, activity, language } = req.body;
-  const userId = getUserId(req);
-
-  if (!mood || typeof mood !== 'string') {
-    return res.status(400).json({ 
-      message: 'Mood is required and must be a string' 
-    });
+app.post('/api/recommendations', recommendationLimiter, (req, res) => {
+  const validation = validateRecommendationPayload(req.body);
+  if (validation.error) {
+    return res.status(400).json({ message: validation.error });
   }
 
-  console.log(`[${new Date().toISOString()}] Recommendation request:`, { userId, mood, genre, activity, language });
+  const { mood, genre, activity, language } = validation.value;
+  const userId = req.userId;
 
   try {
-    // Ensure user profile exists
     const user = UserDB.createUser(userId);
     const history = HistoryDB.getHistory(userId);
     const favorites = FavoritesDB.getFavorites(userId);
@@ -338,6 +552,8 @@ app.post('/api/recommendations', (req, res) => {
       mood,
       genre,
       activity,
+      language,
+      summary: enhancedRecommendations.summary,
       songs: enhancedRecommendations.songs,
     });
     
@@ -348,23 +564,18 @@ app.post('/api/recommendations', (req, res) => {
     
     res.json(enhancedRecommendations);
   } catch (error) {
-    console.error('Error generating recommendations:', error);
-    res.status(500).json({ 
-      message: 'Error generating recommendations',
-      error: error.message,
-    });
+    return sendServerError(res, 'Error generating recommendations', error);
   }
 });
 
 // Get similar songs endpoint
-app.post('/api/similar-songs', (req, res) => {
-  const { title, artist } = req.body;
-
-  if (!title || !artist) {
-    return res.status(400).json({ 
-      message: 'Title and artist are required' 
-    });
+app.post('/api/similar-songs', similarSongsLimiter, (req, res) => {
+  const validation = validateSongIdentity(req.body);
+  if (validation.error) {
+    return res.status(400).json({ message: validation.error });
   }
+
+  const { title, artist } = validation.value;
 
   try {
     const allSongs = Object.values(EXTENDED_SONG_DATABASE).flat();
@@ -389,106 +600,111 @@ app.post('/api/similar-songs', (req, res) => {
       similarSongs: similarSongs,
     });
   } catch (error) {
-    console.error('Error finding similar songs:', error);
-    res.status(500).json({ error: error.message });
+    return sendServerError(res, 'Error finding similar songs', error);
   }
 });
 
 // User profile endpoints
-app.post('/api/user/create', (req, res) => {
-  const userId = getUserId(req);
-  const preferences = req.body.preferences || {};
+app.post('/api/user/create', mutationLimiter, (req, res) => {
+  const userId = req.userId;
+  const validation = validatePreferences(req.body.preferences || {});
+  if (validation.error) {
+    return res.status(400).json({ message: validation.error });
+  }
 
   try {
-    const user = UserDB.createUser(userId, preferences);
+    const user = UserDB.createUser(userId, validation.value);
     res.json(user);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return sendServerError(res, 'Error creating user profile', error);
   }
 });
 
-app.get('/api/user/profile', (req, res) => {
-  const userId = getUserId(req);
+app.get('/api/user/profile', analyticsLimiter, (req, res) => {
+  const userId = req.userId;
   const user = UserDB.getUser(userId) || UserDB.createUser(userId);
   res.json(user);
 });
 
-app.put('/api/user/preferences', (req, res) => {
-  const userId = getUserId(req);
-  const preferences = req.body;
+app.put('/api/user/preferences', mutationLimiter, (req, res) => {
+  const userId = req.userId;
+  const validation = validatePreferences(req.body);
+  if (validation.error) {
+    return res.status(400).json({ message: validation.error });
+  }
 
   try {
-    const user = UserDB.updatePreferences(userId, preferences);
+    const user = UserDB.updatePreferences(userId, validation.value);
     res.json(user);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return sendServerError(res, 'Error updating preferences', error);
   }
 });
 
 // Favorites endpoints
-app.post('/api/favorites/add', (req, res) => {
-  const userId = getUserId(req);
-  const song = req.body.song;
-
-  if (!song || !song.title || !song.artist) {
-    return res.status(400).json({ message: 'Song title and artist required' });
+app.post('/api/favorites/add', mutationLimiter, (req, res) => {
+  const userId = req.userId;
+  const validation = validateSongPayload(req.body.song);
+  if (validation.error) {
+    return res.status(400).json({ message: validation.error });
   }
 
   try {
-    FavoritesDB.addFavorite(userId, song);
-    const user = UserDB.getUser(userId);
-    UserDB.updateStats(userId, {
-      totalSongsLiked: (user.stats.totalSongsLiked || 0) + 1,
-    });
+    const inserted = FavoritesDB.addFavorite(userId, validation.value);
+    if (inserted) {
+      const user = UserDB.getUser(userId) || UserDB.createUser(userId);
+      UserDB.updateStats(userId, {
+        totalSongsLiked: (user.stats.totalSongsLiked || 0) + 1,
+      });
+    }
     res.json({ success: true, message: 'Song added to favorites' });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return sendServerError(res, 'Error adding favorite', error);
   }
 });
 
-app.delete('/api/favorites/remove', (req, res) => {
-  const userId = getUserId(req);
-  const { title, artist } = req.body;
-
-  if (!title || !artist) {
-    return res.status(400).json({ message: 'Song title and artist required' });
+app.delete('/api/favorites/remove', mutationLimiter, (req, res) => {
+  const userId = req.userId;
+  const validation = validateSongIdentity(req.body);
+  if (validation.error) {
+    return res.status(400).json({ message: validation.error });
   }
 
   try {
-    FavoritesDB.removeFavorite(userId, title, artist);
+    FavoritesDB.removeFavorite(userId, validation.value.title, validation.value.artist);
     res.json({ success: true, message: 'Song removed from favorites' });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return sendServerError(res, 'Error removing favorite', error);
   }
 });
 
-app.get('/api/favorites', (req, res) => {
-  const userId = getUserId(req);
+app.get('/api/favorites', analyticsLimiter, (req, res) => {
+  const userId = req.userId;
 
   try {
     const favorites = FavoritesDB.getFavorites(userId);
     res.json({ favorites });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return sendServerError(res, 'Error loading favorites', error);
   }
 });
 
 // History endpoints
-app.get('/api/history', (req, res) => {
-  const userId = getUserId(req);
-  const limit = req.query.limit || 50;
+app.get('/api/history', analyticsLimiter, (req, res) => {
+  const userId = req.userId;
+  const limit = Math.min(Math.max(Number.parseInt(req.query.limit, 10) || 50, 1), 100);
 
   try {
-    const history = HistoryDB.getHistoryWithLimit(userId, parseInt(limit));
+    const history = HistoryDB.getHistoryWithLimit(userId, limit);
     res.json({ history });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return sendServerError(res, 'Error loading history', error);
   }
 });
 
 // Analytics endpoint
-app.get('/api/analytics', (req, res) => {
-  const userId = getUserId(req);
+app.get('/api/analytics', analyticsLimiter, (req, res) => {
+  const userId = req.userId;
 
   try {
     const user = UserDB.getUser(userId);
@@ -514,9 +730,23 @@ app.get('/api/analytics', (req, res) => {
       historyCount: history.length,
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return sendServerError(res, 'Error loading analytics', error);
   }
 });
+
+if (fs.existsSync(path.join(FRONTEND_DIST_DIR, 'index.html'))) {
+  app.use(express.static(FRONTEND_DIST_DIR, {
+    index: false,
+    maxAge: IS_PRODUCTION ? '1y' : 0,
+  }));
+
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api') || req.path === '/health') {
+      return next();
+    }
+    return res.sendFile(path.join(FRONTEND_DIST_DIR, 'index.html'));
+  });
+}
 
 // 404 handler
 app.use((req, res) => {
@@ -528,15 +758,17 @@ app.use((req, res) => {
 
 // Error handler
 app.use((err, req, res, next) => {
-  console.error('Server error:', err);
-  res.status(500).json({ 
+  logError('Unhandled server error', err);
+  res.status(500).json({
     message: 'Internal server error',
-    error: process.env.NODE_ENV === 'development' ? err.message : undefined,
+    error: IS_PRODUCTION ? undefined : err.message,
   });
 });
 
 app.listen(PORT, () => {
-  console.log(`\n🎵 Music Recommender Backend running on http://localhost:${PORT}`);
+  console.log(`\nMusic Recommender service running on port ${PORT}`);
   console.log(`Health check: http://localhost:${PORT}/health`);
-  console.log(`API Docs:\n  POST /api/recommendations - Get music recommendations\n  GET /api/genres - Get available genres\n`);
+  if (fs.existsSync(path.join(FRONTEND_DIST_DIR, 'index.html'))) {
+    console.log(`Serving frontend from ${FRONTEND_DIST_DIR}`);
+  }
 });

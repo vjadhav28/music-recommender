@@ -5,8 +5,13 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
+    "build": "npm --prefix ../frontend run build",
     "start": "node server.js",
+    "start:prod": "NODE_ENV=production node server.js",
     "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
   },
   "dependencies": {
     "express": "^4.21.0",

@@ -1,227 +1,298 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { DatabaseSync } from 'node:sqlite';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DB_DIR = path.join(__dirname, 'data');
+const DATA_DIR = process.env.DATA_DIR
+  ? path.resolve(process.env.DATA_DIR)
+  : path.join(__dirname, 'data');
+const DB_PATH = path.join(DATA_DIR, 'music-recommender.sqlite');
 
-// Ensure data directory exists
-if (!fs.existsSync(DB_DIR)) {
-  fs.mkdirSync(DB_DIR, { recursive: true });
-}
+fs.mkdirSync(DATA_DIR, { recursive: true });
 
-const DB_FILES = {
-  users: path.join(DB_DIR, 'users.json'),
-  listeningHistory: path.join(DB_DIR, 'listening-history.json'),
-  favorites: path.join(DB_DIR, 'favorites.json'),
-  songAudioFeatures: path.join(DB_DIR, 'song-features.json'),
+const db = new DatabaseSync(DB_PATH);
+db.exec('PRAGMA journal_mode = WAL');
+db.exec('PRAGMA foreign_keys = ON');
+db.exec(`
+  CREATE TABLE IF NOT EXISTS users (
+    id TEXT PRIMARY KEY,
+    created_at TEXT NOT NULL,
+    preferences TEXT NOT NULL,
+    stats TEXT NOT NULL
+  );
+
+  CREATE TABLE IF NOT EXISTS listening_history (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id TEXT NOT NULL,
+    payload TEXT NOT NULL,
+    timestamp TEXT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_history_user_time
+    ON listening_history(user_id, timestamp DESC);
+
+  CREATE TABLE IF NOT EXISTS favorites (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id TEXT NOT NULL,
+    title TEXT NOT NULL,
+    artist TEXT NOT NULL,
+    payload TEXT NOT NULL,
+    liked_at TEXT NOT NULL,
+    UNIQUE(user_id, title, artist),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_favorites_user
+    ON favorites(user_id, liked_at DESC);
+
+  CREATE TABLE IF NOT EXISTS song_features (
+    song_key TEXT PRIMARY KEY,
+    payload TEXT NOT NULL,
+    updated_at TEXT NOT NULL
+  );
+`);
+
+const DEFAULT_PREFERENCES = {
+  favoriteGenres: [],
+  favoriteArtists: [],
+  favoriteMoods: [],
+  favoriteDecades: [],
+  streamingServices: [],
 };
 
-// Initialize database files if they don't exist
-function initializeDB() {
-  if (!fs.existsSync(DB_FILES.users)) {
-    fs.writeFileSync(DB_FILES.users, JSON.stringify({}, null, 2));
-  }
-  if (!fs.existsSync(DB_FILES.listeningHistory)) {
-    fs.writeFileSync(DB_FILES.listeningHistory, JSON.stringify({}, null, 2));
-  }
-  if (!fs.existsSync(DB_FILES.favorites)) {
-    fs.writeFileSync(DB_FILES.favorites, JSON.stringify({}, null, 2));
-  }
-  if (!fs.existsSync(DB_FILES.songAudioFeatures)) {
-    fs.writeFileSync(DB_FILES.songAudioFeatures, JSON.stringify({}, null, 2));
-  }
-}
+const DEFAULT_STATS = {
+  totalRecommendations: 0,
+  totalSongsLiked: 0,
+  totalPlaylists: 0,
+};
 
-// Read database file
-function readDB(filename) {
+function parseJson(value, fallback) {
   try {
-    const data = fs.readFileSync(filename, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    console.error(`Error reading ${filename}:`, error.message);
-    return {};
+    return value ? JSON.parse(value) : fallback;
+  } catch {
+    return fallback;
   }
 }
 
-// Write database file
-function writeDB(filename, data) {
-  try {
-    fs.writeFileSync(filename, JSON.stringify(data, null, 2));
-    return true;
-  } catch (error) {
-    console.error(`Error writing ${filename}:`, error.message);
-    return false;
-  }
+function serializeJson(value) {
+  return JSON.stringify(value ?? {});
 }
 
-// User Profile Management
+function normalizeUser(row) {
+  if (!row) return null;
+  return {
+    id: row.id,
+    createdAt: row.created_at,
+    preferences: {
+      ...DEFAULT_PREFERENCES,
+      ...parseJson(row.preferences, {}),
+    },
+    stats: {
+      ...DEFAULT_STATS,
+      ...parseJson(row.stats, {}),
+    },
+  };
+}
+
+const getUserStatement = db.prepare('SELECT * FROM users WHERE id = ?');
+const insertUserStatement = db.prepare(`
+  INSERT INTO users (id, created_at, preferences, stats)
+  VALUES (?, ?, ?, ?)
+`);
+const updatePreferencesStatement = db.prepare(`
+  UPDATE users SET preferences = ? WHERE id = ?
+`);
+const updateStatsStatement = db.prepare(`
+  UPDATE users SET stats = ? WHERE id = ?
+`);
+const insertHistoryStatement = db.prepare(`
+  INSERT INTO listening_history (user_id, payload, timestamp)
+  VALUES (?, ?, ?)
+`);
+const getHistoryStatement = db.prepare(`
+  SELECT payload, timestamp
+  FROM listening_history
+  WHERE user_id = ?
+  ORDER BY id ASC
+`);
+const getHistoryWithLimitStatement = db.prepare(`
+  SELECT payload, timestamp
+  FROM listening_history
+  WHERE user_id = ?
+  ORDER BY id DESC
+  LIMIT ?
+`);
+const insertFavoriteStatement = db.prepare(`
+  INSERT OR IGNORE INTO favorites (user_id, title, artist, payload, liked_at)
+  VALUES (?, ?, ?, ?, ?)
+`);
+const deleteFavoriteStatement = db.prepare(`
+  DELETE FROM favorites
+  WHERE user_id = ? AND title = ? AND artist = ?
+`);
+const getFavoritesStatement = db.prepare(`
+  SELECT payload, liked_at
+  FROM favorites
+  WHERE user_id = ?
+  ORDER BY liked_at DESC
+`);
+const getFavoriteStatement = db.prepare(`
+  SELECT 1
+  FROM favorites
+  WHERE user_id = ? AND title = ? AND artist = ?
+`);
+const upsertSongFeaturesStatement = db.prepare(`
+  INSERT INTO song_features (song_key, payload, updated_at)
+  VALUES (?, ?, ?)
+  ON CONFLICT(song_key) DO UPDATE SET
+    payload = excluded.payload,
+    updated_at = excluded.updated_at
+`);
+const getSongFeaturesStatement = db.prepare(`
+  SELECT payload
+  FROM song_features
+  WHERE song_key = ?
+`);
+const getAllFeaturesStatement = db.prepare('SELECT payload FROM song_features');
+
 export const UserDB = {
   createUser(userId, preferences = {}) {
-    const users = readDB(DB_FILES.users);
-    if (users[userId]) {
-      return users[userId];
+    const existing = this.getUser(userId);
+    if (existing) {
+      return existing;
     }
-    
+
     const user = {
       id: userId,
       createdAt: new Date().toISOString(),
       preferences: {
-        favoriteGenres: [],
-        favoriteArtists: [],
-        favoriteMoods: [],
-        favoriteDecades: [],
-        streamingServices: [],
+        ...DEFAULT_PREFERENCES,
         ...preferences,
       },
       stats: {
-        totalRecommendations: 0,
-        totalSongsLiked: 0,
-        totalPlaylists: 0,
+        ...DEFAULT_STATS,
       },
     };
-    
-    users[userId] = user;
-    writeDB(DB_FILES.users, users);
+
+    insertUserStatement.run(
+      user.id,
+      user.createdAt,
+      serializeJson(user.preferences),
+      serializeJson(user.stats)
+    );
     return user;
   },
 
   getUser(userId) {
-    const users = readDB(DB_FILES.users);
-    return users[userId] || null;
+    return normalizeUser(getUserStatement.get(userId));
   },
 
   updatePreferences(userId, preferences) {
-    const users = readDB(DB_FILES.users);
-    if (!users[userId]) {
-      return this.createUser(userId, preferences);
-    }
-    
-    users[userId].preferences = {
-      ...users[userId].preferences,
+    const user = this.getUser(userId) || this.createUser(userId);
+    const updatedPreferences = {
+      ...user.preferences,
       ...preferences,
     };
-    
-    writeDB(DB_FILES.users, users);
-    return users[userId];
+    updatePreferencesStatement.run(serializeJson(updatedPreferences), userId);
+    return {
+      ...user,
+      preferences: updatedPreferences,
+    };
   },
 
   updateStats(userId, statUpdates) {
-    const users = readDB(DB_FILES.users);
-    if (!users[userId]) {
-      this.createUser(userId);
-    }
-    
-    users[userId].stats = {
-      ...users[userId].stats,
+    const user = this.getUser(userId) || this.createUser(userId);
+    const updatedStats = {
+      ...user.stats,
       ...statUpdates,
     };
-    
-    writeDB(DB_FILES.users, users);
-    return users[userId];
+    updateStatsStatement.run(serializeJson(updatedStats), userId);
+    return {
+      ...user,
+      stats: updatedStats,
+    };
   },
 };
 
-// Listening History
 export const HistoryDB = {
   addToHistory(userId, recommendation) {
-    const history = readDB(DB_FILES.listeningHistory);
-    
-    if (!history[userId]) {
-      history[userId] = [];
-    }
-    
-    history[userId].push({
-      ...recommendation,
-      timestamp: new Date().toISOString(),
-    });
-    
-    writeDB(DB_FILES.listeningHistory, history);
+    UserDB.createUser(userId);
+    const timestamp = new Date().toISOString();
+    insertHistoryStatement.run(userId, serializeJson(recommendation), timestamp);
   },
 
   getHistory(userId) {
-    const history = readDB(DB_FILES.listeningHistory);
-    return history[userId] || [];
+    return getHistoryStatement.all(userId).map((row) => ({
+      ...parseJson(row.payload, {}),
+      timestamp: row.timestamp,
+    }));
   },
 
   getHistoryWithLimit(userId, limit = 50) {
-    const history = this.getHistory(userId);
-    return history.slice(-limit).reverse();
+    const safeLimit = Math.min(Math.max(Number.parseInt(limit, 10) || 50, 1), 100);
+    return getHistoryWithLimitStatement.all(userId, safeLimit).map((row) => ({
+      ...parseJson(row.payload, {}),
+      timestamp: row.timestamp,
+    }));
   },
 };
 
-// Favorites & Likes
 export const FavoritesDB = {
   addFavorite(userId, song) {
-    const favorites = readDB(DB_FILES.favorites);
-    
-    if (!favorites[userId]) {
-      favorites[userId] = [];
-    }
-    
-    const songKey = `${song.title}-${song.artist}`;
-    const exists = favorites[userId].some(s => `${s.title}-${s.artist}` === songKey);
-    
-    if (!exists) {
-      favorites[userId].push({
-        ...song,
-        likedAt: new Date().toISOString(),
-      });
-    }
-    
-    writeDB(DB_FILES.favorites, favorites);
+    UserDB.createUser(userId);
+    const likedAt = new Date().toISOString();
+    const result = insertFavoriteStatement.run(
+      userId,
+      song.title,
+      song.artist,
+      serializeJson({ ...song, likedAt }),
+      likedAt
+    );
+    return Boolean(result.changes);
   },
 
   removeFavorite(userId, songTitle, songArtist) {
-    const favorites = readDB(DB_FILES.favorites);
-    
-    if (!favorites[userId]) {
-      return;
-    }
-    
-    favorites[userId] = favorites[userId].filter(
-      s => !(s.title === songTitle && s.artist === songArtist)
-    );
-    
-    writeDB(DB_FILES.favorites, favorites);
+    deleteFavoriteStatement.run(userId, songTitle, songArtist);
   },
 
   getFavorites(userId) {
-    const favorites = readDB(DB_FILES.favorites);
-    return favorites[userId] || [];
+    return getFavoritesStatement.all(userId).map((row) => ({
+      ...parseJson(row.payload, {}),
+      likedAt: row.liked_at,
+    }));
   },
 
   isFavorite(userId, songTitle, songArtist) {
-    const favorites = this.getFavorites(userId);
-    return favorites.some(s => s.title === songTitle && s.artist === songArtist);
+    return Boolean(getFavoriteStatement.get(userId, songTitle, songArtist));
   },
 };
 
-// Song Audio Features for similarity matching
 export const SongFeaturesDB = {
   setSongFeatures(song, features) {
     const songKey = `${song.title}-${song.artist}`;
-    const db = readDB(DB_FILES.songAudioFeatures);
-    
-    db[songKey] = {
-      ...song,
-      ...features,
-      updatedAt: new Date().toISOString(),
-    };
-    
-    writeDB(DB_FILES.songAudioFeatures, db);
+    const updatedAt = new Date().toISOString();
+    upsertSongFeaturesStatement.run(
+      songKey,
+      serializeJson({ ...song, ...features, updatedAt }),
+      updatedAt
+    );
   },
 
   getSongFeatures(songTitle, songArtist) {
     const songKey = `${songTitle}-${songArtist}`;
-    const db = readDB(DB_FILES.songAudioFeatures);
-    return db[songKey] || null;
+    const row = getSongFeaturesStatement.get(songKey);
+    return row ? parseJson(row.payload, null) : null;
   },
 
   getAllFeatures() {
-    return readDB(DB_FILES.songAudioFeatures);
+    return getAllFeaturesStatement.all().reduce((features, row) => {
+      const song = parseJson(row.payload, null);
+      if (song?.title && song?.artist) {
+        features[`${song.title}-${song.artist}`] = song;
+      }
+      return features;
+    }, {});
   },
 };
-
-// Initialize database on module load
-initializeDB();

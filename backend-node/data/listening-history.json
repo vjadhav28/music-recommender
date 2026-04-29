@@ -3821,5 +3821,135 @@
       ],
       "timestamp": "2026-04-29T14:18:56.704Z"
     }
+  ],
+  "anonymous-1777473891065": [
+    {
+      "mood": "Sad",
+      "genre": "Rock",
+      "activity": "",
+      "songs": [
+        {
+          "title": "Kabhi Kabhi Aditi Zindagi Mein",
+          "artist": "Hariharan",
+          "genre": "Bollywood",
+          "year": 1998,
+          "reason": "emotionally resonant and deeply moving",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Kabhi%20Kabhi%20Aditi%20Zindagi%20Mein",
+            "appleMusic": "https://music.apple.com/search?term=Kabhi%20Kabhi%20Aditi%20Zindagi",
+            "youtubeMusic": "https://music.youtube.com/search?q=Kabhi%20Kabhi%20Aditi%20Zindagi%20Mein",
+            "amazonMusic": "https://music.amazon.com/search/Kabhi%20Kabhi%20Aditi"
+          },
+          "audioFeatures": {
+            "energy": 0.4,
+            "danceability": 0.25,
+            "valence": 0.3
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Dil Sambhal Jaa",
+          "artist": "Jagjit Singh",
+          "genre": "Bollywood",
+          "year": 1981,
+          "reason": "cathartic ballad for introspective moments",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Dil%20Sambhal%20Jaa%20Jagjit%20Singh",
+            "appleMusic": "https://music.apple.com/search?term=Dil%20Sambhal%20Jaa",
+            "youtubeMusic": "https://music.youtube.com/search?q=Dil%20Sambhal%20Jaa%20Jagjit",
+            "amazonMusic": "https://music.amazon.com/search/Dil%20Sambhal%20Jaa"
+          },
+          "audioFeatures": {
+            "energy": 0.35,
+            "danceability": 0.2,
+            "valence": 0.28
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Dil Sambhal Jaa",
+          "artist": "Jagjit Singh",
+          "genre": "Bollywood",
+          "year": 1981,
+          "reason": "powerful vocals paired with melancholic instrumentation",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Dil%20Sambhal%20Jaa%20Jagjit%20Singh",
+            "appleMusic": "https://music.apple.com/search?term=Dil%20Sambhal%20Jaa",
+            "youtubeMusic": "https://music.youtube.com/search?q=Dil%20Sambhal%20Jaa%20Jagjit",
+            "amazonMusic": "https://music.amazon.com/search/Dil%20Sambhal%20Jaa"
+          },
+          "audioFeatures": {
+            "energy": 0.35,
+            "danceability": 0.2,
+            "valence": 0.28
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Ae Dil Hai Mushkil",
+          "artist": "Arijit Singh",
+          "genre": "Bollywood",
+          "year": 2016,
+          "reason": "haunting melody that captures the feeling",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Ae%20Dil%20Hai%20Mushkil%20Arijit%20Singh",
+            "appleMusic": "https://music.apple.com/search?term=Ae%20Dil%20Hai%20Mushkil",
+            "youtubeMusic": "https://music.youtube.com/search?q=Ae%20Dil%20Hai%20Mushkil%20Arijit",
+            "amazonMusic": "https://music.amazon.com/search/Ae%20Dil%20Hai%20Mushkil"
+          },
+          "audioFeatures": {
+            "energy": 0.45,
+            "danceability": 0.3,
+            "valence": 0.35
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Janam Janam Se Pehle",
+          "artist": "Lata Mangeshkar",
+          "genre": "Bollywood",
+          "year": 1975,
+          "reason": "thoughtful lyrics reflecting the mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Janam%20Janam%20Se%20Pehle%20Lata",
+            "appleMusic": "https://music.apple.com/search?term=Janam%20Janam%20Se%20Pehle",
+            "youtubeMusic": "https://music.youtube.com/search?q=Janam%20Janam%20Se%20Pehle%20Lata",
+            "amazonMusic": "https://music.amazon.com/search/Janam%20Janam%20Se%20Pehle"
+          },
+          "audioFeatures": {
+            "energy": 0.32,
+            "danceability": 0.18,
+            "valence": 0.25
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T14:44:51.068Z"
+    }
   ]
 }

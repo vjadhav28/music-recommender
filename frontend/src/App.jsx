@@ -1,19 +1,15 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MoodInput from './components/MoodInput';
 import RecommendationList from './components/RecommendationList';
 import RequestHistory from './components/RequestHistory';
 import LandingPage from './components/LandingPage';
 import Analytics from './components/Analytics';
 import PlaylistExport from './components/PlaylistExport';
+import { apiFetch, readApiError } from './api';
 import { Moon, Sun } from 'lucide-react';
 
 const HISTORY_STORAGE_KEY = 'music-recommender-history';
 const THEME_KEY = 'music-recommender-theme';
-
-function buildApiUrl() {
-  const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
-  return `${apiBase}/api/recommendations`;
-}
 
 function readHistory() {
   if (typeof window === 'undefined') {
@@ -29,7 +25,6 @@ function readHistory() {
 }
 
 export default function App() {
-  const apiUrl = useMemo(() => buildApiUrl(), []);
   const [recommendations, setRecommendations] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -59,28 +54,54 @@ export default function App() {
     }
   }, [history]);
 
+  useEffect(() => {
+    if (!showApp) return;
+
+    let cancelled = false;
+    async function loadServerHistory() {
+      try {
+        const response = await apiFetch('/api/history?limit=8');
+        if (!response.ok) return;
+        const data = await response.json();
+        if (cancelled || !Array.isArray(data.history)) return;
+        setHistory(data.history.map((entry, index) => ({
+          id: `${entry.timestamp || Date.now()}-${index}`,
+          mood: entry.mood,
+          genre: entry.genre,
+          activity: entry.activity,
+          language: entry.language || 'en',
+          summary: entry.summary || '',
+          createdAt: entry.timestamp || entry.createdAt || new Date().toISOString(),
+        })));
+      } catch {
+        // Local history remains available when the service is temporarily unreachable.
+      }
+    }
+
+    loadServerHistory();
+    return () => {
+      cancelled = true;
+    };
+  }, [showApp]);
+
   const handleSubmit = async ({ mood, genre, activity, language }) => {
     setLoading(true);
     setError(null);
     setRecommendations(null);
     setLastRequest({ mood, genre, activity, language });
-    
-    console.log('[v0] Sending request:', { mood, genre, activity, language });
 
     try {
-      const res = await fetch(apiUrl, {
+      const res = await apiFetch('/api/recommendations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mood, genre, activity, language }),
       });
 
       if (!res.ok) {
-        const errorPayload = await res.json().catch(() => null);
-        throw new Error(errorPayload?.message || `Server error: ${res.status}`);
+        throw new Error(await readApiError(res, `Server error: ${res.status}`));
       }
 
       const data = await res.json();
-      console.log('[v0] Received recommendations:', data);
       setRecommendations(data);
       setHistory((previous) => {
         const entry = {
@@ -95,7 +116,10 @@ export default function App() {
         return [entry, ...previous].slice(0, 8);
       });
     } catch (err) {
-      setError(err.message || 'Something went wrong');
+      const message = err instanceof TypeError
+        ? 'Unable to reach the recommendation service. Please try again in a moment.'
+        : err.message || 'Something went wrong';
+      setError(message);
     } finally {
       setLoading(false);
     }

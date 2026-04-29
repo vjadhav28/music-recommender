@@ -11,7 +11,7 @@ Successfully implemented comprehensive feature and logic enhancements to transfo
 - **Status**: Implemented
 - **Features**:
   - User profile creation and management
-  - Persistent JSON-based database storage (`users.json`, `listening-history.json`, `favorites.json`)
+  - Persistent SQLite storage for users, listening history, favorites, and song features
   - Track user statistics (total recommendations, songs liked, playlists created)
   - Save user preferences (favorite genres, artists, moods, decades, streaming services)
   - Full user behavior tracking
@@ -99,7 +99,7 @@ Successfully implemented comprehensive feature and logic enhancements to transfo
 ├── songs.js            (Extended song database with streaming links)
 ├── behavior-learning.js (ML algorithm implementation)
 ├── package.json        (Dependencies: express, cors, dotenv)
-└── data/              (JSON storage for users, history, favorites)
+└── data/              (SQLite database, configurable with DATA_DIR)
 ```
 
 ### Frontend (React)
@@ -153,56 +153,12 @@ Successfully implemented comprehensive feature and logic enhancements to transfo
 
 ## Database Schema
 
-### users.json
-```json
-{
-  "user-id": {
-    "id": "user-id",
-    "createdAt": "ISO timestamp",
-    "preferences": {
-      "favoriteGenres": [],
-      "favoriteArtists": [],
-      "favoriteMoods": [],
-      "favoriteDecades": [],
-      "streamingServices": []
-    },
-    "stats": {
-      "totalRecommendations": 0,
-      "totalSongsLiked": 0,
-      "totalPlaylists": 0
-    }
-  }
-}
-```
+SQLite tables are created automatically in `DATA_DIR/music-recommender.sqlite`:
 
-### listening-history.json
-```json
-{
-  "user-id": [
-    {
-      "mood": "happy",
-      "genre": "pop",
-      "activity": "working out",
-      "songs": [...],
-      "timestamp": "ISO timestamp"
-    }
-  ]
-}
-```
-
-### favorites.json
-```json
-{
-  "user-id": [
-    {
-      "title": "Song Title",
-      "artist": "Artist Name",
-      "genre": "Genre",
-      "likedAt": "ISO timestamp"
-    }
-  ]
-}
-```
+- `users`: user id, created timestamp, JSON preferences, JSON stats.
+- `listening_history`: user id, recommendation payload, timestamp.
+- `favorites`: user id, song identity, song payload, liked timestamp.
+- `song_features`: song key, feature payload, updated timestamp.
 
 ---
 
@@ -211,8 +167,8 @@ Successfully implemented comprehensive feature and logic enhancements to transfo
 - **Algorithm Efficiency**: O(n) for preference calculation
 - **Similarity Matching**: O(n*m) where n=target songs, m=library size
 - **Response Time**: <200ms for recommendation generation
-- **Storage**: JSON files with automatic persistence
-- **Scalability**: Supports thousands of users with JSON storage
+- **Storage**: SQLite with automatic schema initialization
+- **Scalability**: Suitable for a public demo with persistent single-service storage
 
 ---
 

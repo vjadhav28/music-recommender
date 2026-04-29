@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, ChevronDown } from 'lucide-react';
 import SimilarSongs from './SimilarSongs';
+import { apiFetch } from '../api';
 
 const FAVORITES_KEY = 'music-recommender-favorites';
 
@@ -15,9 +16,9 @@ export default function RecommendationList({ data, request }) {
   const [favorites, setFavorites] = useState([]);
   const [filter, setFilter] = useState('all');
   const [expandedSong, setExpandedSong] = useState(null);
+  const [favoriteError, setFavoriteError] = useState(null);
 
   useEffect(() => {
-    // Load favorites from localStorage
     const saved = localStorage.getItem(FAVORITES_KEY);
     if (saved) {
       try {
@@ -26,9 +27,29 @@ export default function RecommendationList({ data, request }) {
         setFavorites([]);
       }
     }
+
+    let cancelled = false;
+    async function loadFavorites() {
+      try {
+        const response = await apiFetch('/api/favorites');
+        if (!response.ok) return;
+        const data = await response.json();
+        if (!cancelled && Array.isArray(data.favorites)) {
+          setFavorites(data.favorites);
+          localStorage.setItem(FAVORITES_KEY, JSON.stringify(data.favorites));
+        }
+      } catch {
+        // The local favorites cache keeps the UI useful if the API is unavailable.
+      }
+    }
+
+    loadFavorites();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  const toggleFavorite = (song) => {
+  const toggleFavorite = async (song) => {
     const songId = `${song.title}-${song.artist}`;
     const isFavorited = favorites.some(fav => `${fav.title}-${fav.artist}` === songId);
     
@@ -41,6 +62,22 @@ export default function RecommendationList({ data, request }) {
     
     setFavorites(updatedFavorites);
     localStorage.setItem(FAVORITES_KEY, JSON.stringify(updatedFavorites));
+    setFavoriteError(null);
+
+    try {
+      const response = await apiFetch(isFavorited ? '/api/favorites/remove' : '/api/favorites/add', {
+        method: isFavorited ? 'DELETE' : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(isFavorited
+          ? { title: song.title, artist: song.artist }
+          : { song }),
+      });
+      if (!response.ok) {
+        setFavoriteError('Favorite saved locally, but could not sync to the service.');
+      }
+    } catch {
+      setFavoriteError('Favorite saved locally, but could not sync to the service.');
+    }
   };
 
   const isFavorite = (song) => {
@@ -86,6 +123,7 @@ export default function RecommendationList({ data, request }) {
       </div>
 
       {data.summary && <p className="summary-text">{data.summary}</p>}
+      {favoriteError && <p className="sync-note">{favoriteError}</p>}
 
       <div className="recommendation-grid">
         {(filter === 'favorites' ? favorites : data.songs).map((song, idx) => {
