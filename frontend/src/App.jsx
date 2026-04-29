@@ -2,7 +2,12 @@ import React, { useEffect, useMemo, useState } from 'react';
 import MoodInput from './components/MoodInput';
 import RecommendationList from './components/RecommendationList';
 import RequestHistory from './components/RequestHistory';
+import AdSlot from './components/AdSlot';
 import { buildFallbackResponse } from './lib/fallbackCatalog';
+
+const AD_SLOT_HERO = import.meta.env.VITE_ADSENSE_SLOT_HERO;
+const AD_SLOT_RESULTS = import.meta.env.VITE_ADSENSE_SLOT_RESULTS;
+const AD_SLOT_FOOTER = import.meta.env.VITE_ADSENSE_SLOT_FOOTER;
 
 const HISTORY_STORAGE_KEY = 'music-recommender-history';
 
@@ -169,6 +174,8 @@ export default function App() {
         </div>
       </section>
 
+      <AdSlot slot={AD_SLOT_HERO} className="ad-slot--horizontal" />
+
       <main className="layout-grid">
         <section className="surface panel">
           <MoodInput onSubmit={handleSubmit} loading={loading} />
@@ -195,7 +202,12 @@ export default function App() {
           </div>
         )}
 
-        {recommendations && <RecommendationList data={recommendations} request={lastRequest} />}
+        {recommendations && (
+          <>
+            <RecommendationList data={recommendations} request={lastRequest} />
+            <AdSlot slot={AD_SLOT_RESULTS} className="ad-slot--inline" />
+          </>
+        )}
       </section>
 
       {history.length > 0 && (
@@ -217,6 +229,8 @@ export default function App() {
           />
         </section>
       )}
+
+      <AdSlot slot={AD_SLOT_FOOTER} className="ad-slot--horizontal" />
     </div>
   );
 }

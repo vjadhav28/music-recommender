@@ -713,6 +713,62 @@ body {
   }
 }
 
+/* ---------- Ad slots ---------- */
+
+.ad-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  margin: 32px 0;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  min-height: 120px;
+}
+
+.ad-slot--horizontal {
+  min-height: 110px;
+}
+
+.ad-slot--inline {
+  margin-top: 24px;
+}
+
+.ad-slot-label {
+  font-family: var(--display);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.ad-slot-hint {
+  font-family: var(--body);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  opacity: 0.7;
+}
+
+.ad-slot--placeholder {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--surface),
+    var(--surface) 10px,
+    var(--surface-2) 10px,
+    var(--surface-2) 20px
+  );
+}
+
+.ad-slot ins.adsbygoogle {
+  display: block;
+  min-height: 90px;
+}
+
 /* ---------- History ---------- */
 
 .history-list {
