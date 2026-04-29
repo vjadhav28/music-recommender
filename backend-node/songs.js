@@ -211,6 +211,20 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/Maahi%20Ve%20Neha%20Kakkar',
       }
     },
+    { 
+      title: 'Amor Eterno', 
+      artist: 'Juan Gabriel', 
+      genre: 'Latino', 
+      year: 1984,
+      language: 'es',
+      audioFeatures: { energy: 0.75, danceability: 0.78, valence: 0.85 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Amor%20Eterno%20Juan%20Gabriel',
+        appleMusic: 'https://music.apple.com/search?term=Amor%20Eterno%20Juan%20Gabriel',
+        youtubeMusic: 'https://music.youtube.com/search?q=Amor%20Eterno%20Juan%20Gabriel',
+        amazonMusic: 'https://music.amazon.com/search/Amor%20Eterno%20Juan%20Gabriel',
+      }
+    },
   ],
   'sad': [
     { 
@@ -409,6 +423,20 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/A%20Pedir%20Tu%20Mano',
       }
     },
+    { 
+      title: 'Lamento Borincano', 
+      artist: 'Willie Colón', 
+      genre: 'Latino', 
+      year: 1975,
+      language: 'es',
+      audioFeatures: { energy: 0.40, danceability: 0.34, valence: 0.20 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Lamento%20Borincano%20Willie%20Colon',
+        appleMusic: 'https://music.apple.com/search?term=Lamento%20Borincano%20Willie%20Colon',
+        youtubeMusic: 'https://music.youtube.com/search?q=Lamento%20Borincano%20Willie%20Colon',
+        amazonMusic: 'https://music.amazon.com/search/Lamento%20Borincano%20Willie%20Colon',
+      }
+    },
   ],
   'energetic': [
     { 
@@ -605,6 +633,20 @@ export const EXTENDED_SONG_DATABASE = {
         appleMusic: 'https://music.apple.com/search?term=Livin%20La%20Vida%20Loca%20Cypress%20Hill',
         youtubeMusic: 'https://music.youtube.com/search?q=Livin%20La%20Vida%20Loca%20Cypress%20Hill',
         amazonMusic: 'https://music.amazon.com/search/Livin%20La%20Vida%20Loca%20Cypress%20Hill',
+      }
+    },
+    { 
+      title: 'La Gozadera', 
+      artist: 'Gente de Zona ft. Marc Anthony', 
+      genre: 'Latino', 
+      year: 2014,
+      language: 'es',
+      audioFeatures: { energy: 0.85, danceability: 0.87, valence: 0.82 },
+      links: {
+        spotify: 'https://open.spotify.com/search/La%20Gozadera%20Gente%20de%20Zona',
+        appleMusic: 'https://music.apple.com/search?term=La%20Gozadera%20Gente%20de%20Zona',
+        youtubeMusic: 'https://music.youtube.com/search?q=La%20Gozadera%20Gente%20de%20Zona',
+        amazonMusic: 'https://music.amazon.com/search/La%20Gozadera%20Gente%20de%20Zona',
       }
     },
   ],
@@ -819,6 +861,20 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/Agua%20Clara%20Paquito%20D%20Rivera',
       }
     },
+    { 
+      title: 'Brisa Marina', 
+      artist: 'Eddie Santiago', 
+      genre: 'Latino', 
+      year: 1989,
+      language: 'es',
+      audioFeatures: { energy: 0.24, danceability: 0.16, valence: 0.59 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Brisa%20Marina%20Eddie%20Santiago',
+        appleMusic: 'https://music.apple.com/search?term=Brisa%20Marina%20Eddie%20Santiago',
+        youtubeMusic: 'https://music.youtube.com/search?q=Brisa%20Marina%20Eddie%20Santiago',
+        amazonMusic: 'https://music.amazon.com/search/Brisa%20Marina%20Eddie%20Santiago',
+      }
+    },
   ],
   'romantic': [
     { 
@@ -1017,230 +1073,18 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/La%20Vida%20Es%20Bella%20Cristian',
       }
     },
-  ],
-  'focused': [
     { 
-      title: 'Lo-Fi Hip Hop Study Mix', 
-      artist: 'Various', 
-      genre: 'Hip-Hop', 
-      year: 2020,
-      language: 'en',
-      audioFeatures: { energy: 0.40, danceability: 0.35, valence: 0.50 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Lo-Fi%20Hip%20Hop%20Study%20Mix',
-        appleMusic: 'https://music.apple.com/search?term=Lo-Fi%20Hip%20Hop%20Study%20Mix',
-        youtubeMusic: 'https://music.youtube.com/search?q=Lo-Fi%20Hip%20Hop%20Study%20Mix',
-        amazonMusic: 'https://music.amazon.com/search/Lo-Fi%20Hip%20Hop%20Study%20Mix',
-      }
-    },
-    { 
-      title: 'Chillhop Essentials', 
-      artist: 'Ólafur Arnalds', 
-      genre: 'Ambient', 
-      year: 2018,
-      language: 'en',
-      audioFeatures: { energy: 0.35, danceability: 0.30, valence: 0.55 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Chillhop%20Essentials%20Olafur%20Arnalds',
-        appleMusic: 'https://music.apple.com/search?term=Chillhop%20Essentials%20Olafur',
-        youtubeMusic: 'https://music.youtube.com/search?q=Chillhop%20Essentials%20Olafur',
-        amazonMusic: 'https://music.amazon.com/search/Chillhop%20Essentials%20Olafur',
-      }
-    },
-    { 
-      title: 'Piano Study Sessions', 
-      artist: 'Ludovico Einaudi', 
-      genre: 'Classical', 
-      year: 2012,
-      language: 'en',
-      audioFeatures: { energy: 0.32, danceability: 0.25, valence: 0.58 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Piano%20Study%20Sessions%20Ludovico%20Einaudi',
-        appleMusic: 'https://music.apple.com/search?term=Piano%20Study%20Sessions%20Ludovico',
-        youtubeMusic: 'https://music.youtube.com/search?q=Piano%20Study%20Sessions%20Ludovico',
-        amazonMusic: 'https://music.amazon.com/search/Piano%20Study%20Sessions',
-      }
-    },
-    { 
-      title: 'Meditation & Focus', 
-      artist: 'Brian Eno', 
-      genre: 'Ambient', 
-      year: 2014,
-      language: 'en',
-      audioFeatures: { energy: 0.28, danceability: 0.20, valence: 0.52 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Meditation%20Focus%20Brian%20Eno',
-        appleMusic: 'https://music.apple.com/search?term=Meditation%20Focus%20Brian%20Eno',
-        youtubeMusic: 'https://music.youtube.com/search?q=Meditation%20Focus%20Brian%20Eno',
-        amazonMusic: 'https://music.amazon.com/search/Meditation%20Focus%20Brian%20Eno',
-      }
-    },
-    { 
-      title: 'Sitar Meditation', 
-      artist: 'Ravi Shankar', 
-      genre: 'Classical', 
-      year: 1975,
-      language: 'hi',
-      audioFeatures: { energy: 0.30, danceability: 0.18, valence: 0.60 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Sitar%20Meditation%20Ravi%20Shankar',
-        appleMusic: 'https://music.apple.com/search?term=Sitar%20Meditation%20Ravi%20Shankar',
-        youtubeMusic: 'https://music.youtube.com/search?q=Sitar%20Meditation%20Ravi%20Shankar',
-        amazonMusic: 'https://music.amazon.com/search/Sitar%20Meditation%20Ravi%20Shankar',
-      }
-    },
-    { 
-      title: 'Concentration Raag', 
-      artist: 'Hariprasad Chaurasia', 
-      genre: 'Bollywood', 
-      year: 1990,
-      language: 'hi',
-      audioFeatures: { energy: 0.28, danceability: 0.15, valence: 0.58 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Concentration%20Raag%20Hariprasad',
-        appleMusic: 'https://music.apple.com/search?term=Concentration%20Raag%20Hariprasad',
-        youtubeMusic: 'https://music.youtube.com/search?q=Concentration%20Raag%20Hariprasad',
-        amazonMusic: 'https://music.amazon.com/search/Concentration%20Raag%20Hariprasad',
-      }
-    },
-    { 
-      title: 'Guitarra Española Meditación', 
-      artist: 'Paco de Lucía', 
+      title: 'Tú y Yo', 
+      artist: 'Darío Pino', 
       genre: 'Latino', 
-      year: 1988,
+      year: 1995,
       language: 'es',
-      audioFeatures: { energy: 0.35, danceability: 0.28, valence: 0.62 },
+      audioFeatures: { energy: 0.54, danceability: 0.44, valence: 0.80 },
       links: {
-        spotify: 'https://open.spotify.com/search/Guitarra%20Espanola%20Meditacion%20Paco%20de%20Lucia',
-        appleMusic: 'https://music.apple.com/search?term=Guitarra%20Espanola%20Meditacion',
-        youtubeMusic: 'https://music.youtube.com/search?q=Guitarra%20Espanola%20Meditacion%20Paco',
-        amazonMusic: 'https://music.amazon.com/search/Guitarra%20Espanola%20Meditacion',
-      }
-    },
-    { 
-      title: 'Ritmo Relajante', 
-      artist: 'Conjunto Latino', 
-      genre: 'Latino', 
-      year: 2005,
-      language: 'es',
-      audioFeatures: { energy: 0.32, danceability: 0.25, valence: 0.60 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Ritmo%20Relajante%20Conjunto%20Latino',
-        appleMusic: 'https://music.apple.com/search?term=Ritmo%20Relajante%20Conjunto',
-        youtubeMusic: 'https://music.youtube.com/search?q=Ritmo%20Relajante%20Conjunto%20Latino',
-        amazonMusic: 'https://music.amazon.com/search/Ritmo%20Relajante%20Conjunto',
-      }
-    },
-    { 
-      title: 'Minuet in G', 
-      artist: 'Wolfgang Amadeus Mozart', 
-      genre: 'Classical', 
-      year: 1764,
-      language: 'en',
-      audioFeatures: { energy: 0.38, danceability: 0.35, valence: 0.72 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Minuet%20in%20G%20Wolfgang%20Amadeus%20Mozart',
-        appleMusic: 'https://music.apple.com/search?term=Minuet%20in%20G%20Wolfgang%20Amadeus%20Mozart',
-        youtubeMusic: 'https://music.youtube.com/search?q=Minuet%20in%20G%20Wolfgang%20Amadeus%20Mozart',
-        amazonMusic: 'https://music.amazon.com/search/Minuet%20in%20G%20Mozart',
-      }
-    },
-    { 
-      title: 'Four Seasons Winter', 
-      artist: 'Antonio Vivaldi', 
-      genre: 'Classical', 
-      year: 1725,
-      language: 'en',
-      audioFeatures: { energy: 0.42, danceability: 0.38, valence: 0.68 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Four%20Seasons%20Winter%20Antonio%20Vivaldi',
-        appleMusic: 'https://music.apple.com/search?term=Four%20Seasons%20Winter%20Antonio%20Vivaldi',
-        youtubeMusic: 'https://music.youtube.com/search?q=Four%20Seasons%20Winter%20Antonio%20Vivaldi',
-        amazonMusic: 'https://music.amazon.com/search/Four%20Seasons%20Winter%20Vivaldi',
-      }
-    },
-    { 
-      title: 'Meditation Study', 
-      artist: 'Erik Satie', 
-      genre: 'Classical', 
-      year: 1890,
-      language: 'en',
-      audioFeatures: { energy: 0.34, danceability: 0.28, valence: 0.70 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Meditation%20Study%20Erik%20Satie',
-        appleMusic: 'https://music.apple.com/search?term=Meditation%20Study%20Erik%20Satie',
-        youtubeMusic: 'https://music.youtube.com/search?q=Meditation%20Study%20Erik%20Satie',
-        amazonMusic: 'https://music.amazon.com/search/Meditation%20Study%20Erik%20Satie',
-      }
-    },
-    { 
-      title: 'Dhrupad Meditation', 
-      artist: 'Pandit Dagar Brothers', 
-      genre: 'Bollywood', 
-      year: 1985,
-      language: 'hi',
-      audioFeatures: { energy: 0.32, danceability: 0.20, valence: 0.65 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Dhrupad%20Meditation%20Pandit%20Dagar',
-        appleMusic: 'https://music.apple.com/search?term=Dhrupad%20Meditation%20Pandit%20Dagar',
-        youtubeMusic: 'https://music.youtube.com/search?q=Dhrupad%20Meditation%20Pandit%20Dagar',
-        amazonMusic: 'https://music.amazon.com/search/Dhrupad%20Meditation%20Pandit%20Dagar',
-      }
-    },
-    { 
-      title: 'Tabla Solo Raag', 
-      artist: 'Zakir Hussain', 
-      genre: 'Bollywood', 
-      year: 1988,
-      language: 'hi',
-      audioFeatures: { energy: 0.36, danceability: 0.25, valence: 0.62 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Tabla%20Solo%20Raag%20Zakir%20Hussain',
-        appleMusic: 'https://music.apple.com/search?term=Tabla%20Solo%20Raag%20Zakir%20Hussain',
-        youtubeMusic: 'https://music.youtube.com/search?q=Tabla%20Solo%20Raag%20Zakir%20Hussain',
-        amazonMusic: 'https://music.amazon.com/search/Tabla%20Solo%20Raag%20Zakir',
-      }
-    },
-    { 
-      title: 'Flauta Mágica', 
-      artist: 'Conjunto Acústico', 
-      genre: 'Latino', 
-      year: 2002,
-      language: 'es',
-      audioFeatures: { energy: 0.31, danceability: 0.24, valence: 0.63 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Flauta%20Magica%20Conjunto%20Acustico',
-        appleMusic: 'https://music.apple.com/search?term=Flauta%20Magica%20Conjunto%20Acustico',
-        youtubeMusic: 'https://music.youtube.com/search?q=Flauta%20Magica%20Conjunto%20Acustico',
-        amazonMusic: 'https://music.amazon.com/search/Flauta%20Magica%20Conjunto',
-      }
-    },
-    { 
-      title: 'Música Para Meditar', 
-      artist: 'Ensemble Clásico', 
-      genre: 'Latino', 
-      year: 2003,
-      language: 'es',
-      audioFeatures: { energy: 0.27, danceability: 0.20, valence: 0.60 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Musica%20Para%20Meditar%20Ensemble',
-        appleMusic: 'https://music.apple.com/search?term=Musica%20Para%20Meditar%20Ensemble',
-        youtubeMusic: 'https://music.youtube.com/search?q=Musica%20Para%20Meditar%20Ensemble',
-        amazonMusic: 'https://music.amazon.com/search/Musica%20Para%20Meditar',
-      }
-    },
-    { 
-      title: 'Mantra Focus', 
-      artist: 'Dr. Thakur', 
-      genre: 'Bollywood', 
-      year: 1997,
-      language: 'hi',
-      audioFeatures: { energy: 0.29, danceability: 0.17, valence: 0.58 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Mantra%20Focus%20Dr%20Thakur',
-        appleMusic: 'https://music.apple.com/search?term=Mantra%20Focus%20Dr%20Thakur',
-        youtubeMusic: 'https://music.youtube.com/search?q=Mantra%20Focus%20Dr%20Thakur',
-        amazonMusic: 'https://music.amazon.com/search/Mantra%20Focus%20Dr%20Thakur',
+        spotify: 'https://open.spotify.com/search/Tu%20y%20Yo%20Dario%20Pino',
+        appleMusic: 'https://music.apple.com/search?term=Tu%20y%20Yo%20Dario%20Pino',
+        youtubeMusic: 'https://music.youtube.com/search?q=Tu%20y%20Yo%20Dario%20Pino',
+        amazonMusic: 'https://music.amazon.com/search/Tu%20y%20Yo%20Dario%20Pino',
       }
     },
   ],
