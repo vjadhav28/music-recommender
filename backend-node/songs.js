@@ -96,6 +96,34 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/Ek%20Ajnabee%20Haseena%20Se',
       }
     },
+    { 
+      title: 'Vivir Mi Vida', 
+      artist: 'Marc Anthony', 
+      genre: 'Latino', 
+      year: 2004,
+      language: 'es',
+      audioFeatures: { energy: 0.88, danceability: 0.85, valence: 0.92 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Vivir%20Mi%20Vida%20Marc%20Anthony',
+        appleMusic: 'https://music.apple.com/search?term=Vivir%20Mi%20Vida%20Marc%20Anthony',
+        youtubeMusic: 'https://music.youtube.com/search?q=Vivir%20Mi%20Vida%20Marc%20Anthony',
+        amazonMusic: 'https://music.amazon.com/search/Vivir%20Mi%20Vida%20Marc%20Anthony',
+      }
+    },
+    { 
+      title: 'Despacito', 
+      artist: 'Luis Fonsi ft. Daddy Yankee', 
+      genre: 'Latino', 
+      year: 2017,
+      language: 'es',
+      audioFeatures: { energy: 0.82, danceability: 0.90, valence: 0.88 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Despacito%20Luis%20Fonsi',
+        appleMusic: 'https://music.apple.com/search?term=Despacito%20Luis%20Fonsi',
+        youtubeMusic: 'https://music.youtube.com/search?q=Despacito%20Luis%20Fonsi',
+        amazonMusic: 'https://music.amazon.com/search/Despacito%20Luis%20Fonsi',
+      }
+    },
   ],
   'sad': [
     { 
@@ -129,6 +157,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Gary Jules', 
       genre: 'Alternative', 
       year: 2001,
+      language: 'en',
       audioFeatures: { energy: 0.25, danceability: 0.15, valence: 0.20 },
       links: {
         spotify: 'https://open.spotify.com/search/Mad%20World%20Gary%20Jules',
@@ -138,29 +167,17 @@ export const EXTENDED_SONG_DATABASE = {
       }
     },
     { 
-      title: 'The Night We Met', 
-      artist: 'Lord Huron', 
-      genre: 'Indie', 
-      year: 2015,
-      audioFeatures: { energy: 0.40, danceability: 0.30, valence: 0.35 },
+      title: 'La Canción Triste', 
+      artist: 'Juan Luis Guerra', 
+      genre: 'Latino', 
+      year: 1990,
+      language: 'es',
+      audioFeatures: { energy: 0.40, danceability: 0.30, valence: 0.30 },
       links: {
-        spotify: 'https://open.spotify.com/search/The%20Night%20We%20Met%20Lord%20Huron',
-        appleMusic: 'https://music.apple.com/search?term=The%20Night%20We%20Met%20Lord%20Huron',
-        youtubeMusic: 'https://music.youtube.com/search?q=The%20Night%20We%20Met%20Lord%20Huron',
-        amazonMusic: 'https://music.amazon.com/search/The%20Night%20We%20Met%20Lord%20Huron',
-      }
-    },
-    { 
-      title: 'Black', 
-      artist: 'Pearl Jam', 
-      genre: 'Rock', 
-      year: 1991,
-      audioFeatures: { energy: 0.45, danceability: 0.25, valence: 0.30 },
-      links: {
-        spotify: 'https://open.spotify.com/search/Black%20Pearl%20Jam',
-        appleMusic: 'https://music.apple.com/search?term=Black%20Pearl%20Jam',
-        youtubeMusic: 'https://music.youtube.com/search?q=Black%20Pearl%20Jam',
-        amazonMusic: 'https://music.amazon.com/search/Black%20Pearl%20Jam',
+        spotify: 'https://open.spotify.com/search/La%20Cancion%20Triste%20Juan%20Luis%20Guerra',
+        appleMusic: 'https://music.apple.com/search?term=La%20Cancion%20Triste%20Juan%20Luis%20Guerra',
+        youtubeMusic: 'https://music.youtube.com/search?q=La%20Cancion%20Triste%20Juan%20Luis%20Guerra',
+        amazonMusic: 'https://music.amazon.com/search/La%20Cancion%20Triste',
       }
     },
   ],
@@ -260,6 +277,20 @@ export const EXTENDED_SONG_DATABASE = {
         appleMusic: 'https://music.apple.com/search?term=Tum%20Hi%20Ho%20Arijit%20Singh',
         youtubeMusic: 'https://music.youtube.com/search?q=Tum%20Hi%20Ho%20Arijit%20Singh',
         amazonMusic: 'https://music.amazon.com/search/Tum%20Hi%20Ho%20Arijit',
+      }
+    },
+    { 
+      title: 'Beso a Beso', 
+      artist: 'Juan Luis Guerra', 
+      genre: 'Latino', 
+      year: 1989,
+      language: 'es',
+      audioFeatures: { energy: 0.60, danceability: 0.50, valence: 0.85 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Beso%20a%20Beso%20Juan%20Luis%20Guerra',
+        appleMusic: 'https://music.apple.com/search?term=Beso%20a%20Beso%20Juan%20Luis%20Guerra',
+        youtubeMusic: 'https://music.youtube.com/search?q=Beso%20a%20Beso%20Juan%20Luis%20Guerra',
+        amazonMusic: 'https://music.amazon.com/search/Beso%20a%20Beso',
       }
     },
   ],

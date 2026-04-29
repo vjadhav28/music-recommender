@@ -185,48 +185,46 @@ function getRecommendations(mood, genre, activity, language = 'en') {
   const lowerMood = mood.toLowerCase();
   let songs = EXTENDED_SONG_DATABASE[lowerMood] || EXTENDED_SONG_DATABASE['happy'];
   
-  // Language mapping for song filtering
-  const languageGenreMap = {
-    'hi': 'Bollywood',
-    'en': null, // All non-Bollywood songs
-    'es': 'Latino',
-    'fr': 'French',
-    'de': 'German',
-    'ja': 'J-Pop',
-  };
-  
-  // Filter by language first - prioritize songs in the selected language
-  const targetLanguageGenre = languageGenreMap[language];
-  let languageFiltered = songs;
-  
-  if (language !== 'en' && targetLanguageGenre) {
-    // Try to find songs in the requested language
-    languageFiltered = songs.filter(song => 
-      song.genre === targetLanguageGenre || (song.language && song.language === language)
-    );
-    
-    // If no songs found for that language, fall back to all songs
-    if (languageFiltered.length === 0) {
-      languageFiltered = songs;
+  // STRICT language filtering - only return songs in the selected language
+  let languageFiltered = songs.filter(song => {
+    // Check if song has language field that matches
+    if (song.language === language) {
+      return true;
     }
-  } else if (language === 'en') {
-    // For English, exclude Bollywood and other language-specific genres
-    languageFiltered = songs.filter(song => 
-      song.genre !== 'Bollywood' && !song.language || song.language === 'en'
-    );
-  }
+    // Fallback: if no language field, assume based on genre for known mappings
+    const genreLanguageMap = {
+      'Bollywood': 'hi',
+      'Latino': 'es',
+      'French': 'fr',
+      'German': 'de',
+      'J-Pop': 'ja',
+    };
+    
+    // If song doesn't have language field but has genre, match by genre
+    if (!song.language && genreLanguageMap[song.genre] === language) {
+      return true;
+    }
+    
+    // For English, include songs without explicit language field (except known language-specific genres)
+    if (language === 'en' && !song.language && !Object.values(genreLanguageMap).includes(song.genre)) {
+      return true;
+    }
+    
+    return false;
+  });
   
-  // Filter by genre if provided
+  // Filter by genre if provided (only on already filtered songs)
   let filtered = languageFiltered;
   if (genre && genre.trim()) {
     const lowerGenre = genre.toLowerCase();
     filtered = languageFiltered.filter(song => 
       song.genre.toLowerCase().includes(lowerGenre) || lowerGenre.includes(song.genre.toLowerCase())
     );
-    
-    if (filtered.length === 0) {
-      filtered = languageFiltered;
-    }
+  }
+  
+  // If filtering removed all songs, at least return language-filtered songs
+  if (filtered.length === 0) {
+    filtered = languageFiltered;
   }
   
   // Shuffle and select top 5
