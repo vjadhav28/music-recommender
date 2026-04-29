@@ -210,5 +210,63 @@
       ],
       "timestamp": "2026-04-29T11:47:02.064Z"
     }
+  ],
+  "anonymous-1777464421162": [
+    {
+      "mood": "Relaxed",
+      "genre": "Classical",
+      "activity": "working out",
+      "songs": [
+        {
+          "title": "weightless",
+          "artist": "Marconi Union",
+          "genre": "Ambient",
+          "year": 2011,
+          "reason": "smooth and calming composition",
+          "links": {
+            "spotify": "https://open.spotify.com/search/weightless%20Marconi%20Union",
+            "appleMusic": "https://music.apple.com/search?term=weightless%20Marconi%20Union",
+            "youtubeMusic": "https://music.youtube.com/search?q=weightless%20Marconi%20Union",
+            "amazonMusic": "https://music.amazon.com/search/weightless%20Marconi%20Union"
+          },
+          "audioFeatures": {
+            "energy": 0.1,
+            "danceability": 0.05,
+            "valence": 0.6
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Fly Me to the Moon",
+          "artist": "Frank Sinatra",
+          "genre": "Jazz",
+          "year": 1954,
+          "reason": "laid-back groove perfect for unwinding",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Fly%20Me%20to%20the%20Moon%20Frank%20Sinatra",
+            "appleMusic": "https://music.apple.com/search?term=Fly%20Me%20to%20the%20Moon%20Frank%20Sinatra",
+            "youtubeMusic": "https://music.youtube.com/search?q=Fly%20Me%20to%20the%20Moon%20Frank%20Sinatra",
+            "amazonMusic": "https://music.amazon.com/search/Fly%20Me%20to%20the%20Moon%20Frank%20Sinatra"
+          },
+          "audioFeatures": {
+            "energy": 0.35,
+            "danceability": 0.4,
+            "valence": 0.7
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:07:01.163Z"
+    }
   ]
 }

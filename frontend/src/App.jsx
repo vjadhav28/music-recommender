@@ -122,20 +122,6 @@ export default function App() {
 
             <aside className="surface side-panel">
               <div className="side-panel-section">
-                <h2>Recent prompts</h2>
-                <RequestHistory
-                  items={history}
-                  onSelect={(entry) =>
-                    handleSubmit({
-                      mood: entry.mood,
-                      genre: entry.genre,
-                      activity: entry.activity,
-                    })
-                  }
-                />
-              </div>
-
-              <div className="side-panel-section">
                 <h2>Tip</h2>
                 <p>Include both mood and activity for tighter recommendations (for example: focused + coding).</p>
               </div>
@@ -155,6 +141,24 @@ export default function App() {
             {recommendations && <RecommendationList data={recommendations} request={lastRequest} />}
 
             <Analytics />
+
+            {history.length > 0 && (
+              <aside className="surface recent-prompts-section">
+                <div className="side-panel-section">
+                  <h2>Recent prompts</h2>
+                  <RequestHistory
+                    items={history}
+                    onSelect={(entry) =>
+                      handleSubmit({
+                        mood: entry.mood,
+                        genre: entry.genre,
+                        activity: entry.activity,
+                      })
+                    }
+                  />
+                </div>
+              </aside>
+            )}
           </section>
         </>
       )}

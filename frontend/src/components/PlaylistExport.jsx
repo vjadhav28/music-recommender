@@ -12,19 +12,25 @@ export default function PlaylistExport({ songs, request }) {
       ? `Music Recommender - ${request.mood}${request.genre ? ' - ' + request.genre : ''}`
       : 'My Recommendations';
 
-    const songQueries = songs
-      .map(song => `${song.title} ${song.artist}`)
-      .join(' ');
-
+    // For streaming services, we'll open their app/website and guide user to add songs
+    // Generate URLs for individual songs that user can add to a playlist
     switch (service) {
       case 'spotify':
-        return `https://open.spotify.com/search/${encodeURIComponent(playlistName)}`;
+        // Open Spotify and search for first song as starting point
+        const spotifyFirstSong = songs[0];
+        return `https://open.spotify.com/search/${encodeURIComponent(spotifyFirstSong.title + ' ' + spotifyFirstSong.artist)}`;
       case 'appleMusic':
-        return `https://music.apple.com/search?term=${encodeURIComponent(playlistName)}`;
+        // Apple Music search for first song
+        const appleSong = songs[0];
+        return `https://music.apple.com/search?term=${encodeURIComponent(appleSong.title + ' ' + appleSong.artist)}`;
       case 'youtubeMusic':
-        return `https://music.youtube.com/search?q=${encodeURIComponent(playlistName)}`;
+        // YouTube Music search for first song
+        const ytSong = songs[0];
+        return `https://music.youtube.com/search?q=${encodeURIComponent(ytSong.title + ' ' + ytSong.artist)}`;
       case 'amazonMusic':
-        return `https://music.amazon.com/search/${encodeURIComponent(playlistName)}`;
+        // Amazon Music search for first song
+        const amzSong = songs[0];
+        return `https://music.amazon.com/search/${encodeURIComponent(amzSong.title + ' ' + amzSong.artist)}`;
       default:
         return '';
     }
@@ -165,7 +171,7 @@ export default function PlaylistExport({ songs, request }) {
       </div>
 
       <p className="export-note">
-        Click any service to search for the playlist and add it, or download as a file to import elsewhere.
+        Click any streaming service to search for the first song, then add all songs to create a playlist. Use JSON/CSV exports to bulk import elsewhere.
       </p>
     </div>
   );

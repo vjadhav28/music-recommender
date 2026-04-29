@@ -30,5 +30,21 @@
       "totalSongsLiked": 0,
       "totalPlaylists": 0
     }
+  },
+  "anonymous-1777464421162": {
+    "id": "anonymous-1777464421162",
+    "createdAt": "2026-04-29T12:07:01.163Z",
+    "preferences": {
+      "favoriteGenres": [],
+      "favoriteArtists": [],
+      "favoriteMoods": [],
+      "favoriteDecades": [],
+      "streamingServices": []
+    },
+    "stats": {
+      "totalRecommendations": 1,
+      "totalSongsLiked": 0,
+      "totalPlaylists": 0
+    }
   }
 }
