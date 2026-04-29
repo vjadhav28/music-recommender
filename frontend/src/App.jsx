@@ -2,8 +2,11 @@ import React, { useEffect, useMemo, useState } from 'react';
 import MoodInput from './components/MoodInput';
 import RecommendationList from './components/RecommendationList';
 import RequestHistory from './components/RequestHistory';
+import LandingPage from './components/LandingPage';
+import { Moon, Sun } from 'lucide-react';
 
 const HISTORY_STORAGE_KEY = 'music-recommender-history';
+const THEME_KEY = 'music-recommender-theme';
 
 function buildApiUrl() {
   const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
@@ -30,6 +33,23 @@ export default function App() {
   const [error, setError] = useState(null);
   const [lastRequest, setLastRequest] = useState(null);
   const [history, setHistory] = useState(readHistory);
+  const [showApp, setShowApp] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    const saved = window.localStorage.getItem(THEME_KEY);
+    return saved ? JSON.parse(saved) : true;
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(THEME_KEY, JSON.stringify(darkMode));
+      if (darkMode) {
+        document.documentElement.classList.add('dark-mode');
+      } else {
+        document.documentElement.classList.remove('dark-mode');
+      }
+    }
+  }, [darkMode]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -76,51 +96,65 @@ export default function App() {
   };
 
   return (
-    <div className="app-shell">
-      <header className="app-header">
-        <h1>🎵 Music Recommender Studio</h1>
-        <p>Describe your vibe and get a tuned playlist in seconds.</p>
-      </header>
+    <div className={`app-shell ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+      <button 
+        className="theme-toggle" 
+        onClick={() => setDarkMode(!darkMode)}
+        title="Toggle theme"
+      >
+        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+      </button>
 
-      <main className="layout-grid">
-        <section className="surface panel">
-          <MoodInput onSubmit={handleSubmit} loading={loading} />
-        </section>
+      {!showApp ? (
+        <LandingPage onStartClick={() => setShowApp(true)} />
+      ) : (
+        <>
+          <header className="app-header">
+            <h1>🎵 Music Recommender Studio</h1>
+            <p>Describe your vibe and get a tuned playlist in seconds.</p>
+          </header>
 
-        <aside className="surface side-panel">
-          <div className="side-panel-section">
-            <h2>Recent prompts</h2>
-            <RequestHistory
-              items={history}
-              onSelect={(entry) =>
-                handleSubmit({
-                  mood: entry.mood,
-                  genre: entry.genre,
-                  activity: entry.activity,
-                })
-              }
-            />
-          </div>
+          <main className="layout-grid">
+            <section className="surface panel">
+              <MoodInput onSubmit={handleSubmit} loading={loading} />
+            </section>
 
-          <div className="side-panel-section">
-            <h2>Tip</h2>
-            <p>Include both mood and activity for tighter recommendations (for example: focused + coding).</p>
-          </div>
-        </aside>
-      </main>
+            <aside className="surface side-panel">
+              <div className="side-panel-section">
+                <h2>Recent prompts</h2>
+                <RequestHistory
+                  items={history}
+                  onSelect={(entry) =>
+                    handleSubmit({
+                      mood: entry.mood,
+                      genre: entry.genre,
+                      activity: entry.activity,
+                    })
+                  }
+                />
+              </div>
 
-      <section className="results-area">
-        {error && <div className="alert-error">⚠️ {error}</div>}
+              <div className="side-panel-section">
+                <h2>Tip</h2>
+                <p>Include both mood and activity for tighter recommendations (for example: focused + coding).</p>
+              </div>
+            </aside>
+          </main>
 
-        {loading && (
-          <div className="loading-state">
-            <div className="spinner"></div>
-            <p>Composing recommendations...</p>
-          </div>
-        )}
+          <section className="results-area">
+            {error && <div className="alert-error">⚠️ {error}</div>}
 
-        {recommendations && <RecommendationList data={recommendations} request={lastRequest} />}
-      </section>
+            {loading && (
+              <div className="loading-state">
+                <div className="spinner"></div>
+                <p>Composing recommendations...</p>
+              </div>
+            )}
+
+            {recommendations && <RecommendationList data={recommendations} request={lastRequest} />}
+          </section>
+        </>
+      )}
     </div>
   );
 }
