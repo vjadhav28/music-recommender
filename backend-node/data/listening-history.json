@@ -3043,5 +3043,133 @@
       ],
       "timestamp": "2026-04-29T12:45:14.681Z"
     }
+  ],
+  "anonymous-1777467398943": [
+    {
+      "mood": "happy",
+      "songs": [
+        {
+          "title": "Walking on Sunshine",
+          "artist": "Katrina & The Waves",
+          "genre": "Pop",
+          "year": 1985,
+          "reason": "uplifting melody that matches your mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "appleMusic": "https://music.apple.com/search?term=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "youtubeMusic": "https://music.youtube.com/search?q=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "amazonMusic": "https://music.amazon.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves"
+          },
+          "audioFeatures": {
+            "energy": 0.92,
+            "danceability": 0.88,
+            "valence": 0.95
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Good as Hell",
+          "artist": "Lizzo",
+          "genre": "Pop",
+          "year": 2016,
+          "reason": "feel-good track perfect for today",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Good%20as%20Hell%20Lizzo",
+            "appleMusic": "https://music.apple.com/search?term=Good%20as%20Hell%20Lizzo",
+            "youtubeMusic": "https://music.youtube.com/search?q=Good%20as%20Hell%20Lizzo",
+            "amazonMusic": "https://music.amazon.com/search/Good%20as%20Hell%20Lizzo"
+          },
+          "audioFeatures": {
+            "energy": 0.85,
+            "danceability": 0.75,
+            "valence": 0.92
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Don't Stop Me Now",
+          "artist": "Queen",
+          "genre": "Rock",
+          "year": 1978,
+          "reason": "energetic vibe with positive lyrics",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Don%27t%20Stop%20Me%20Now%20Queen",
+            "appleMusic": "https://music.apple.com/search?term=Dont%20Stop%20Me%20Now%20Queen",
+            "youtubeMusic": "https://music.youtube.com/search?q=Dont%20Stop%20Me%20Now%20Queen",
+            "amazonMusic": "https://music.amazon.com/search/Don%27t%20Stop%20Me%20Now%20Queen"
+          },
+          "audioFeatures": {
+            "energy": 0.88,
+            "danceability": 0.82,
+            "valence": 0.89
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "I Will Follow You into the Dark",
+          "artist": "Death Cab for Cutie",
+          "genre": "Indie",
+          "year": 2005,
+          "reason": "classic feel-good anthem",
+          "links": {
+            "spotify": "https://open.spotify.com/search/I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab%20for%20Cutie",
+            "appleMusic": "https://music.apple.com/search?term=I%20Will%20Follow%20You%20into%20the%20Dark",
+            "youtubeMusic": "https://music.youtube.com/search?q=I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab",
+            "amazonMusic": "https://music.amazon.com/search/I%20Will%20Follow%20You%20into%20the%20Dark"
+          },
+          "audioFeatures": {
+            "energy": 0.65,
+            "danceability": 0.45,
+            "valence": 0.68
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Levitating",
+          "artist": "Dua Lipa",
+          "genre": "Pop",
+          "year": 2020,
+          "reason": "modern pop hit with infectious energy",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Levitating%20Dua%20Lipa",
+            "appleMusic": "https://music.apple.com/search?term=Levitating%20Dua%20Lipa",
+            "youtubeMusic": "https://music.youtube.com/search?q=Levitating%20Dua%20Lipa",
+            "amazonMusic": "https://music.amazon.com/search/Levitating%20Dua%20Lipa"
+          },
+          "audioFeatures": {
+            "energy": 0.8,
+            "danceability": 0.87,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:56:38.948Z"
+    }
   ]
 }
