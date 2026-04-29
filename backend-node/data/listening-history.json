@@ -1,0 +1,84 @@
+{
+  "anonymous-1777462982928": [
+    {
+      "mood": "happy",
+      "genre": "pop",
+      "activity": "working out",
+      "songs": [
+        {
+          "title": "Good as Hell",
+          "artist": "Lizzo",
+          "genre": "Pop",
+          "year": 2016,
+          "reason": "uplifting melody that matches your mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Good%20as%20Hell%20Lizzo",
+            "appleMusic": "https://music.apple.com/search?term=Good%20as%20Hell%20Lizzo",
+            "youtubeMusic": "https://music.youtube.com/search?q=Good%20as%20Hell%20Lizzo",
+            "amazonMusic": "https://music.amazon.com/search/Good%20as%20Hell%20Lizzo"
+          },
+          "audioFeatures": {
+            "energy": 0.85,
+            "danceability": 0.75,
+            "valence": 0.92
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Walking on Sunshine",
+          "artist": "Katrina & The Waves",
+          "genre": "Pop",
+          "year": 1985,
+          "reason": "feel-good track perfect for today",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "appleMusic": "https://music.apple.com/search?term=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "youtubeMusic": "https://music.youtube.com/search?q=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "amazonMusic": "https://music.amazon.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves"
+          },
+          "audioFeatures": {
+            "energy": 0.92,
+            "danceability": 0.88,
+            "valence": 0.95
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Levitating",
+          "artist": "Dua Lipa",
+          "genre": "Pop",
+          "year": 2020,
+          "reason": "energetic vibe with positive lyrics",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Levitating%20Dua%20Lipa",
+            "appleMusic": "https://music.apple.com/search?term=Levitating%20Dua%20Lipa",
+            "youtubeMusic": "https://music.youtube.com/search?q=Levitating%20Dua%20Lipa",
+            "amazonMusic": "https://music.amazon.com/search/Levitating%20Dua%20Lipa"
+          },
+          "audioFeatures": {
+            "energy": 0.8,
+            "danceability": 0.87,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T11:43:02.931Z"
+    }
+  ]
+}

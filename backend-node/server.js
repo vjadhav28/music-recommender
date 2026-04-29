@@ -1,6 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import { UserDB, HistoryDB, FavoritesDB, SongFeaturesDB } from './database.js';
+import { EXTENDED_SONG_DATABASE } from './songs.js';
+import { BehaviorLearning } from './behavior-learning.js';
 
 dotenv.config();
 
@@ -9,6 +12,11 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
+
+// Generate or get user ID from header or session
+function getUserId(req) {
+  return req.headers['x-user-id'] || req.query.userId || 'anonymous-' + Date.now();
+}
 
 // Genre database
 const GENRES = {
@@ -171,7 +179,7 @@ const REASON_TEMPLATES = {
 // Helper function to get recommendations
 function getRecommendations(mood, genre, activity, language = 'en') {
   const lowerMood = mood.toLowerCase();
-  const songs = SONG_DATABASE[lowerMood] || SONG_DATABASE['happy'];
+  const songs = EXTENDED_SONG_DATABASE[lowerMood] || EXTENDED_SONG_DATABASE['happy'];
   
   // Filter by genre if provided
   let filtered = songs;
@@ -181,7 +189,6 @@ function getRecommendations(mood, genre, activity, language = 'en') {
       song.genre.toLowerCase().includes(lowerGenre) || lowerGenre.includes(song.genre.toLowerCase())
     );
     
-    // If no genre match, use original songs but note it in the response
     if (filtered.length === 0) {
       filtered = songs;
     }
@@ -210,9 +217,27 @@ function getRecommendations(mood, genre, activity, language = 'en') {
       title: song.title,
       artist: song.artist,
       genre: song.genre,
+      year: song.year,
       reason: reasonTemplates[idx % reasonTemplates.length],
+      links: song.links,
+      audioFeatures: song.audioFeatures,
     })),
   };
+}
+
+// Calculate similarity score between two songs based on audio features
+function calculateSimilarity(song1Features, song2Features) {
+  if (!song1Features || !song2Features) return 0;
+  
+  const features = ['energy', 'danceability', 'valence'];
+  let similarityScore = 0;
+  
+  features.forEach(feature => {
+    const diff = Math.abs((song1Features[feature] || 0) - (song2Features[feature] || 0));
+    similarityScore += (1 - diff);
+  });
+  
+  return similarityScore / features.length;
 }
 
 // Health check endpoint
@@ -231,6 +256,7 @@ app.get('/api/genres', (req, res) => {
 // Main recommendations endpoint
 app.post('/api/recommendations', (req, res) => {
   const { mood, genre, activity, language } = req.body;
+  const userId = getUserId(req);
 
   if (!mood || typeof mood !== 'string') {
     return res.status(400).json({ 
@@ -238,17 +264,224 @@ app.post('/api/recommendations', (req, res) => {
     });
   }
 
-  console.log(`[${new Date().toISOString()}] Recommendation request:`, { mood, genre, activity, language });
+  console.log(`[${new Date().toISOString()}] Recommendation request:`, { userId, mood, genre, activity, language });
 
   try {
+    // Ensure user profile exists
+    const user = UserDB.createUser(userId);
+    const history = HistoryDB.getHistory(userId);
+    const favorites = FavoritesDB.getFavorites(userId);
+    
+    // Get behavioral learning boost
+    const learningBoost = BehaviorLearning.generatePersonalizationBoost(
+      { history, favorites },
+      { mood, genre, activity }
+    );
+    
+    // Get base recommendations
     const recommendations = getRecommendations(mood, genre, activity, language || 'en');
-    res.json(recommendations);
+    
+    // Apply behavioral learning scoring to songs
+    const scoredSongs = recommendations.songs.map(song => {
+      const score = BehaviorLearning.calculateRecommendationScore(song, { history, favorites }, favorites);
+      return {
+        ...song,
+        personalizedScore: score,
+        boosts: learningBoost,
+      };
+    });
+    
+    // Sort by personalized score
+    const rankedSongs = scoredSongs.sort((a, b) => b.personalizedScore - a.personalizedScore);
+    
+    const enhancedRecommendations = {
+      ...recommendations,
+      songs: rankedSongs,
+      personalizationLevel: (learningBoost.moodSimilarity + learningBoost.genreSimilarity + learningBoost.activityBoost) / 3,
+    };
+    
+    // Record recommendation in history
+    HistoryDB.addToHistory(userId, {
+      mood,
+      genre,
+      activity,
+      songs: enhancedRecommendations.songs,
+    });
+    
+    // Update user stats
+    UserDB.updateStats(userId, {
+      totalRecommendations: (user.stats.totalRecommendations || 0) + 1,
+    });
+    
+    res.json(enhancedRecommendations);
   } catch (error) {
     console.error('Error generating recommendations:', error);
     res.status(500).json({ 
       message: 'Error generating recommendations',
       error: error.message,
     });
+  }
+});
+
+// Get similar songs endpoint
+app.post('/api/similar-songs', (req, res) => {
+  const { title, artist } = req.body;
+
+  if (!title || !artist) {
+    return res.status(400).json({ 
+      message: 'Title and artist are required' 
+    });
+  }
+
+  try {
+    const allSongs = Object.values(EXTENDED_SONG_DATABASE).flat();
+    const targetSong = allSongs.find(s => s.title === title && s.artist === artist);
+    
+    if (!targetSong) {
+      return res.status(404).json({ message: 'Song not found' });
+    }
+
+    // Find similar songs based on audio features
+    const similarSongs = allSongs
+      .filter(s => !(s.title === title && s.artist === artist))
+      .map(song => ({
+        ...song,
+        similarity: calculateSimilarity(targetSong.audioFeatures, song.audioFeatures),
+      }))
+      .sort((a, b) => b.similarity - a.similarity)
+      .slice(0, 5);
+
+    res.json({
+      original: targetSong,
+      similarSongs: similarSongs,
+    });
+  } catch (error) {
+    console.error('Error finding similar songs:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// User profile endpoints
+app.post('/api/user/create', (req, res) => {
+  const userId = getUserId(req);
+  const preferences = req.body.preferences || {};
+
+  try {
+    const user = UserDB.createUser(userId, preferences);
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get('/api/user/profile', (req, res) => {
+  const userId = getUserId(req);
+  const user = UserDB.getUser(userId) || UserDB.createUser(userId);
+  res.json(user);
+});
+
+app.put('/api/user/preferences', (req, res) => {
+  const userId = getUserId(req);
+  const preferences = req.body;
+
+  try {
+    const user = UserDB.updatePreferences(userId, preferences);
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Favorites endpoints
+app.post('/api/favorites/add', (req, res) => {
+  const userId = getUserId(req);
+  const song = req.body.song;
+
+  if (!song || !song.title || !song.artist) {
+    return res.status(400).json({ message: 'Song title and artist required' });
+  }
+
+  try {
+    FavoritesDB.addFavorite(userId, song);
+    const user = UserDB.getUser(userId);
+    UserDB.updateStats(userId, {
+      totalSongsLiked: (user.stats.totalSongsLiked || 0) + 1,
+    });
+    res.json({ success: true, message: 'Song added to favorites' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.delete('/api/favorites/remove', (req, res) => {
+  const userId = getUserId(req);
+  const { title, artist } = req.body;
+
+  if (!title || !artist) {
+    return res.status(400).json({ message: 'Song title and artist required' });
+  }
+
+  try {
+    FavoritesDB.removeFavorite(userId, title, artist);
+    res.json({ success: true, message: 'Song removed from favorites' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get('/api/favorites', (req, res) => {
+  const userId = getUserId(req);
+
+  try {
+    const favorites = FavoritesDB.getFavorites(userId);
+    res.json({ favorites });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// History endpoints
+app.get('/api/history', (req, res) => {
+  const userId = getUserId(req);
+  const limit = req.query.limit || 50;
+
+  try {
+    const history = HistoryDB.getHistoryWithLimit(userId, parseInt(limit));
+    res.json({ history });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Analytics endpoint
+app.get('/api/analytics', (req, res) => {
+  const userId = getUserId(req);
+
+  try {
+    const user = UserDB.getUser(userId);
+    const history = HistoryDB.getHistory(userId);
+    const favorites = FavoritesDB.getFavorites(userId);
+    
+    // Calculate analytics
+    const moodCounts = {};
+    const genreCounts = {};
+    
+    history.forEach(entry => {
+      moodCounts[entry.mood] = (moodCounts[entry.mood] || 0) + 1;
+      if (entry.genre) {
+        genreCounts[entry.genre] = (genreCounts[entry.genre] || 0) + 1;
+      }
+    });
+
+    res.json({
+      stats: user?.stats || {},
+      moodDistribution: moodCounts,
+      genrePreferences: genreCounts,
+      favoriteCount: favorites.length,
+      historyCount: history.length,
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 });
 

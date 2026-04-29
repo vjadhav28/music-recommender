@@ -1,0 +1,18 @@
+{
+  "anonymous-1777462982928": {
+    "id": "anonymous-1777462982928",
+    "createdAt": "2026-04-29T11:43:02.930Z",
+    "preferences": {
+      "favoriteGenres": [],
+      "favoriteArtists": [],
+      "favoriteMoods": [],
+      "favoriteDecades": [],
+      "streamingServices": []
+    },
+    "stats": {
+      "totalRecommendations": 1,
+      "totalSongsLiked": 0,
+      "totalPlaylists": 0
+    }
+  }
+}

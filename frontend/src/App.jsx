@@ -3,6 +3,7 @@ import MoodInput from './components/MoodInput';
 import RecommendationList from './components/RecommendationList';
 import RequestHistory from './components/RequestHistory';
 import LandingPage from './components/LandingPage';
+import Analytics from './components/Analytics';
 import { Moon, Sun } from 'lucide-react';
 
 const HISTORY_STORAGE_KEY = 'music-recommender-history';
@@ -152,6 +153,8 @@ export default function App() {
             )}
 
             {recommendations && <RecommendationList data={recommendations} request={lastRequest} />}
+
+            <Analytics />
           </section>
         </>
       )}

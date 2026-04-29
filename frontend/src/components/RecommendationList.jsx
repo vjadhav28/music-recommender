@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Heart } from 'lucide-react';
+import { Heart, Music } from 'lucide-react';
+import PlaylistExport from './PlaylistExport';
+import SimilarSongs from './SimilarSongs';
 
 const FAVORITES_KEY = 'music-recommender-favorites';
+
+const STREAMING_SERVICES = [
+  { key: 'spotify', name: 'Spotify', emoji: '🎵' },
+  { key: 'appleMusic', name: 'Apple Music', emoji: '🎶' },
+  { key: 'youtubeMusic', name: 'YouTube Music', emoji: '▶️' },
+  { key: 'amazonMusic', name: 'Amazon Music', emoji: '🎧' },
+];
 
 export default function RecommendationList({ data, request }) {
   const [favorites, setFavorites] = useState([]);
@@ -36,6 +45,11 @@ export default function RecommendationList({ data, request }) {
 
   const isFavorite = (song) => {
     return favorites.some(fav => `${fav.title}-${fav.artist}` === `${song.title}-${song.artist}`);
+  };
+
+  const getStreamingLinks = (song) => {
+    if (!song.links) return null;
+    return song.links;
   };
 
   if (!data || !data.songs || data.songs.length === 0) {
@@ -73,25 +87,54 @@ export default function RecommendationList({ data, request }) {
 
       {data.summary && <p className="summary-text">{data.summary}</p>}
 
+      <PlaylistExport songs={filter === 'favorites' ? favorites : data.songs} request={request} />
+
       <div className="recommendation-grid">
-        {(filter === 'favorites' ? favorites : data.songs).map((song, idx) => (
-          <article key={`${song.title}-${song.artist}-${idx}`} className="song-card">
-            <div className="song-index">{idx + 1}</div>
-            <div className="song-content">
-              <h3>{song.title}</h3>
-              <p className="song-artist">{song.artist}</p>
-              <span className="song-genre">{song.genre}</span>
-              <p className="song-reason">{song.reason}</p>
-            </div>
-            <button
-              onClick={() => toggleFavorite(song)}
-              className={`favorite-btn ${isFavorite(song) ? 'favorited' : ''}`}
-              title="Add to favorites"
-            >
-              <Heart size={20} />
-            </button>
-          </article>
-        ))}
+        {(filter === 'favorites' ? favorites : data.songs).map((song, idx) => {
+          const links = getStreamingLinks(song);
+          return (
+            <article key={`${song.title}-${song.artist}-${idx}`} className="song-card">
+              <div className="song-index">{idx + 1}</div>
+              <div className="song-content">
+                <h3>{song.title}</h3>
+                <p className="song-artist">{song.artist}</p>
+                <div className="song-meta">
+                  <span className="song-genre">{song.genre}</span>
+                  {song.year && <span className="song-year">{song.year}</span>}
+                </div>
+                <p className="song-reason">{song.reason}</p>
+                {links && (
+                  <div className="streaming-links">
+                    {STREAMING_SERVICES.map(service => {
+                      const url = links[service.key];
+                      return url ? (
+                        <a
+                          key={service.key}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="streaming-link"
+                          title={`Listen on ${service.name}`}
+                        >
+                          <span className="link-emoji">{service.emoji}</span>
+                          <span className="link-name">{service.name}</span>
+                        </a>
+                      ) : null;
+                    })}
+                  </div>
+                )}
+              </div>
+              <SimilarSongs song={song} />
+              <button
+                onClick={() => toggleFavorite(song)}
+                className={`favorite-btn ${isFavorite(song) ? 'favorited' : ''}`}
+                title="Add to favorites"
+              >
+                <Heart size={20} />
+              </button>
+            </article>
+          );
+        })}
       </div>
 
       {filter === 'favorites' && favorites.length === 0 && (
