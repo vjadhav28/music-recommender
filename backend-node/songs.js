@@ -6,6 +6,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Katrina & The Waves', 
       genre: 'Pop', 
       year: 1985,
+      language: 'en',
       audioFeatures: { energy: 0.92, danceability: 0.88, valence: 0.95 },
       links: {
         spotify: 'https://open.spotify.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves',
@@ -19,6 +20,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Lizzo', 
       genre: 'Pop', 
       year: 2016,
+      language: 'en',
       audioFeatures: { energy: 0.85, danceability: 0.75, valence: 0.92 },
       links: {
         spotify: 'https://open.spotify.com/search/Good%20as%20Hell%20Lizzo',
@@ -71,6 +73,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Amitabh Bachchan', 
       genre: 'Bollywood', 
       year: 1975,
+      language: 'hi',
       audioFeatures: { energy: 0.85, danceability: 0.80, valence: 0.90 },
       links: {
         spotify: 'https://open.spotify.com/search/Bura%20Na%20Mano%20Holi%20Hai%20Amitabh%20Bachchan',
@@ -84,6 +87,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Kishore Kumar', 
       genre: 'Bollywood', 
       year: 1963,
+      language: 'hi',
       audioFeatures: { energy: 0.75, danceability: 0.72, valence: 0.85 },
       links: {
         spotify: 'https://open.spotify.com/search/Ek%20Ajnabee%20Haseena%20Se%20Kishore%20Kumar',
@@ -192,6 +196,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Arijit Singh', 
       genre: 'Bollywood', 
       year: 2022,
+      language: 'hi',
       audioFeatures: { energy: 0.82, danceability: 0.78, valence: 0.80 },
       links: {
         spotify: 'https://open.spotify.com/search/Chaleya%20Jhumka%20Arijit%20Singh',
@@ -248,6 +253,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Arijit Singh', 
       genre: 'Bollywood', 
       year: 2013,
+      language: 'hi',
       audioFeatures: { energy: 0.55, danceability: 0.45, valence: 0.75 },
       links: {
         spotify: 'https://open.spotify.com/search/Tum%20Hi%20Ho%20Arijit%20Singh',

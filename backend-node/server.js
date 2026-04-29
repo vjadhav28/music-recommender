@@ -183,18 +183,49 @@ const REASON_TEMPLATES = {
 // Helper function to get recommendations
 function getRecommendations(mood, genre, activity, language = 'en') {
   const lowerMood = mood.toLowerCase();
-  const songs = EXTENDED_SONG_DATABASE[lowerMood] || EXTENDED_SONG_DATABASE['happy'];
+  let songs = EXTENDED_SONG_DATABASE[lowerMood] || EXTENDED_SONG_DATABASE['happy'];
+  
+  // Language mapping for song filtering
+  const languageGenreMap = {
+    'hi': 'Bollywood',
+    'en': null, // All non-Bollywood songs
+    'es': 'Latino',
+    'fr': 'French',
+    'de': 'German',
+    'ja': 'J-Pop',
+  };
+  
+  // Filter by language first - prioritize songs in the selected language
+  const targetLanguageGenre = languageGenreMap[language];
+  let languageFiltered = songs;
+  
+  if (language !== 'en' && targetLanguageGenre) {
+    // Try to find songs in the requested language
+    languageFiltered = songs.filter(song => 
+      song.genre === targetLanguageGenre || (song.language && song.language === language)
+    );
+    
+    // If no songs found for that language, fall back to all songs
+    if (languageFiltered.length === 0) {
+      languageFiltered = songs;
+    }
+  } else if (language === 'en') {
+    // For English, exclude Bollywood and other language-specific genres
+    languageFiltered = songs.filter(song => 
+      song.genre !== 'Bollywood' && !song.language || song.language === 'en'
+    );
+  }
   
   // Filter by genre if provided
-  let filtered = songs;
+  let filtered = languageFiltered;
   if (genre && genre.trim()) {
     const lowerGenre = genre.toLowerCase();
-    filtered = songs.filter(song => 
+    filtered = languageFiltered.filter(song => 
       song.genre.toLowerCase().includes(lowerGenre) || lowerGenre.includes(song.genre.toLowerCase())
     );
     
     if (filtered.length === 0) {
-      filtered = songs;
+      filtered = languageFiltered;
     }
   }
   

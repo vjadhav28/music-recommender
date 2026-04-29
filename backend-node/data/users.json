@@ -126,5 +126,69 @@
       "totalSongsLiked": 0,
       "totalPlaylists": 0
     }
+  },
+  "anonymous-1777465588205": {
+    "id": "anonymous-1777465588205",
+    "createdAt": "2026-04-29T12:26:28.205Z",
+    "preferences": {
+      "favoriteGenres": [],
+      "favoriteArtists": [],
+      "favoriteMoods": [],
+      "favoriteDecades": [],
+      "streamingServices": []
+    },
+    "stats": {
+      "totalRecommendations": 1,
+      "totalSongsLiked": 0,
+      "totalPlaylists": 0
+    }
+  },
+  "anonymous-1777465592678": {
+    "id": "anonymous-1777465592678",
+    "createdAt": "2026-04-29T12:26:32.678Z",
+    "preferences": {
+      "favoriteGenres": [],
+      "favoriteArtists": [],
+      "favoriteMoods": [],
+      "favoriteDecades": [],
+      "streamingServices": []
+    },
+    "stats": {
+      "totalRecommendations": 1,
+      "totalSongsLiked": 0,
+      "totalPlaylists": 0
+    }
+  },
+  "anonymous-1777465760198": {
+    "id": "anonymous-1777465760198",
+    "createdAt": "2026-04-29T12:29:20.201Z",
+    "preferences": {
+      "favoriteGenres": [],
+      "favoriteArtists": [],
+      "favoriteMoods": [],
+      "favoriteDecades": [],
+      "streamingServices": []
+    },
+    "stats": {
+      "totalRecommendations": 1,
+      "totalSongsLiked": 0,
+      "totalPlaylists": 0
+    }
+  },
+  "anonymous-1777465765224": {
+    "id": "anonymous-1777465765224",
+    "createdAt": "2026-04-29T12:29:25.224Z",
+    "preferences": {
+      "favoriteGenres": [],
+      "favoriteArtists": [],
+      "favoriteMoods": [],
+      "favoriteDecades": [],
+      "streamingServices": []
+    },
+    "stats": {
+      "totalRecommendations": 1,
+      "totalSongsLiked": 0,
+      "totalPlaylists": 0
+    }
   }
 }
