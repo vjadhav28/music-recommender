@@ -34,6 +34,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Queen', 
       genre: 'Rock', 
       year: 1978,
+      language: 'en',
       audioFeatures: { energy: 0.88, danceability: 0.82, valence: 0.89 },
       links: {
         spotify: 'https://open.spotify.com/search/Don%27t%20Stop%20Me%20Now%20Queen',
@@ -47,6 +48,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Death Cab for Cutie', 
       genre: 'Indie', 
       year: 2005,
+      language: 'en',
       audioFeatures: { energy: 0.65, danceability: 0.45, valence: 0.68 },
       links: {
         spotify: 'https://open.spotify.com/search/I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab%20for%20Cutie',
@@ -60,12 +62,83 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Dua Lipa', 
       genre: 'Pop', 
       year: 2020,
+      language: 'en',
       audioFeatures: { energy: 0.80, danceability: 0.87, valence: 0.88 },
       links: {
         spotify: 'https://open.spotify.com/search/Levitating%20Dua%20Lipa',
         appleMusic: 'https://music.apple.com/search?term=Levitating%20Dua%20Lipa',
         youtubeMusic: 'https://music.youtube.com/search?q=Levitating%20Dua%20Lipa',
         amazonMusic: 'https://music.amazon.com/search/Levitating%20Dua%20Lipa',
+      }
+    },
+    { 
+      title: 'That\'s What I Want', 
+      artist: 'Lil Nas X', 
+      genre: 'Hip-Hop', 
+      year: 2021,
+      language: 'en',
+      audioFeatures: { energy: 0.75, danceability: 0.80, valence: 0.85 },
+      links: {
+        spotify: 'https://open.spotify.com/search/That%20What%20I%20Want%20Lil%20Nas%20X',
+        appleMusic: 'https://music.apple.com/search?term=That%20What%20I%20Want%20Lil%20Nas%20X',
+        youtubeMusic: 'https://music.youtube.com/search?q=That%20What%20I%20Want%20Lil%20Nas%20X',
+        amazonMusic: 'https://music.amazon.com/search/That%20What%20I%20Want%20Lil%20Nas%20X',
+      }
+    },
+    { 
+      title: 'Bachata Rosa', 
+      artist: 'Juan Luis Guerra', 
+      genre: 'Latino', 
+      year: 1990,
+      language: 'es',
+      audioFeatures: { energy: 0.80, danceability: 0.85, valence: 0.90 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Bachata%20Rosa%20Juan%20Luis%20Guerra',
+        appleMusic: 'https://music.apple.com/search?term=Bachata%20Rosa%20Juan%20Luis%20Guerra',
+        youtubeMusic: 'https://music.youtube.com/search?q=Bachata%20Rosa%20Juan%20Luis%20Guerra',
+        amazonMusic: 'https://music.amazon.com/search/Bachata%20Rosa',
+      }
+    },
+    { 
+      title: 'Hazme Tuyo', 
+      artist: 'Aventura', 
+      genre: 'Latino', 
+      year: 2009,
+      language: 'es',
+      audioFeatures: { energy: 0.78, danceability: 0.82, valence: 0.88 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Hazme%20Tuyo%20Aventura',
+        appleMusic: 'https://music.apple.com/search?term=Hazme%20Tuyo%20Aventura',
+        youtubeMusic: 'https://music.youtube.com/search?q=Hazme%20Tuyo%20Aventura',
+        amazonMusic: 'https://music.amazon.com/search/Hazme%20Tuyo%20Aventura',
+      }
+    },
+    { 
+      title: 'Radha Kaise Na Jale', 
+      artist: 'Lata Mangeshkar', 
+      genre: 'Bollywood', 
+      year: 1993,
+      language: 'hi',
+      audioFeatures: { energy: 0.80, danceability: 0.75, valence: 0.88 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Radha%20Kaise%20Na%20Jale%20Lata%20Mangeshkar',
+        appleMusic: 'https://music.apple.com/search?term=Radha%20Kaise%20Na%20Jale',
+        youtubeMusic: 'https://music.youtube.com/search?q=Radha%20Kaise%20Na%20Jale%20Lata',
+        amazonMusic: 'https://music.amazon.com/search/Radha%20Kaise%20Na%20Jale',
+      }
+    },
+    { 
+      title: 'Madhuban Mein Radhika Nache', 
+      artist: 'Hariharan', 
+      genre: 'Bollywood', 
+      year: 1993,
+      language: 'hi',
+      audioFeatures: { energy: 0.82, danceability: 0.80, valence: 0.90 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Madhuban%20Mein%20Radhika%20Nache',
+        appleMusic: 'https://music.apple.com/search?term=Madhuban%20Mein%20Radhika%20Nache',
+        youtubeMusic: 'https://music.youtube.com/search?q=Madhuban%20Mein%20Radhika%20Nache',
+        amazonMusic: 'https://music.amazon.com/search/Madhuban%20Mein%20Radhika%20Nache',
       }
     },
     { 
@@ -131,6 +204,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Adele', 
       genre: 'Pop', 
       year: 2011,
+      language: 'en',
       audioFeatures: { energy: 0.35, danceability: 0.35, valence: 0.25 },
       links: {
         spotify: 'https://open.spotify.com/search/Someone%20Like%20You%20Adele',
@@ -144,6 +218,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Johnny Cash', 
       genre: 'Country', 
       year: 2002,
+      language: 'en',
       audioFeatures: { energy: 0.30, danceability: 0.20, valence: 0.15 },
       links: {
         spotify: 'https://open.spotify.com/search/Hurt%20Johnny%20Cash',
@@ -167,6 +242,76 @@ export const EXTENDED_SONG_DATABASE = {
       }
     },
     { 
+      title: 'Creep', 
+      artist: 'Radiohead', 
+      genre: 'Alternative', 
+      year: 1992,
+      language: 'en',
+      audioFeatures: { energy: 0.38, danceability: 0.25, valence: 0.18 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Creep%20Radiohead',
+        appleMusic: 'https://music.apple.com/search?term=Creep%20Radiohead',
+        youtubeMusic: 'https://music.youtube.com/search?q=Creep%20Radiohead',
+        amazonMusic: 'https://music.amazon.com/search/Creep%20Radiohead',
+      }
+    },
+    { 
+      title: 'The Night We Met', 
+      artist: 'Lord Huron', 
+      genre: 'Indie', 
+      year: 2015,
+      language: 'en',
+      audioFeatures: { energy: 0.32, danceability: 0.18, valence: 0.22 },
+      links: {
+        spotify: 'https://open.spotify.com/search/The%20Night%20We%20Met%20Lord%20Huron',
+        appleMusic: 'https://music.apple.com/search?term=The%20Night%20We%20Met%20Lord%20Huron',
+        youtubeMusic: 'https://music.youtube.com/search?q=The%20Night%20We%20Met%20Lord%20Huron',
+        amazonMusic: 'https://music.amazon.com/search/The%20Night%20We%20Met%20Lord%20Huron',
+      }
+    },
+    { 
+      title: 'Ae Dil Hai Mushkil', 
+      artist: 'Arijit Singh', 
+      genre: 'Bollywood', 
+      year: 2016,
+      language: 'hi',
+      audioFeatures: { energy: 0.45, danceability: 0.30, valence: 0.35 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Ae%20Dil%20Hai%20Mushkil%20Arijit%20Singh',
+        appleMusic: 'https://music.apple.com/search?term=Ae%20Dil%20Hai%20Mushkil',
+        youtubeMusic: 'https://music.youtube.com/search?q=Ae%20Dil%20Hai%20Mushkil%20Arijit',
+        amazonMusic: 'https://music.amazon.com/search/Ae%20Dil%20Hai%20Mushkil',
+      }
+    },
+    { 
+      title: 'Kabhi Kabhi Aditi Zindagi Mein', 
+      artist: 'Hariharan', 
+      genre: 'Bollywood', 
+      year: 1998,
+      language: 'hi',
+      audioFeatures: { energy: 0.40, danceability: 0.25, valence: 0.30 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Kabhi%20Kabhi%20Aditi%20Zindagi%20Mein',
+        appleMusic: 'https://music.apple.com/search?term=Kabhi%20Kabhi%20Aditi%20Zindagi',
+        youtubeMusic: 'https://music.youtube.com/search?q=Kabhi%20Kabhi%20Aditi%20Zindagi%20Mein',
+        amazonMusic: 'https://music.amazon.com/search/Kabhi%20Kabhi%20Aditi',
+      }
+    },
+    { 
+      title: 'Dil Sambhal Jaa', 
+      artist: 'Jagjit Singh', 
+      genre: 'Bollywood', 
+      year: 1981,
+      language: 'hi',
+      audioFeatures: { energy: 0.35, danceability: 0.20, valence: 0.28 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Dil%20Sambhal%20Jaa%20Jagjit%20Singh',
+        appleMusic: 'https://music.apple.com/search?term=Dil%20Sambhal%20Jaa',
+        youtubeMusic: 'https://music.youtube.com/search?q=Dil%20Sambhal%20Jaa%20Jagjit',
+        amazonMusic: 'https://music.amazon.com/search/Dil%20Sambhal%20Jaa',
+      }
+    },
+    { 
       title: 'La Canción Triste', 
       artist: 'Juan Luis Guerra', 
       genre: 'Latino', 
@@ -180,6 +325,34 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/La%20Cancion%20Triste',
       }
     },
+    { 
+      title: 'Que Locura Enamorarse de Ti', 
+      artist: 'Eddie Santiago', 
+      genre: 'Latino', 
+      year: 1988,
+      language: 'es',
+      audioFeatures: { energy: 0.38, danceability: 0.32, valence: 0.28 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Que%20Locura%20Enamorarse%20de%20Ti',
+        appleMusic: 'https://music.apple.com/search?term=Que%20Locura%20Enamorarse',
+        youtubeMusic: 'https://music.youtube.com/search?q=Que%20Locura%20Enamorarse%20de%20Ti',
+        amazonMusic: 'https://music.amazon.com/search/Que%20Locura%20Enamorarse',
+      }
+    },
+    { 
+      title: 'Lloraras', 
+      artist: 'Oscar D\'León', 
+      genre: 'Latino', 
+      year: 1975,
+      language: 'es',
+      audioFeatures: { energy: 0.42, danceability: 0.35, valence: 0.25 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Lloraras%20Oscar%20D%20Leon',
+        appleMusic: 'https://music.apple.com/search?term=Lloraras%20Oscar%20D%20Leon',
+        youtubeMusic: 'https://music.youtube.com/search?q=Lloraras%20Oscar%20D%20Leon',
+        amazonMusic: 'https://music.amazon.com/search/Lloraras%20Oscar%20D%20Leon',
+      }
+    },
   ],
   'energetic': [
     { 
@@ -187,6 +360,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'The Weeknd', 
       genre: 'Electronic', 
       year: 2019,
+      language: 'en',
       audioFeatures: { energy: 0.88, danceability: 0.85, valence: 0.75 },
       links: {
         spotify: 'https://open.spotify.com/search/Blinding%20Lights%20The%20Weeknd',
@@ -200,12 +374,41 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Mötley Crüe', 
       genre: 'Rock', 
       year: 1989,
+      language: 'en',
       audioFeatures: { energy: 0.95, danceability: 0.80, valence: 0.82 },
       links: {
         spotify: 'https://open.spotify.com/search/Kickstart%20My%20Heart%20Motley%20Crue',
         appleMusic: 'https://music.apple.com/search?term=Kickstart%20My%20Heart',
         youtubeMusic: 'https://music.youtube.com/search?q=Kickstart%20My%20Heart%20Motley%20Crue',
         amazonMusic: 'https://music.amazon.com/search/Kickstart%20My%20Heart%20Motley%20Crue',
+      }
+    },
+    { 
+      title: 'Pump It', 
+      artist: 'The Black Eyed Peas', 
+      genre: 'Hip-Hop', 
+      year: 2005,
+      language: 'en',
+      audioFeatures: { energy: 0.92, danceability: 0.88, valence: 0.80 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Pump%20It%20The%20Black%20Eyed%20Peas',
+        appleMusic: 'https://music.apple.com/search?term=Pump%20It%20Black%20Eyed%20Peas',
+        youtubeMusic: 'https://music.youtube.com/search?q=Pump%20It%20The%20Black%20Eyed%20Peas',
+        amazonMusic: 'https://music.amazon.com/search/Pump%20It%20Black%20Eyed%20Peas',
+      }
+    },
+    { 
+      title: 'Uptown Funk', 
+      artist: 'Mark Ronson ft. Bruno Mars', 
+      genre: 'Funk', 
+      year: 2014,
+      language: 'en',
+      audioFeatures: { energy: 0.90, danceability: 0.92, valence: 0.85 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Uptown%20Funk%20Mark%20Ronson',
+        appleMusic: 'https://music.apple.com/search?term=Uptown%20Funk%20Mark%20Ronson',
+        youtubeMusic: 'https://music.youtube.com/search?q=Uptown%20Funk%20Mark%20Ronson',
+        amazonMusic: 'https://music.amazon.com/search/Uptown%20Funk%20Mark%20Ronson',
       }
     },
     { 
@@ -222,6 +425,62 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/Chaleya%20Jhumka%20Arijit',
       }
     },
+    { 
+      title: 'Naatu Naatu', 
+      artist: 'MM Keeravaani', 
+      genre: 'Bollywood', 
+      year: 2022,
+      language: 'hi',
+      audioFeatures: { energy: 0.95, danceability: 0.90, valence: 0.85 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Naatu%20Naatu%20MM%20Keeravaani',
+        appleMusic: 'https://music.apple.com/search?term=Naatu%20Naatu%20MM%20Keeravaani',
+        youtubeMusic: 'https://music.youtube.com/search?q=Naatu%20Naatu%20MM%20Keeravaani',
+        amazonMusic: 'https://music.amazon.com/search/Naatu%20Naatu',
+      }
+    },
+    { 
+      title: 'Gal Bandhang Mukhda Fasai', 
+      artist: 'Gajendra Verma', 
+      genre: 'Bollywood', 
+      year: 2023,
+      language: 'hi',
+      audioFeatures: { energy: 0.88, danceability: 0.85, valence: 0.82 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Gal%20Bandhang%20Mukhda%20Fasai',
+        appleMusic: 'https://music.apple.com/search?term=Gal%20Bandhang%20Mukhda',
+        youtubeMusic: 'https://music.youtube.com/search?q=Gal%20Bandhang%20Mukhda%20Gajendra',
+        amazonMusic: 'https://music.amazon.com/search/Gal%20Bandhang%20Mukhda',
+      }
+    },
+    { 
+      title: 'Tití Me Preguntó', 
+      artist: 'Bad Bunny', 
+      genre: 'Latino', 
+      year: 2022,
+      language: 'es',
+      audioFeatures: { energy: 0.85, danceability: 0.88, valence: 0.80 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Titi%20Me%20Pregunto%20Bad%20Bunny',
+        appleMusic: 'https://music.apple.com/search?term=Titi%20Me%20Pregunto%20Bad%20Bunny',
+        youtubeMusic: 'https://music.youtube.com/search?q=Titi%20Me%20Pregunto%20Bad%20Bunny',
+        amazonMusic: 'https://music.amazon.com/search/Titi%20Me%20Pregunto%20Bad%20Bunny',
+      }
+    },
+    { 
+      title: 'Ella Baila Sola', 
+      artist: 'Eslabon Armado x Peso Pluma', 
+      genre: 'Latino', 
+      year: 2023,
+      language: 'es',
+      audioFeatures: { energy: 0.82, danceability: 0.85, valence: 0.87 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Ella%20Baila%20Sola%20Eslabon%20Armado',
+        appleMusic: 'https://music.apple.com/search?term=Ella%20Baila%20Sola%20Eslabon%20Armado',
+        youtubeMusic: 'https://music.youtube.com/search?q=Ella%20Baila%20Sola%20Eslabon%20Armado',
+        amazonMusic: 'https://music.amazon.com/search/Ella%20Baila%20Sola%20Eslabon',
+      }
+    },
   ],
   'relaxed': [
     { 
@@ -229,6 +488,7 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Frank Sinatra', 
       genre: 'Jazz', 
       year: 1954,
+      language: 'en',
       audioFeatures: { energy: 0.35, danceability: 0.40, valence: 0.70 },
       links: {
         spotify: 'https://open.spotify.com/search/Fly%20Me%20to%20the%20Moon%20Frank%20Sinatra',
@@ -242,12 +502,97 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Marconi Union', 
       genre: 'Ambient', 
       year: 2011,
+      language: 'en',
       audioFeatures: { energy: 0.10, danceability: 0.05, valence: 0.60 },
       links: {
         spotify: 'https://open.spotify.com/search/weightless%20Marconi%20Union',
         appleMusic: 'https://music.apple.com/search?term=weightless%20Marconi%20Union',
         youtubeMusic: 'https://music.youtube.com/search?q=weightless%20Marconi%20Union',
         amazonMusic: 'https://music.amazon.com/search/weightless%20Marconi%20Union',
+      }
+    },
+    { 
+      title: 'Clair de Lune', 
+      artist: 'Claude Debussy', 
+      genre: 'Classical', 
+      year: 1890,
+      language: 'en',
+      audioFeatures: { energy: 0.15, danceability: 0.08, valence: 0.65 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Clair%20de%20Lune%20Claude%20Debussy',
+        appleMusic: 'https://music.apple.com/search?term=Clair%20de%20Lune%20Claude%20Debussy',
+        youtubeMusic: 'https://music.youtube.com/search?q=Clair%20de%20Lune%20Claude%20Debussy',
+        amazonMusic: 'https://music.amazon.com/search/Clair%20de%20Lune%20Debussy',
+      }
+    },
+    { 
+      title: 'River Flows in You', 
+      artist: 'Yiruma', 
+      genre: 'Piano', 
+      year: 2001,
+      language: 'en',
+      audioFeatures: { energy: 0.20, danceability: 0.10, valence: 0.62 },
+      links: {
+        spotify: 'https://open.spotify.com/search/River%20Flows%20in%20You%20Yiruma',
+        appleMusic: 'https://music.apple.com/search?term=River%20Flows%20in%20You%20Yiruma',
+        youtubeMusic: 'https://music.youtube.com/search?q=River%20Flows%20in%20You%20Yiruma',
+        amazonMusic: 'https://music.amazon.com/search/River%20Flows%20in%20You%20Yiruma',
+      }
+    },
+    { 
+      title: 'Raag Yaman', 
+      artist: 'Ravi Shankar', 
+      genre: 'Classical', 
+      year: 1965,
+      language: 'hi',
+      audioFeatures: { energy: 0.25, danceability: 0.12, valence: 0.68 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Raag%20Yaman%20Ravi%20Shankar',
+        appleMusic: 'https://music.apple.com/search?term=Raag%20Yaman%20Ravi%20Shankar',
+        youtubeMusic: 'https://music.youtube.com/search?q=Raag%20Yaman%20Ravi%20Shankar',
+        amazonMusic: 'https://music.amazon.com/search/Raag%20Yaman%20Ravi%20Shankar',
+      }
+    },
+    { 
+      title: 'Bansuri Ki Madhur Suri', 
+      artist: 'Hari Prasad Chaurasia', 
+      genre: 'Bollywood', 
+      year: 1988,
+      language: 'hi',
+      audioFeatures: { energy: 0.22, danceability: 0.15, valence: 0.65 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Bansuri%20Ki%20Madhur%20Suri%20Hari%20Prasad',
+        appleMusic: 'https://music.apple.com/search?term=Bansuri%20Ki%20Madhur%20Suri',
+        youtubeMusic: 'https://music.youtube.com/search?q=Bansuri%20Ki%20Madhur%20Suri%20Hari',
+        amazonMusic: 'https://music.amazon.com/search/Bansuri%20Ki%20Madhur%20Suri',
+      }
+    },
+    { 
+      title: 'Noches de Arequipa', 
+      artist: 'Los Hermanos Zañartu', 
+      genre: 'Latino', 
+      year: 1998,
+      language: 'es',
+      audioFeatures: { energy: 0.30, danceability: 0.25, valence: 0.70 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Noches%20de%20Arequipa%20Hermanos%20Zanartu',
+        appleMusic: 'https://music.apple.com/search?term=Noches%20de%20Arequipa',
+        youtubeMusic: 'https://music.youtube.com/search?q=Noches%20de%20Arequipa%20Hermanos%20Zanartu',
+        amazonMusic: 'https://music.amazon.com/search/Noches%20de%20Arequipa',
+      }
+    },
+    { 
+      title: 'Encantada', 
+      artist: 'Conjunto Clásico', 
+      genre: 'Latino', 
+      year: 2000,
+      language: 'es',
+      audioFeatures: { energy: 0.28, danceability: 0.22, valence: 0.68 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Encantada%20Conjunto%20Clasico',
+        appleMusic: 'https://music.apple.com/search?term=Encantada%20Conjunto%20Clasico',
+        youtubeMusic: 'https://music.youtube.com/search?q=Encantada%20Conjunto%20Clasico',
+        amazonMusic: 'https://music.amazon.com/search/Encantada%20Conjunto%20Clasico',
       }
     },
   ],
@@ -257,12 +602,55 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Ed Sheeran', 
       genre: 'Pop', 
       year: 2014,
+      language: 'en',
       audioFeatures: { energy: 0.50, danceability: 0.40, valence: 0.80 },
       links: {
         spotify: 'https://open.spotify.com/search/Thinking%20Out%20Loud%20Ed%20Sheeran',
         appleMusic: 'https://music.apple.com/search?term=Thinking%20Out%20Loud%20Ed%20Sheeran',
         youtubeMusic: 'https://music.youtube.com/search?q=Thinking%20Out%20Loud%20Ed%20Sheeran',
         amazonMusic: 'https://music.amazon.com/search/Thinking%20Out%20Loud%20Ed%20Sheeran',
+      }
+    },
+    { 
+      title: 'All of Me', 
+      artist: 'John Legend', 
+      genre: 'R&B', 
+      year: 2013,
+      language: 'en',
+      audioFeatures: { energy: 0.52, danceability: 0.42, valence: 0.82 },
+      links: {
+        spotify: 'https://open.spotify.com/search/All%20of%20Me%20John%20Legend',
+        appleMusic: 'https://music.apple.com/search?term=All%20of%20Me%20John%20Legend',
+        youtubeMusic: 'https://music.youtube.com/search?q=All%20of%20Me%20John%20Legend',
+        amazonMusic: 'https://music.amazon.com/search/All%20of%20Me%20John%20Legend',
+      }
+    },
+    { 
+      title: 'Wonderwall', 
+      artist: 'Oasis', 
+      genre: 'Rock', 
+      year: 1996,
+      language: 'en',
+      audioFeatures: { energy: 0.48, danceability: 0.38, valence: 0.75 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Wonderwall%20Oasis',
+        appleMusic: 'https://music.apple.com/search?term=Wonderwall%20Oasis',
+        youtubeMusic: 'https://music.youtube.com/search?q=Wonderwall%20Oasis',
+        amazonMusic: 'https://music.amazon.com/search/Wonderwall%20Oasis',
+      }
+    },
+    { 
+      title: 'Make You Feel My Love', 
+      artist: 'Adele', 
+      genre: 'Pop', 
+      year: 2008,
+      language: 'en',
+      audioFeatures: { energy: 0.45, danceability: 0.35, valence: 0.78 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Make%20You%20Feel%20My%20Love%20Adele',
+        appleMusic: 'https://music.apple.com/search?term=Make%20You%20Feel%20My%20Love%20Adele',
+        youtubeMusic: 'https://music.youtube.com/search?q=Make%20You%20Feel%20My%20Love%20Adele',
+        amazonMusic: 'https://music.amazon.com/search/Make%20You%20Feel%20My%20Love%20Adele',
       }
     },
     { 
@@ -280,6 +668,34 @@ export const EXTENDED_SONG_DATABASE = {
       }
     },
     { 
+      title: 'Ek Ladki Ko Dekha Toh Aisa Laga', 
+      artist: 'Kumar Sanu', 
+      genre: 'Bollywood', 
+      year: 1994,
+      language: 'hi',
+      audioFeatures: { energy: 0.50, danceability: 0.40, valence: 0.80 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Ek%20Ladki%20Ko%20Dekha%20Toh%20Aisa%20Laga',
+        appleMusic: 'https://music.apple.com/search?term=Ek%20Ladki%20Ko%20Dekha',
+        youtubeMusic: 'https://music.youtube.com/search?q=Ek%20Ladki%20Ko%20Dekha%20Toh%20Aisa%20Laga',
+        amazonMusic: 'https://music.amazon.com/search/Ek%20Ladki%20Ko%20Dekha',
+      }
+    },
+    { 
+      title: 'Raina Beeti Jaye', 
+      artist: 'Jagjit Singh', 
+      genre: 'Bollywood', 
+      year: 1985,
+      language: 'hi',
+      audioFeatures: { energy: 0.52, danceability: 0.42, valence: 0.77 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Raina%20Beeti%20Jaye%20Jagjit%20Singh',
+        appleMusic: 'https://music.apple.com/search?term=Raina%20Beeti%20Jaye',
+        youtubeMusic: 'https://music.youtube.com/search?q=Raina%20Beeti%20Jaye%20Jagjit%20Singh',
+        amazonMusic: 'https://music.amazon.com/search/Raina%20Beeti%20Jaye',
+      }
+    },
+    { 
       title: 'Beso a Beso', 
       artist: 'Juan Luis Guerra', 
       genre: 'Latino', 
@@ -293,6 +709,34 @@ export const EXTENDED_SONG_DATABASE = {
         amazonMusic: 'https://music.amazon.com/search/Beso%20a%20Beso',
       }
     },
+    { 
+      title: 'Obsesión', 
+      artist: 'Aventura', 
+      genre: 'Latino', 
+      year: 2002,
+      language: 'es',
+      audioFeatures: { energy: 0.62, danceability: 0.52, valence: 0.80 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Obsesion%20Aventura',
+        appleMusic: 'https://music.apple.com/search?term=Obsesion%20Aventura',
+        youtubeMusic: 'https://music.youtube.com/search?q=Obsesion%20Aventura',
+        amazonMusic: 'https://music.amazon.com/search/Obsesion%20Aventura',
+      }
+    },
+    { 
+      title: 'Lágrimas y Flores', 
+      artist: 'La Banda Horizonte', 
+      genre: 'Latino', 
+      year: 2004,
+      language: 'es',
+      audioFeatures: { energy: 0.55, danceability: 0.45, valence: 0.82 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Lagrimas%20y%20Flores%20La%20Banda%20Horizonte',
+        appleMusic: 'https://music.apple.com/search?term=Lagrimas%20y%20Flores',
+        youtubeMusic: 'https://music.youtube.com/search?q=Lagrimas%20y%20Flores%20La%20Banda',
+        amazonMusic: 'https://music.amazon.com/search/Lagrimas%20y%20Flores',
+      }
+    },
   ],
   'focused': [
     { 
@@ -300,12 +744,111 @@ export const EXTENDED_SONG_DATABASE = {
       artist: 'Various', 
       genre: 'Hip-Hop', 
       year: 2020,
+      language: 'en',
       audioFeatures: { energy: 0.40, danceability: 0.35, valence: 0.50 },
       links: {
         spotify: 'https://open.spotify.com/search/Lo-Fi%20Hip%20Hop%20Study%20Mix',
         appleMusic: 'https://music.apple.com/search?term=Lo-Fi%20Hip%20Hop%20Study%20Mix',
         youtubeMusic: 'https://music.youtube.com/search?q=Lo-Fi%20Hip%20Hop%20Study%20Mix',
         amazonMusic: 'https://music.amazon.com/search/Lo-Fi%20Hip%20Hop%20Study%20Mix',
+      }
+    },
+    { 
+      title: 'Chillhop Essentials', 
+      artist: 'Ólafur Arnalds', 
+      genre: 'Ambient', 
+      year: 2018,
+      language: 'en',
+      audioFeatures: { energy: 0.35, danceability: 0.30, valence: 0.55 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Chillhop%20Essentials%20Olafur%20Arnalds',
+        appleMusic: 'https://music.apple.com/search?term=Chillhop%20Essentials%20Olafur',
+        youtubeMusic: 'https://music.youtube.com/search?q=Chillhop%20Essentials%20Olafur',
+        amazonMusic: 'https://music.amazon.com/search/Chillhop%20Essentials%20Olafur',
+      }
+    },
+    { 
+      title: 'Piano Study Sessions', 
+      artist: 'Ludovico Einaudi', 
+      genre: 'Classical', 
+      year: 2012,
+      language: 'en',
+      audioFeatures: { energy: 0.32, danceability: 0.25, valence: 0.58 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Piano%20Study%20Sessions%20Ludovico%20Einaudi',
+        appleMusic: 'https://music.apple.com/search?term=Piano%20Study%20Sessions%20Ludovico',
+        youtubeMusic: 'https://music.youtube.com/search?q=Piano%20Study%20Sessions%20Ludovico',
+        amazonMusic: 'https://music.amazon.com/search/Piano%20Study%20Sessions',
+      }
+    },
+    { 
+      title: 'Meditation & Focus', 
+      artist: 'Brian Eno', 
+      genre: 'Ambient', 
+      year: 2014,
+      language: 'en',
+      audioFeatures: { energy: 0.28, danceability: 0.20, valence: 0.52 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Meditation%20Focus%20Brian%20Eno',
+        appleMusic: 'https://music.apple.com/search?term=Meditation%20Focus%20Brian%20Eno',
+        youtubeMusic: 'https://music.youtube.com/search?q=Meditation%20Focus%20Brian%20Eno',
+        amazonMusic: 'https://music.amazon.com/search/Meditation%20Focus%20Brian%20Eno',
+      }
+    },
+    { 
+      title: 'Sitar Meditation', 
+      artist: 'Ravi Shankar', 
+      genre: 'Classical', 
+      year: 1975,
+      language: 'hi',
+      audioFeatures: { energy: 0.30, danceability: 0.18, valence: 0.60 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Sitar%20Meditation%20Ravi%20Shankar',
+        appleMusic: 'https://music.apple.com/search?term=Sitar%20Meditation%20Ravi%20Shankar',
+        youtubeMusic: 'https://music.youtube.com/search?q=Sitar%20Meditation%20Ravi%20Shankar',
+        amazonMusic: 'https://music.amazon.com/search/Sitar%20Meditation%20Ravi%20Shankar',
+      }
+    },
+    { 
+      title: 'Concentration Raag', 
+      artist: 'Hariprasad Chaurasia', 
+      genre: 'Bollywood', 
+      year: 1990,
+      language: 'hi',
+      audioFeatures: { energy: 0.28, danceability: 0.15, valence: 0.58 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Concentration%20Raag%20Hariprasad',
+        appleMusic: 'https://music.apple.com/search?term=Concentration%20Raag%20Hariprasad',
+        youtubeMusic: 'https://music.youtube.com/search?q=Concentration%20Raag%20Hariprasad',
+        amazonMusic: 'https://music.amazon.com/search/Concentration%20Raag%20Hariprasad',
+      }
+    },
+    { 
+      title: 'Guitarra Española Meditación', 
+      artist: 'Paco de Lucía', 
+      genre: 'Latino', 
+      year: 1988,
+      language: 'es',
+      audioFeatures: { energy: 0.35, danceability: 0.28, valence: 0.62 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Guitarra%20Espanola%20Meditacion%20Paco%20de%20Lucia',
+        appleMusic: 'https://music.apple.com/search?term=Guitarra%20Espanola%20Meditacion',
+        youtubeMusic: 'https://music.youtube.com/search?q=Guitarra%20Espanola%20Meditacion%20Paco',
+        amazonMusic: 'https://music.amazon.com/search/Guitarra%20Espanola%20Meditacion',
+      }
+    },
+    { 
+      title: 'Ritmo Relajante', 
+      artist: 'Conjunto Latino', 
+      genre: 'Latino', 
+      year: 2005,
+      language: 'es',
+      audioFeatures: { energy: 0.32, danceability: 0.25, valence: 0.60 },
+      links: {
+        spotify: 'https://open.spotify.com/search/Ritmo%20Relajante%20Conjunto%20Latino',
+        appleMusic: 'https://music.apple.com/search?term=Ritmo%20Relajante%20Conjunto',
+        youtubeMusic: 'https://music.youtube.com/search?q=Ritmo%20Relajante%20Conjunto%20Latino',
+        amazonMusic: 'https://music.amazon.com/search/Ritmo%20Relajante%20Conjunto',
       }
     },
   ],
