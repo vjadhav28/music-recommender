@@ -1222,5 +1222,437 @@
       ],
       "timestamp": "2026-04-29T12:29:25.225Z"
     }
+  ],
+  "anonymous-1777465774390": [
+    {
+      "mood": "Energetic",
+      "genre": "Pop",
+      "activity": "",
+      "songs": [
+        {
+          "title": "Kickstart My Heart",
+          "artist": "Mötley Crüe",
+          "genre": "Rock",
+          "year": 1989,
+          "reason": "high-energy beat to fuel your day",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Kickstart%20My%20Heart%20Motley%20Crue",
+            "appleMusic": "https://music.apple.com/search?term=Kickstart%20My%20Heart",
+            "youtubeMusic": "https://music.youtube.com/search?q=Kickstart%20My%20Heart%20Motley%20Crue",
+            "amazonMusic": "https://music.amazon.com/search/Kickstart%20My%20Heart%20Motley%20Crue"
+          },
+          "audioFeatures": {
+            "energy": 0.95,
+            "danceability": 0.8,
+            "valence": 0.82
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Blinding Lights",
+          "artist": "The Weeknd",
+          "genre": "Electronic",
+          "year": 2019,
+          "reason": "driving rhythm with powerful vocals",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Blinding%20Lights%20The%20Weeknd",
+            "appleMusic": "https://music.apple.com/search?term=Blinding%20Lights%20The%20Weeknd",
+            "youtubeMusic": "https://music.youtube.com/search?q=Blinding%20Lights%20The%20Weeknd",
+            "amazonMusic": "https://music.amazon.com/search/Blinding%20Lights%20The%20Weeknd"
+          },
+          "audioFeatures": {
+            "energy": 0.88,
+            "danceability": 0.85,
+            "valence": 0.75
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:29:34.391Z"
+    }
+  ],
+  "anonymous-1777465801663": [
+    {
+      "mood": "Energetic",
+      "genre": "Jazz",
+      "activity": "",
+      "songs": [
+        {
+          "title": "Blinding Lights",
+          "artist": "The Weeknd",
+          "genre": "Electronic",
+          "year": 2019,
+          "reason": "high-energy beat to fuel your day",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Blinding%20Lights%20The%20Weeknd",
+            "appleMusic": "https://music.apple.com/search?term=Blinding%20Lights%20The%20Weeknd",
+            "youtubeMusic": "https://music.youtube.com/search?q=Blinding%20Lights%20The%20Weeknd",
+            "amazonMusic": "https://music.amazon.com/search/Blinding%20Lights%20The%20Weeknd"
+          },
+          "audioFeatures": {
+            "energy": 0.88,
+            "danceability": 0.85,
+            "valence": 0.75
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Kickstart My Heart",
+          "artist": "Mötley Crüe",
+          "genre": "Rock",
+          "year": 1989,
+          "reason": "driving rhythm with powerful vocals",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Kickstart%20My%20Heart%20Motley%20Crue",
+            "appleMusic": "https://music.apple.com/search?term=Kickstart%20My%20Heart",
+            "youtubeMusic": "https://music.youtube.com/search?q=Kickstart%20My%20Heart%20Motley%20Crue",
+            "amazonMusic": "https://music.amazon.com/search/Kickstart%20My%20Heart%20Motley%20Crue"
+          },
+          "audioFeatures": {
+            "energy": 0.95,
+            "danceability": 0.8,
+            "valence": 0.82
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:30:01.664Z"
+    }
+  ],
+  "anonymous-1777465819235": [
+    {
+      "mood": "Happy",
+      "genre": "Hip-Hop",
+      "activity": "",
+      "songs": [
+        {
+          "title": "Don't Stop Me Now",
+          "artist": "Queen",
+          "genre": "Rock",
+          "year": 1978,
+          "reason": "uplifting melody that matches your mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Don%27t%20Stop%20Me%20Now%20Queen",
+            "appleMusic": "https://music.apple.com/search?term=Dont%20Stop%20Me%20Now%20Queen",
+            "youtubeMusic": "https://music.youtube.com/search?q=Dont%20Stop%20Me%20Now%20Queen",
+            "amazonMusic": "https://music.amazon.com/search/Don%27t%20Stop%20Me%20Now%20Queen"
+          },
+          "audioFeatures": {
+            "energy": 0.88,
+            "danceability": 0.82,
+            "valence": 0.89
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Walking on Sunshine",
+          "artist": "Katrina & The Waves",
+          "genre": "Pop",
+          "year": 1985,
+          "reason": "feel-good track perfect for today",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "appleMusic": "https://music.apple.com/search?term=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "youtubeMusic": "https://music.youtube.com/search?q=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "amazonMusic": "https://music.amazon.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves"
+          },
+          "audioFeatures": {
+            "energy": 0.92,
+            "danceability": 0.88,
+            "valence": 0.95
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Levitating",
+          "artist": "Dua Lipa",
+          "genre": "Pop",
+          "year": 2020,
+          "reason": "energetic vibe with positive lyrics",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Levitating%20Dua%20Lipa",
+            "appleMusic": "https://music.apple.com/search?term=Levitating%20Dua%20Lipa",
+            "youtubeMusic": "https://music.youtube.com/search?q=Levitating%20Dua%20Lipa",
+            "amazonMusic": "https://music.amazon.com/search/Levitating%20Dua%20Lipa"
+          },
+          "audioFeatures": {
+            "energy": 0.8,
+            "danceability": 0.87,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Good as Hell",
+          "artist": "Lizzo",
+          "genre": "Pop",
+          "year": 2016,
+          "reason": "classic feel-good anthem",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Good%20as%20Hell%20Lizzo",
+            "appleMusic": "https://music.apple.com/search?term=Good%20as%20Hell%20Lizzo",
+            "youtubeMusic": "https://music.youtube.com/search?q=Good%20as%20Hell%20Lizzo",
+            "amazonMusic": "https://music.amazon.com/search/Good%20as%20Hell%20Lizzo"
+          },
+          "audioFeatures": {
+            "energy": 0.85,
+            "danceability": 0.75,
+            "valence": 0.92
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "I Will Follow You into the Dark",
+          "artist": "Death Cab for Cutie",
+          "genre": "Indie",
+          "year": 2005,
+          "reason": "modern pop hit with infectious energy",
+          "links": {
+            "spotify": "https://open.spotify.com/search/I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab%20for%20Cutie",
+            "appleMusic": "https://music.apple.com/search?term=I%20Will%20Follow%20You%20into%20the%20Dark",
+            "youtubeMusic": "https://music.youtube.com/search?q=I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab",
+            "amazonMusic": "https://music.amazon.com/search/I%20Will%20Follow%20You%20into%20the%20Dark"
+          },
+          "audioFeatures": {
+            "energy": 0.65,
+            "danceability": 0.45,
+            "valence": 0.68
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:30:19.236Z"
+    }
+  ],
+  "anonymous-1777465843917": [
+    {
+      "mood": "Happy",
+      "genre": "Hip-Hop",
+      "activity": "",
+      "songs": [
+        {
+          "title": "Levitating",
+          "artist": "Dua Lipa",
+          "genre": "Pop",
+          "year": 2020,
+          "reason": "uplifting melody that matches your mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Levitating%20Dua%20Lipa",
+            "appleMusic": "https://music.apple.com/search?term=Levitating%20Dua%20Lipa",
+            "youtubeMusic": "https://music.youtube.com/search?q=Levitating%20Dua%20Lipa",
+            "amazonMusic": "https://music.amazon.com/search/Levitating%20Dua%20Lipa"
+          },
+          "audioFeatures": {
+            "energy": 0.8,
+            "danceability": 0.87,
+            "valence": 0.88
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "I Will Follow You into the Dark",
+          "artist": "Death Cab for Cutie",
+          "genre": "Indie",
+          "year": 2005,
+          "reason": "feel-good track perfect for today",
+          "links": {
+            "spotify": "https://open.spotify.com/search/I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab%20for%20Cutie",
+            "appleMusic": "https://music.apple.com/search?term=I%20Will%20Follow%20You%20into%20the%20Dark",
+            "youtubeMusic": "https://music.youtube.com/search?q=I%20Will%20Follow%20You%20into%20the%20Dark%20Death%20Cab",
+            "amazonMusic": "https://music.amazon.com/search/I%20Will%20Follow%20You%20into%20the%20Dark"
+          },
+          "audioFeatures": {
+            "energy": 0.65,
+            "danceability": 0.45,
+            "valence": 0.68
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Don't Stop Me Now",
+          "artist": "Queen",
+          "genre": "Rock",
+          "year": 1978,
+          "reason": "energetic vibe with positive lyrics",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Don%27t%20Stop%20Me%20Now%20Queen",
+            "appleMusic": "https://music.apple.com/search?term=Dont%20Stop%20Me%20Now%20Queen",
+            "youtubeMusic": "https://music.youtube.com/search?q=Dont%20Stop%20Me%20Now%20Queen",
+            "amazonMusic": "https://music.amazon.com/search/Don%27t%20Stop%20Me%20Now%20Queen"
+          },
+          "audioFeatures": {
+            "energy": 0.88,
+            "danceability": 0.82,
+            "valence": 0.89
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Good as Hell",
+          "artist": "Lizzo",
+          "genre": "Pop",
+          "year": 2016,
+          "reason": "classic feel-good anthem",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Good%20as%20Hell%20Lizzo",
+            "appleMusic": "https://music.apple.com/search?term=Good%20as%20Hell%20Lizzo",
+            "youtubeMusic": "https://music.youtube.com/search?q=Good%20as%20Hell%20Lizzo",
+            "amazonMusic": "https://music.amazon.com/search/Good%20as%20Hell%20Lizzo"
+          },
+          "audioFeatures": {
+            "energy": 0.85,
+            "danceability": 0.75,
+            "valence": 0.92
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Walking on Sunshine",
+          "artist": "Katrina & The Waves",
+          "genre": "Pop",
+          "year": 1985,
+          "reason": "modern pop hit with infectious energy",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "appleMusic": "https://music.apple.com/search?term=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "youtubeMusic": "https://music.youtube.com/search?q=Walking%20on%20Sunshine%20Katrina%20The%20Waves",
+            "amazonMusic": "https://music.amazon.com/search/Walking%20on%20Sunshine%20Katrina%20The%20Waves"
+          },
+          "audioFeatures": {
+            "energy": 0.92,
+            "danceability": 0.88,
+            "valence": 0.95
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:30:43.918Z"
+    }
+  ],
+  "anonymous-1777465860375": [
+    {
+      "mood": "happy",
+      "songs": [
+        {
+          "title": "Ek Ajnabee Haseena Se",
+          "artist": "Kishore Kumar",
+          "genre": "Bollywood",
+          "year": 1963,
+          "reason": "uplifting melody that matches your mood",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Ek%20Ajnabee%20Haseena%20Se%20Kishore%20Kumar",
+            "appleMusic": "https://music.apple.com/search?term=Ek%20Ajnabee%20Haseena%20Se",
+            "youtubeMusic": "https://music.youtube.com/search?q=Ek%20Ajnabee%20Haseena%20Se%20Kishore",
+            "amazonMusic": "https://music.amazon.com/search/Ek%20Ajnabee%20Haseena%20Se"
+          },
+          "audioFeatures": {
+            "energy": 0.75,
+            "danceability": 0.72,
+            "valence": 0.85
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        },
+        {
+          "title": "Bura Na Mano Holi Hai",
+          "artist": "Amitabh Bachchan",
+          "genre": "Bollywood",
+          "year": 1975,
+          "reason": "feel-good track perfect for today",
+          "links": {
+            "spotify": "https://open.spotify.com/search/Bura%20Na%20Mano%20Holi%20Hai%20Amitabh%20Bachchan",
+            "appleMusic": "https://music.apple.com/search?term=Bura%20Na%20Mano%20Holi%20Hai%20Amitabh",
+            "youtubeMusic": "https://music.youtube.com/search?q=Bura%20Na%20Mano%20Holi%20Hai%20Amitabh",
+            "amazonMusic": "https://music.amazon.com/search/Bura%20Na%20Mano%20Holi%20Hai"
+          },
+          "audioFeatures": {
+            "energy": 0.85,
+            "danceability": 0.8,
+            "valence": 0.9
+          },
+          "personalizedScore": 0.5,
+          "boosts": {
+            "moodSimilarity": 0,
+            "genreSimilarity": 0,
+            "activityBoost": 0
+          }
+        }
+      ],
+      "timestamp": "2026-04-29T12:31:00.376Z"
+    }
   ]
 }

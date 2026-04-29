@@ -59,17 +59,17 @@ export default function App() {
     }
   }, [history]);
 
-  const handleSubmit = async ({ mood, genre, activity }) => {
+  const handleSubmit = async ({ mood, genre, activity, language }) => {
     setLoading(true);
     setError(null);
     setRecommendations(null);
-    setLastRequest({ mood, genre, activity });
+    setLastRequest({ mood, genre, activity, language });
 
     try {
       const res = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mood, genre, activity }),
+        body: JSON.stringify({ mood, genre, activity, language }),
       });
 
       if (!res.ok) {
