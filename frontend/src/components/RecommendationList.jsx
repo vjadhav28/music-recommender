@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, ChevronDown } from 'lucide-react';
-import PlaylistExport from './PlaylistExport';
 import SimilarSongs from './SimilarSongs';
 
 const FAVORITES_KEY = 'music-recommender-favorites';
@@ -87,8 +86,6 @@ export default function RecommendationList({ data, request }) {
       </div>
 
       {data.summary && <p className="summary-text">{data.summary}</p>}
-
-      <PlaylistExport songs={filter === 'favorites' ? favorites : data.songs} request={request} />
 
       <div className="recommendation-grid">
         {(filter === 'favorites' ? favorites : data.songs).map((song, idx) => {

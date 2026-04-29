@@ -1014,6 +1014,128 @@ body {
   border-radius: 12px;
 }
 
+.playlist-export {
+  margin-top: 24px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(124, 88, 255, 0.08), rgba(74, 159, 255, 0.08));
+  border: 1px solid rgba(124, 88, 255, 0.25);
+  border-radius: 12px;
+}
+
+.export-header {
+  margin-bottom: 20px;
+}
+
+.export-header h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.export-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.export-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.export-service-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.export-service-btn:hover:not(:disabled) {
+  background: rgba(124, 88, 255, 0.15);
+  border-color: rgba(124, 88, 255, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.export-service-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.service-emoji {
+  font-size: 1.5rem;
+  display: block;
+}
+
+.service-name {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.export-divider {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+  margin: 16px 0;
+  font-weight: 500;
+}
+
+.export-downloads {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.export-download-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.export-download-btn:hover:not(:disabled) {
+  background: rgba(124, 88, 255, 0.15);
+  border-color: rgba(124, 88, 255, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.export-download-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.export-note {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
 .history-list {
   list-style: none;
   padding: 0;

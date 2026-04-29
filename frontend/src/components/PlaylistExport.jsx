@@ -104,74 +104,80 @@ export default function PlaylistExport({ songs, request }) {
   return (
     <div className="playlist-export">
       <div className="export-header">
-        <h3>Export Playlist</h3>
-        <p>Share your recommendations on your favorite platform</p>
+        <div>
+          <h3>Save Your Playlist</h3>
+          <p>Share your recommendations on your favorite music platform</p>
+        </div>
       </div>
 
-      <div className="export-buttons">
+      <div className="export-services">
         <button
           onClick={() => handleExport('spotify')}
           disabled={isExporting}
-          className="export-btn export-spotify"
+          className="export-service-btn spotify"
           title="Export to Spotify"
         >
-          <span className="export-icon">🎵</span>
-          <span>Spotify</span>
+          <span className="service-emoji">🎵</span>
+          <span className="service-name">Spotify</span>
         </button>
 
         <button
           onClick={() => handleExport('appleMusic')}
           disabled={isExporting}
-          className="export-btn export-apple"
+          className="export-service-btn apple"
           title="Export to Apple Music"
         >
-          <span className="export-icon">🎶</span>
-          <span>Apple Music</span>
+          <span className="service-emoji">🎶</span>
+          <span className="service-name">Apple Music</span>
         </button>
 
         <button
           onClick={() => handleExport('youtubeMusic')}
           disabled={isExporting}
-          className="export-btn export-youtube"
+          className="export-service-btn youtube"
           title="Export to YouTube Music"
         >
-          <span className="export-icon">▶️</span>
-          <span>YouTube Music</span>
+          <span className="service-emoji">▶️</span>
+          <span className="service-name">YouTube Music</span>
         </button>
 
         <button
           onClick={() => handleExport('amazonMusic')}
           disabled={isExporting}
-          className="export-btn export-amazon"
+          className="export-service-btn amazon"
           title="Export to Amazon Music"
         >
-          <span className="export-icon">🎧</span>
-          <span>Amazon Music</span>
+          <span className="service-emoji">🎧</span>
+          <span className="service-name">Amazon Music</span>
         </button>
+      </div>
 
+      <div className="export-divider">or</div>
+
+      <div className="export-downloads">
         <button
           onClick={() => handleExport('json')}
           disabled={isExporting}
-          className="export-btn export-json"
+          className="export-download-btn"
           title="Download as JSON"
         >
-          <span className="export-icon"><Download size={16} /></span>
-          <span>JSON</span>
+          <Download size={18} />
+          <span>Download JSON</span>
         </button>
 
         <button
           onClick={() => handleExport('csv')}
           disabled={isExporting}
-          className="export-btn export-csv"
+          className="export-download-btn"
           title="Download as CSV"
         >
-          <span className="export-icon"><Download size={16} /></span>
-          <span>CSV</span>
+          <Download size={18} />
+          <span>Download CSV</span>
         </button>
       </div>
 
       <p className="export-note">
-        Click any streaming service to search for the first song, then add all songs to create a playlist. Use JSON/CSV exports to bulk import elsewhere.
+        Streaming services will open in a new tab. Download formats let you import elsewhere.
       </p>
     </div>
   );
