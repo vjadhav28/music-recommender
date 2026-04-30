@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 const CLIENT_ID = import.meta.env.VITE_ADSENSE_CLIENT_ID;
+const SHOW_PLACEHOLDERS = import.meta.env.DEV && import.meta.env.VITE_SHOW_AD_PLACEHOLDERS === 'true';
 
 /**
  * Google AdSense ad slot.
@@ -32,14 +33,16 @@ export default function AdSlot({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window.adsbygoogle = window.adsbygoogle || []).push({});
       pushedRef.current = true;
-    } catch (err) {
-      console.log('[v0] adsense push failed:', err?.message);
+    } catch {
+      // Ad blockers can prevent the AdSense runtime from accepting pushes.
     }
   }, [slot]);
 
   // In dev or when not configured, render a clearly-labeled placeholder so
   // layout is preserved without violating AdSense policy in production.
   if (!CLIENT_ID || !slot) {
+    if (!SHOW_PLACEHOLDERS) return null;
+
     return (
       <aside className={`ad-slot ad-slot--placeholder ${className}`} aria-label="Ad placeholder" style={style}>
         <span className="ad-slot-label">Ad space</span>

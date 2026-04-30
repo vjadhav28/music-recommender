@@ -24,12 +24,27 @@ const MARQUEE_WORDS = [
   'Solo dance party',
 ];
 
+const HERO_STACK = [
+  { title: 'Afterglow', artist: 'Velvet Static', mood: 'Warm' },
+  { title: 'Night Drive', artist: 'Luma Vale', mood: 'Fast' },
+  { title: 'Soft Focus', artist: 'Northline', mood: 'Deep' },
+];
+
+const HERO_BARS = [42, 74, 56, 92, 48, 68, 84, 54, 78, 46, 64, 88, 52, 72, 58, 96];
+
+const SIGNAL_STATS = [
+  { label: 'Taste memory', value: '8 moods' },
+  { label: 'Drop size', value: '5+ tracks' },
+  { label: 'Replay pull', value: 'High' },
+];
+
 function buildApiUrl() {
   const apiBase = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
-  // In dev, vite proxies /api -> localhost:8080. In prod with no env var,
-  // we skip the network call entirely and serve the curated fallback.
-  if (!apiBase && import.meta.env.PROD) return null;
-  return `${apiBase}/api/recommendations`;
+  if (apiBase) return `${apiBase}/api/recommendations`;
+  if (import.meta.env.VITE_USE_RELATIVE_API === 'true' || import.meta.env.VITE_USE_API_PROXY === 'true') {
+    return '/api/recommendations';
+  }
+  return null;
 }
 
 function readHistory() {
@@ -123,10 +138,9 @@ export default function App() {
         return;
       }
       finishWith(data);
-    } catch (err) {
+    } catch {
       // Network failure or unreachable backend — serve curated fallback
       finishWith(buildFallbackResponse({ mood, genre, activity, language }));
-      console.log('[v0] api unreachable, served fallback:', err?.message);
     } finally {
       setLoading(false);
     }
@@ -151,16 +165,40 @@ export default function App() {
       </header>
 
       <section className="hero">
-        <span className="hero-eyebrow">Now playing · your vibe</span>
-        <h1>
-          Find your <span className="accent">next</span>
-          <br />
-          favorite <span className="accent">song.</span>
-        </h1>
-        <p>
-          Tell us how you feel and what you&apos;re doing. We&apos;ll tune a playlist that fits the moment — not yesterday&apos;s
-          algorithm.
-        </p>
+        <div className="hero-stage" aria-hidden="true">
+          <div className="stage-label">Live taste scan</div>
+          <div className="album-stack">
+            {HERO_STACK.map((track, index) => (
+              <div className={`album-card album-card-${index + 1}`} key={track.title}>
+                <span>{track.mood}</span>
+                <strong>{track.title}</strong>
+                <small>{track.artist}</small>
+              </div>
+            ))}
+          </div>
+          <div className="hero-spectrum">
+            {HERO_BARS.map((height, index) => (
+              <span key={index} style={{ '--bar-height': `${height}%` }}></span>
+            ))}
+          </div>
+          <div className="queue-ribbon">
+            <span>Fresh queue</span>
+            <span>Deep match</span>
+            <span>One more set</span>
+          </div>
+        </div>
+
+        <div className="hero-copy">
+          <span className="hero-eyebrow">Now playing · your vibe</span>
+          <h1>
+            Find your <span className="accent">next</span>
+            <br />
+            favorite <span className="accent">song.</span>
+          </h1>
+          <p>
+            A tight five-track drop for the exact mood you&apos;re in: familiar enough to trust, fresh enough to chase.
+          </p>
+        </div>
 
         <div className="marquee" aria-hidden="true">
           <div className="marquee-track">
@@ -182,12 +220,27 @@ export default function App() {
         </section>
 
         <aside className="surface side-panel">
-          <div className="side-panel-section">
-            <h2>Pro tip</h2>
-            <p className="tip-card">
-              Pair a mood with an activity for sharper picks. Try <strong>focused + coding</strong> or{' '}
-              <strong>nostalgic + driving</strong>.
-            </p>
+          <div className="side-panel-section side-panel-hero">
+            <span className="panel-kicker">Live signal</span>
+            <h2>Keep the streak warm.</h2>
+            <p>Recent moods stay on deck, so every return visit feels a little more like your room.</p>
+          </div>
+
+          <div className="signal-board" aria-label="Recommendation status">
+            {SIGNAL_STATS.map((stat) => (
+              <div className="signal-stat" key={stat.label}>
+                <span>{stat.label}</span>
+                <strong>{stat.value}</strong>
+              </div>
+            ))}
+          </div>
+
+          <div className="mini-player" aria-hidden="true">
+            <div className="mini-player-disc"></div>
+            <div>
+              <span>Next set</span>
+              <strong>Mood locked</strong>
+            </div>
           </div>
         </aside>
       </main>

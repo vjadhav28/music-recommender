@@ -95,7 +95,7 @@ export default function MoodInput({ onSubmit, loading }) {
       </div>
 
       <button type="submit" disabled={!mood || loading} className="primary-btn">
-        <span>{loading ? 'Tuning your frequency' : 'Tune my playlist'}</span>
+        <span>{loading ? 'Building your drop' : 'Drop my set'}</span>
         <span className="arrow" aria-hidden="true">→</span>
       </button>
     </form>

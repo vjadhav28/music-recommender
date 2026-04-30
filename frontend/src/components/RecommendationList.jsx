@@ -28,10 +28,22 @@ const STREAMING_SERVICES = [
   },
 ];
 
+const SIGNAL_LABELS = ['Pulse', 'Glow', 'Replay'];
+
+function buildSongSignal(song, idx) {
+  const source = `${song.title || ''}${song.artist || ''}${song.genre || ''}`;
+  const seed = [...source].reduce((total, char) => total + char.charCodeAt(0), 0);
+  return SIGNAL_LABELS.map((label, signalIdx) => ({
+    label,
+    value: 38 + ((seed + idx * 19 + signalIdx * 23) % 58),
+  }));
+}
+
 function SongRow({ song, idx }) {
   const [open, setOpen] = useState(false);
   const rowRef = useRef(null);
   const query = encodeURIComponent(`${song.title} ${song.artist}`);
+  const songSignal = buildSongSignal(song, idx);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -63,6 +75,16 @@ function SongRow({ song, idx }) {
           {song.genre && <span className="song-genre">{song.genre}</span>}
         </div>
         {song.reason && <p className="song-reason">{song.reason}</p>}
+        <div className="song-signal" aria-label={`${song.title} signal profile`}>
+          {songSignal.map((signal) => (
+            <span className="song-signal-item" key={signal.label}>
+              <span className="song-signal-label">{signal.label}</span>
+              <span className="song-signal-track">
+                <span style={{ '--signal-width': `${signal.value}%` }}></span>
+              </span>
+            </span>
+          ))}
+        </div>
       </div>
       <div className="song-actions">
         <button
@@ -119,6 +141,12 @@ export default function RecommendationList({ data, request }) {
             {request.language && request.language !== 'Any' && <span>{request.language}</span>}
           </div>
         )}
+      </div>
+
+      <div className="drop-meta" aria-label="Set details">
+        <span>{data.songs.length}-track drop</span>
+        <span>Stream links ready</span>
+        <span>Fresh match</span>
       </div>
 
       {data.summary && <p className="summary-text">{data.summary}</p>}
