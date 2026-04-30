@@ -40,6 +40,26 @@ npm run dev
 
 The frontend starts on **http://localhost:5173**.
 
+By default, the frontend uses its curated fallback catalog so a missing backend
+does not show a broken 500 state. To connect the frontend to the Spring backend
+through the Vite proxy during development, add:
+
+```bash
+VITE_USE_API_PROXY=true
+```
+
+For a same-origin deployed API, use:
+
+```bash
+VITE_USE_RELATIVE_API=true
+```
+
+For a separately hosted API, use:
+
+```bash
+VITE_API_BASE_URL=https://your-api.example.com
+```
+
 ## API
 
 ### POST /api/recommendations

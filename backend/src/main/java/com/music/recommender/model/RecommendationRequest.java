@@ -12,12 +12,16 @@ public class RecommendationRequest {
     @Size(max = 60, message = "Activity must be 60 characters or fewer")
     private String activity;
 
+    @Size(max = 40, message = "Language must be 40 characters or fewer")
+    private String language;
+
     public RecommendationRequest() {}
 
-    public RecommendationRequest(String mood, String genre, String activity) {
+    public RecommendationRequest(String mood, String genre, String activity, String language) {
         this.mood = mood;
         this.genre = genre;
         this.activity = activity;
+        this.language = language;
     }
 
     public String getMood() { return mood; }
@@ -28,4 +32,7 @@ public class RecommendationRequest {
 
     public String getActivity() { return activity; }
     public void setActivity(String activity) { this.activity = activity; }
+
+    public String getLanguage() { return language; }
+    public void setLanguage(String language) { this.language = language; }
 }
