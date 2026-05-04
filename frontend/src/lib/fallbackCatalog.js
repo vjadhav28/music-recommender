@@ -69,6 +69,77 @@ const CATALOG = {
   ],
 };
 
+const EXTRA_CATALOG = {
+  happy: [
+    { title: 'I Wanna Dance with Somebody', artist: 'Whitney Houston', genre: 'Pop', reason: 'Big-chorus energy keeps the mood bright and celebratory.' },
+    { title: 'Dancing Queen', artist: 'ABBA', genre: 'Disco Pop', reason: 'Sparkling melodies make upbeat moods feel even lighter.' },
+    { title: 'Best Day Of My Life', artist: 'American Authors', genre: 'Indie Pop', reason: 'Stomping percussion and chant hooks feel instantly uplifting.' },
+    { title: 'Uptown Funk', artist: 'Mark Ronson ft. Bruno Mars', genre: 'Funk Pop', reason: 'Brassy swagger turns happy energy into a full-room singalong.' },
+    { title: 'Good Life', artist: 'OneRepublic', genre: 'Pop Rock', reason: 'Open-road optimism works well for easy, feel-good listening.' },
+    { title: 'Valerie', artist: 'Mark Ronson ft. Amy Winehouse', genre: 'Soul Pop', reason: 'Bouncy retro groove adds warmth to cheerful moments.' },
+  ],
+  sad: [
+    { title: 'drivers license', artist: 'Olivia Rodrigo', genre: 'Pop Ballad', reason: 'Detailed heartbreak storytelling suits late-night reflection.' },
+    { title: 'All I Want', artist: 'Kodaline', genre: 'Indie Folk', reason: 'Slow build and aching vocals leave room for big feelings.' },
+    { title: 'Back to Black', artist: 'Amy Winehouse', genre: 'Soul', reason: 'Smoky delivery gives sadness a sharper edge.' },
+    { title: 'Let Her Go', artist: 'Passenger', genre: 'Folk Pop', reason: 'Gentle acoustic pacing fits quiet, reflective listening.' },
+    { title: 'When the Party\'s Over', artist: 'Billie Eilish', genre: 'Alt Pop', reason: 'Bare arrangement and fragile vocals make the mood feel intimate.' },
+    { title: 'Everybody Hurts', artist: 'R.E.M.', genre: 'Alternative Rock', reason: 'Comforting classic for sitting with heavier emotions.' },
+  ],
+  energetic: [
+    { title: 'Can\'t Hold Us', artist: 'Macklemore & Ryan Lewis ft. Ray Dalton', genre: 'Hip-Hop', reason: 'Rapid-fire momentum keeps the adrenaline high.' },
+    { title: 'Till I Collapse', artist: 'Eminem', genre: 'Hip-Hop', reason: 'Relentless cadence is built for pushing harder.' },
+    { title: 'Bangarang', artist: 'Skrillex ft. Sirah', genre: 'EDM', reason: 'Hyperactive drops bring instant intensity.' },
+    { title: 'Wake Me Up', artist: 'Avicii', genre: 'EDM', reason: 'Big melodic lift fuels long-burst energy.' },
+    { title: 'Run Boy Run', artist: 'Woodkid', genre: 'Alternative', reason: 'Marching drums feel cinematic and propulsive.' },
+    { title: 'Remember the Name', artist: 'Fort Minor', genre: 'Rap Rock', reason: 'Punchy hook and swagger make it ideal for high-drive moments.' },
+  ],
+  relaxed: [
+    { title: 'Come Away With Me', artist: 'Norah Jones', genre: 'Jazz Pop', reason: 'Soft vocal phrasing settles the room immediately.' },
+    { title: 'Banana Pancakes', artist: 'Jack Johnson', genre: 'Acoustic', reason: 'Loose acoustic swing is perfect for slow mornings.' },
+    { title: 'Bloom', artist: 'ODESZA', genre: 'Chill Electronic', reason: 'Airy synth layers create a spacious, easy mood.' },
+    { title: 'Pink + White', artist: 'Frank Ocean', genre: 'R&B', reason: 'Feathery production makes calm listening feel luxurious.' },
+    { title: 'River Flows in You', artist: 'Yiruma', genre: 'Piano', reason: 'Gentle piano movement supports a quieter pace.' },
+    { title: 'Opaline', artist: 'Novo Amor', genre: 'Indie Folk', reason: 'Breathy textures keep everything soft and unhurried.' },
+  ],
+  focused: [
+    { title: 'Nuvole Bianche', artist: 'Ludovico Einaudi', genre: 'Classical', reason: 'Steady piano phrasing supports deep concentration.' },
+    { title: 'Gymnopedie No. 1', artist: 'Erik Satie', genre: 'Classical', reason: 'Minimal melodic repetition stays present without distracting.' },
+    { title: 'Awake', artist: 'Tycho', genre: 'Downtempo', reason: 'Clean rhythms and atmosphere help maintain flow.' },
+    { title: 'An Ending (Ascent)', artist: 'Brian Eno', genre: 'Ambient', reason: 'Weightless ambient layers are ideal for low-distraction work.' },
+    { title: 'Near Light', artist: 'Olafur Arnalds', genre: 'Neo-Classical', reason: 'Measured build keeps focus steady over longer sessions.' },
+    { title: 'Says', artist: 'Nils Frahm', genre: 'Ambient', reason: 'Patient electronic progression supports immersive work blocks.' },
+  ],
+  romantic: [
+    { title: 'Thinking Out Loud', artist: 'Ed Sheeran', genre: 'Pop', reason: 'Warm intimacy and slow groove suit affectionate moments.' },
+    { title: 'Best Part', artist: 'Daniel Caesar ft. H.E.R.', genre: 'R&B', reason: 'Tender duet energy keeps the room soft and close.' },
+    { title: 'Can\'t Help Falling in Love', artist: 'Elvis Presley', genre: 'Classic Pop', reason: 'Timeless melody adds effortless romance.' },
+    { title: 'Until I Found You', artist: 'Stephen Sanchez', genre: 'Pop', reason: 'Retro croon makes the mood feel cinematic and sincere.' },
+    { title: 'My Girl', artist: 'The Temptations', genre: 'Soul', reason: 'Bright, classic charm keeps romance light and easy.' },
+    { title: 'Moon River', artist: 'Frank Ocean', genre: 'Soul', reason: 'Sparse arrangement creates a hushed late-night closeness.' },
+  ],
+  nostalgic: [
+    { title: 'Everybody Wants to Rule the World', artist: 'Tears for Fears', genre: 'Synth-Pop', reason: 'Instantly familiar groove invites reflective nostalgia.' },
+    { title: 'I Want It That Way', artist: 'Backstreet Boys', genre: 'Pop', reason: 'Millennial singalong energy hits the memory center fast.' },
+    { title: 'Yellow', artist: 'Coldplay', genre: 'Alternative Rock', reason: 'Warm melodic lift carries a sentimental glow.' },
+    { title: 'Dreams', artist: 'The Cranberries', genre: 'Alternative Rock', reason: '90s shimmer feels wistful without getting heavy.' },
+    { title: 'No Scrubs', artist: 'TLC', genre: 'R&B', reason: 'Iconic late-90s hook makes the throwback feel playful.' },
+    { title: 'Hey Ya!', artist: 'OutKast', genre: 'Pop', reason: 'Big, unmistakable hooks bring nostalgic energy with movement.' },
+  ],
+  angry: [
+    { title: 'Break Stuff', artist: 'Limp Bizkit', genre: 'Nu Metal', reason: 'Volatile delivery helps vent pressure fast.' },
+    { title: 'Chop Suey!', artist: 'System of a Down', genre: 'Metal', reason: 'Chaotic stop-start energy channels frustration into motion.' },
+    { title: 'Sabotage', artist: 'Beastie Boys', genre: 'Rap Rock', reason: 'Shouted urgency and grit make the emotion feel kinetic.' },
+    { title: 'One Step Closer', artist: 'Linkin Park', genre: 'Rock', reason: 'Explosive chorus is built for letting tension out.' },
+    { title: 'Psychosocial', artist: 'Slipknot', genre: 'Metal', reason: 'Dense riffs and forceful percussion push catharsis forward.' },
+    { title: 'X Gon\' Give It To Ya', artist: 'DMX', genre: 'Hip-Hop', reason: 'Aggressive bark and pounding beat feel confrontational in the best way.' },
+  ],
+};
+
+const FULL_CATALOG = Object.fromEntries(
+  Object.entries(CATALOG).map(([key, songs]) => [key, [...songs, ...(EXTRA_CATALOG[key] || [])]])
+);
+
 const LANGUAGE_CATALOG = {
   spanish: [
     { title: 'Despacito', artist: 'Luis Fonsi ft. Daddy Yankee', genre: 'Reggaeton', reason: 'Smooth Latin rhythm with universal appeal.' },
@@ -135,6 +206,49 @@ const LANGUAGE_CATALOG = {
   ],
 };
 
+const EXTRA_LANGUAGE_CATALOG = {
+  spanish: [
+    { title: 'Me Rehuso', artist: 'Danny Ocean', genre: 'Latin Pop', reason: 'Smooth, catchy chorus keeps Spanish-language listening easy and melodic.' },
+    { title: 'Eres', artist: 'Cafe Tacvba', genre: 'Latin Rock', reason: 'Warm romantic phrasing gives the set a beloved singalong anchor.' },
+  ],
+  hindi: [
+    { title: 'Ilahi', artist: 'Arijit Singh', genre: 'Bollywood', reason: 'Open-road melody adds lift and wanderlust to the mix.' },
+    { title: 'Zinda', artist: 'Siddharth Mahadevan', genre: 'Bollywood Rock', reason: 'Big, motivational energy broadens the Hindi selection nicely.' },
+  ],
+  french: [
+    { title: 'Papaoutai', artist: 'Stromae', genre: 'Electropop', reason: 'Sharp hooks and motion make the French set feel more expansive.' },
+    { title: 'Je te laisserai des mots', artist: 'Patrick Watson', genre: 'French Indie', reason: 'Soft intimacy gives the French library a gentler edge.' },
+  ],
+  korean: [
+    { title: 'Love Scenario', artist: 'iKON', genre: 'K-Pop', reason: 'Easy melodic flow makes it one of the most replayable K-pop picks.' },
+    { title: 'Ditto', artist: 'NewJeans', genre: 'K-Pop', reason: 'Dreamy, understated production adds a softer modern Korean option.' },
+  ],
+  japanese: [
+    { title: 'Sparkle', artist: 'RADWIMPS', genre: 'J-Rock', reason: 'Sweeping dynamics give the Japanese library more cinematic range.' },
+    { title: 'Stay With Me', artist: 'Miki Matsubara', genre: 'City Pop', reason: 'Beloved city-pop warmth makes the throwback selection richer.' },
+  ],
+  portuguese: [
+    { title: 'Chega de Saudade', artist: 'Joao Gilberto', genre: 'Bossa Nova', reason: 'Foundational bossa nova deepens the Brazilian side of the catalog.' },
+    { title: 'Anna Julia', artist: 'Los Hermanos', genre: 'Brazilian Rock', reason: 'Singalong rock energy balances the softer Portuguese picks.' },
+  ],
+  arabic: [
+    { title: 'Ah W Noss', artist: 'Nancy Ajram', genre: 'Arabic Pop', reason: 'Light, catchy phrasing adds another high-recognition Arabic favorite.' },
+    { title: 'El Donia Helwa', artist: 'Nancy Ajram', genre: 'Arabic Pop', reason: 'Upbeat production broadens the brighter Arabic lane.' },
+  ],
+  german: [
+    { title: 'Major Tom (vollig losgelost)', artist: 'Peter Schilling', genre: 'Synth-Pop', reason: 'Classic synth pulse expands the German throwback range.' },
+    { title: '80 Millionen', artist: 'Max Giesinger', genre: 'Pop', reason: 'Anthemic modern pop gives the German set a stronger singalong option.' },
+  ],
+  italian: [
+    { title: 'Con Te Partiro', artist: 'Andrea Bocelli', genre: 'Italian Classic', reason: 'A sweeping standard adds depth and drama to the Italian catalog.' },
+    { title: 'Soldi', artist: 'Mahmood', genre: 'Italian Pop', reason: 'Modern rhythmic edge keeps the Italian list from feeling too traditional.' },
+  ],
+};
+
+const FULL_LANGUAGE_CATALOG = Object.fromEntries(
+  Object.entries(LANGUAGE_CATALOG).map(([key, songs]) => [key, [...songs, ...(EXTRA_LANGUAGE_CATALOG[key] || [])]])
+);
+
 const GENERIC = [
   { title: 'Blinding Lights', artist: 'The Weeknd', genre: 'Pop', reason: 'High replay value and broad appeal.' },
   { title: 'Levitating', artist: 'Dua Lipa', genre: 'Pop', reason: 'Groove-driven production with energetic bounce.' },
@@ -143,6 +257,19 @@ const GENERIC = [
   { title: 'As It Was', artist: 'Harry Styles', genre: 'Pop', reason: 'Balanced mood and accessible melodic structure.' },
   { title: 'Stay With Me', artist: 'Sam Smith', genre: 'Soul Pop', reason: 'Crossover ballad with emotional pull.' },
 ];
+
+const EXTRA_GENERIC = [
+  { title: 'Feel It Still', artist: 'Portugal. The Man', genre: 'Alt Pop', reason: 'Compact, hooky groove keeps the fallback library feeling lively.' },
+  { title: 'Treasure', artist: 'Bruno Mars', genre: 'Pop', reason: 'Disco-funk sheen gives the broader catalog another instant replay pick.' },
+  { title: 'Bad Guy', artist: 'Billie Eilish', genre: 'Alt Pop', reason: 'Minimal punch makes it flexible across moods and activities.' },
+  { title: 'Take Me Out', artist: 'Franz Ferdinand', genre: 'Indie Rock', reason: 'Sharp guitar drive adds broader cross-genre reach.' },
+  { title: 'Dog Days Are Over', artist: 'Florence + The Machine', genre: 'Indie Pop', reason: 'Big dynamic lift makes the library feel more expansive.' },
+  { title: 'Electric Feel', artist: 'MGMT', genre: 'Indie Pop', reason: 'Psychedelic groove works across relaxed, nostalgic, and upbeat requests.' },
+  { title: 'Royals', artist: 'Lorde', genre: 'Alt Pop', reason: 'Cool, restrained production rounds out the modern pop bench.' },
+  { title: 'Locked Out of Heaven', artist: 'Bruno Mars', genre: 'Pop Rock', reason: 'Fast-moving chorus adds another versatile crowd-pleaser.' },
+];
+
+const FULL_GENERIC = [...GENERIC, ...EXTRA_GENERIC];
 
 function normalizeMoodKey(mood) {
   const m = (mood || '').toLowerCase().trim();
@@ -155,14 +282,14 @@ function normalizeMoodKey(mood) {
   if (/(angry|mad|frustrat|rage)/.test(m)) return 'angry';
   if (/(sad|down|blue|melanchol|heartbr)/.test(m)) return 'sad';
   if (/(happy|joy|excited|glad)/.test(m)) return 'happy';
-  if (CATALOG[m]) return m;
+  if (FULL_CATALOG[m]) return m;
   return 'focused';
 }
 
 function normalizeLanguageKey(language) {
   const l = (language || '').toLowerCase().trim();
   if (!l || l === 'any') return null;
-  if (LANGUAGE_CATALOG[l]) return l;
+  if (FULL_LANGUAGE_CATALOG[l]) return l;
   return null;
 }
 
@@ -170,34 +297,59 @@ function dedupeKey(song) {
   return `${song.title}|${song.artist}`.toLowerCase();
 }
 
+function rotateSongs(songs, seed) {
+  if (songs.length < 2) return songs;
+
+  let hash = 0;
+  for (const char of seed) {
+    hash = (hash * 31 + char.charCodeAt(0)) | 0;
+  }
+
+  const offset = Math.abs(hash) % songs.length;
+  if (offset === 0) return songs;
+  return [...songs.slice(offset), ...songs.slice(0, offset)];
+}
+
+function prioritizeByGenre(songs, preferredGenre) {
+  if (!preferredGenre) return songs;
+
+  return [...songs].sort((a, b) => {
+    const aMatch = a.genre.toLowerCase().includes(preferredGenre) ? 1 : 0;
+    const bMatch = b.genre.toLowerCase().includes(preferredGenre) ? 1 : 0;
+    return bMatch - aMatch;
+  });
+}
+
 export function buildFallbackResponse({ mood, genre, activity, language }) {
   const moodKey = normalizeMoodKey(mood);
   const languageKey = normalizeLanguageKey(language);
 
-  const pool = [];
-  if (languageKey) {
-    pool.push(...LANGUAGE_CATALOG[languageKey]);
-  }
-  pool.push(...(CATALOG[moodKey] || GENERIC));
-  pool.push(...GENERIC);
-
   // Bias toward the user's preferred genre, if any
   const preferredGenre = (genre || '').toLowerCase().trim();
-  if (preferredGenre) {
-    pool.sort((a, b) => {
-      const aMatch = a.genre.toLowerCase().includes(preferredGenre) ? 1 : 0;
-      const bMatch = b.genre.toLowerCase().includes(preferredGenre) ? 1 : 0;
-      return bMatch - aMatch;
-    });
-  }
+  const seed = `${moodKey}|${activity || ''}|${languageKey || ''}`;
+  const languagePool = languageKey
+    ? prioritizeByGenre(FULL_LANGUAGE_CATALOG[languageKey], preferredGenre)
+    : [];
+  const moodPool = prioritizeByGenre(FULL_CATALOG[moodKey] || FULL_GENERIC, preferredGenre);
+  const genericPool = prioritizeByGenre(FULL_GENERIC, preferredGenre);
+  const buckets = preferredGenre
+    ? [languagePool, moodPool, genericPool]
+    : [
+        rotateSongs(languagePool, `${seed}|language`),
+        rotateSongs(moodPool, `${seed}|mood`),
+        rotateSongs(genericPool, `${seed}|generic`),
+      ];
 
   const seen = new Set();
   const songs = [];
-  for (const song of pool) {
-    const key = dedupeKey(song);
-    if (seen.has(key)) continue;
-    seen.add(key);
-    songs.push(song);
+  for (const bucket of buckets) {
+    for (const song of bucket) {
+      const key = dedupeKey(song);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      songs.push(song);
+      if (songs.length >= 6) break;
+    }
     if (songs.length >= 6) break;
   }
 
