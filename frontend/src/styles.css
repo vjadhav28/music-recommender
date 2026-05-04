@@ -1019,17 +1019,16 @@ body {
 }
 
 .song-actions {
-  position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .streaming-menu {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  z-index: 30;
+  grid-column: 2 / -1;
+  justify-self: end;
   min-width: 220px;
+  margin-top: 4px;
   padding: 8px;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -1083,9 +1082,9 @@ body {
 
 @media (max-width: 640px) {
   .streaming-menu {
-    right: auto;
-    left: 0;
     min-width: 200px;
+    width: 100%;
+    justify-self: stretch;
   }
 }
 
@@ -1290,6 +1289,9 @@ body {
   .song-actions {
     grid-column: 2;
     justify-content: flex-start;
+  }
+  .streaming-menu {
+    grid-column: 1 / -1;
   }
   .song-signal {
     grid-template-columns: 1fr;

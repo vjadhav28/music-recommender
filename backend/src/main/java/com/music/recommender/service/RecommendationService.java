@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -88,6 +89,57 @@ public class RecommendationService {
             )
     );
 
+    private static final Map<String, List<Song>> EXTRA_CURATED_BY_MOOD = Map.of(
+            "happy", List.of(
+                    new Song("I Wanna Dance with Somebody", "Whitney Houston", "Pop", "Big-chorus energy keeps the mood bright and celebratory."),
+                    new Song("Dancing Queen", "ABBA", "Disco Pop", "Sparkling melodies make upbeat moods feel even lighter."),
+                    new Song("Best Day Of My Life", "American Authors", "Indie Pop", "Stomping percussion and chant hooks feel instantly uplifting."),
+                    new Song("Uptown Funk", "Mark Ronson ft. Bruno Mars", "Funk Pop", "Brassy swagger turns happy energy into a full-room singalong.")
+            ),
+            "sad", List.of(
+                    new Song("drivers license", "Olivia Rodrigo", "Pop Ballad", "Detailed heartbreak storytelling suits late-night reflection."),
+                    new Song("All I Want", "Kodaline", "Indie Folk", "Slow build and aching vocals leave room for big feelings."),
+                    new Song("Back to Black", "Amy Winehouse", "Soul", "Smoky delivery gives sadness a sharper edge."),
+                    new Song("When the Party's Over", "Billie Eilish", "Alt Pop", "Bare arrangement and fragile vocals make the mood feel intimate.")
+            ),
+            "energetic", List.of(
+                    new Song("Can't Hold Us", "Macklemore & Ryan Lewis ft. Ray Dalton", "Hip-Hop", "Rapid-fire momentum keeps the adrenaline high."),
+                    new Song("Till I Collapse", "Eminem", "Hip-Hop", "Relentless cadence is built for pushing harder."),
+                    new Song("Bangarang", "Skrillex ft. Sirah", "EDM", "Hyperactive drops bring instant intensity."),
+                    new Song("Remember the Name", "Fort Minor", "Rap Rock", "Punchy hook and swagger make it ideal for high-drive moments.")
+            ),
+            "relaxed", List.of(
+                    new Song("Come Away With Me", "Norah Jones", "Jazz Pop", "Soft vocal phrasing settles the room immediately."),
+                    new Song("Banana Pancakes", "Jack Johnson", "Acoustic", "Loose acoustic swing is perfect for slow mornings."),
+                    new Song("Bloom", "ODESZA", "Chill Electronic", "Airy synth layers create a spacious, easy mood."),
+                    new Song("Pink + White", "Frank Ocean", "R&B", "Feathery production makes calm listening feel luxurious.")
+            ),
+            "focused", List.of(
+                    new Song("Nuvole Bianche", "Ludovico Einaudi", "Classical", "Steady piano phrasing supports deep concentration."),
+                    new Song("Gymnopedie No. 1", "Erik Satie", "Classical", "Minimal melodic repetition stays present without distracting."),
+                    new Song("An Ending (Ascent)", "Brian Eno", "Ambient", "Weightless ambient layers are ideal for low-distraction work."),
+                    new Song("Near Light", "Olafur Arnalds", "Neo-Classical", "Measured build keeps focus steady over longer sessions.")
+            ),
+            "romantic", List.of(
+                    new Song("Thinking Out Loud", "Ed Sheeran", "Pop", "Warm intimacy and slow groove suit affectionate moments."),
+                    new Song("Best Part", "Daniel Caesar ft. H.E.R.", "R&B", "Tender duet energy keeps the room soft and close."),
+                    new Song("Can't Help Falling in Love", "Elvis Presley", "Classic Pop", "Timeless melody adds effortless romance."),
+                    new Song("Until I Found You", "Stephen Sanchez", "Pop", "Retro croon makes the mood feel cinematic and sincere.")
+            ),
+            "nostalgic", List.of(
+                    new Song("Everybody Wants to Rule the World", "Tears for Fears", "Synth-Pop", "Instantly familiar groove invites reflective nostalgia."),
+                    new Song("I Want It That Way", "Backstreet Boys", "Pop", "Millennial singalong energy hits the memory center fast."),
+                    new Song("Yellow", "Coldplay", "Alternative Rock", "Warm melodic lift carries a sentimental glow."),
+                    new Song("No Scrubs", "TLC", "R&B", "Iconic late-90s hook makes the throwback feel playful.")
+            ),
+            "angry", List.of(
+                    new Song("Break Stuff", "Limp Bizkit", "Nu Metal", "Volatile delivery helps vent pressure fast."),
+                    new Song("Chop Suey!", "System of a Down", "Metal", "Chaotic stop-start energy channels frustration into motion."),
+                    new Song("Sabotage", "Beastie Boys", "Rap Rock", "Shouted urgency and grit make the emotion feel kinetic."),
+                    new Song("One Step Closer", "Linkin Park", "Rock", "Explosive chorus is built for letting tension out.")
+            )
+    );
+
     private static final List<Song> GENERIC_FALLBACK = List.of(
             new Song("Blinding Lights", "The Weeknd", "Pop", "High replay value and broad appeal."),
             new Song("Levitating", "Dua Lipa", "Pop", "Groove-driven production with energetic bounce."),
@@ -95,6 +147,17 @@ public class RecommendationService {
             new Song("Lose Yourself", "Eminem", "Hip-Hop", "Motivational pacing for activity-oriented listening."),
             new Song("As It Was", "Harry Styles", "Pop", "Balanced mood and accessible melodic structure.")
     );
+
+    private static final List<Song> EXTRA_GENERIC_FALLBACK = List.of(
+            new Song("Feel It Still", "Portugal. The Man", "Alt Pop", "Compact, hooky groove keeps the fallback library feeling lively."),
+            new Song("Treasure", "Bruno Mars", "Pop", "Disco-funk sheen gives the broader catalog another instant replay pick."),
+            new Song("Bad Guy", "Billie Eilish", "Alt Pop", "Minimal punch makes it flexible across moods and activities."),
+            new Song("Take Me Out", "Franz Ferdinand", "Indie Rock", "Sharp guitar drive adds broader cross-genre reach."),
+            new Song("Electric Feel", "MGMT", "Indie Pop", "Psychedelic groove works across relaxed, nostalgic, and upbeat requests.")
+    );
+
+    private static final Map<String, List<Song>> FULL_CURATED_BY_MOOD = mergeCatalogs(CURATED_BY_MOOD, EXTRA_CURATED_BY_MOOD);
+    private static final List<Song> FULL_GENERIC_FALLBACK = mergeSongs(GENERIC_FALLBACK, EXTRA_GENERIC_FALLBACK);
 
     private final ChatClient chatClient;
     private final ObjectMapper objectMapper;
@@ -221,7 +284,7 @@ public class RecommendationService {
 
     private List<Song> pickFallbackSongs(RecommendationRequest request) {
         String moodKey = normalizeMoodKey(request.getMood());
-        List<Song> moodSongs = CURATED_BY_MOOD.getOrDefault(moodKey, GENERIC_FALLBACK);
+        List<Song> moodSongs = FULL_CURATED_BY_MOOD.getOrDefault(moodKey, FULL_GENERIC_FALLBACK);
         List<Song> fallback = new ArrayList<>(moodSongs);
 
         if (StringUtils.hasText(request.getGenre())) {
@@ -231,10 +294,15 @@ public class RecommendationService {
                 boolean rightPreferred = right.getGenre().toLowerCase().contains(preferredGenre);
                 return Boolean.compare(rightPreferred, leftPreferred);
             });
+        } else {
+            fallback = rotateSongs(
+                    fallback,
+                    moodKey + "|" + firstNonBlank(request.getActivity(), "") + "|" + firstNonBlank(request.getLanguage(), "")
+            );
         }
 
         if (fallback.size() < TARGET_SONG_COUNT) {
-            for (Song song : GENERIC_FALLBACK) {
+            for (Song song : FULL_GENERIC_FALLBACK) {
                 boolean exists = fallback.stream().anyMatch(current ->
                         (current.getTitle() + "|" + current.getArtist())
                                 .equalsIgnoreCase(song.getTitle() + "|" + song.getArtist()));
@@ -270,12 +338,42 @@ public class RecommendationService {
         if (normalized.contains("mad") || normalized.contains("frustrat")) {
             return "angry";
         }
-        for (String key : CURATED_BY_MOOD.keySet()) {
+        for (String key : FULL_CURATED_BY_MOOD.keySet()) {
             if (normalized.contains(key)) {
                 return key;
             }
         }
         return "focused";
+    }
+
+    private static Map<String, List<Song>> mergeCatalogs(Map<String, List<Song>> baseCatalog, Map<String, List<Song>> extraCatalog) {
+        Map<String, List<Song>> merged = new LinkedHashMap<>();
+        for (Map.Entry<String, List<Song>> entry : baseCatalog.entrySet()) {
+            merged.put(entry.getKey(), mergeSongs(entry.getValue(), extraCatalog.getOrDefault(entry.getKey(), List.of())));
+        }
+        return Map.copyOf(merged);
+    }
+
+    private static List<Song> mergeSongs(List<Song> baseSongs, List<Song> extraSongs) {
+        List<Song> merged = new ArrayList<>(baseSongs);
+        merged.addAll(extraSongs);
+        return List.copyOf(merged);
+    }
+
+    private static List<Song> rotateSongs(List<Song> songs, String seed) {
+        if (songs.size() < 2) {
+            return songs;
+        }
+
+        int offset = Math.floorMod(seed.hashCode(), songs.size());
+        if (offset == 0) {
+            return songs;
+        }
+
+        List<Song> rotated = new ArrayList<>(songs.size());
+        rotated.addAll(songs.subList(offset, songs.size()));
+        rotated.addAll(songs.subList(0, offset));
+        return rotated;
     }
 
     private String extractJsonObject(String response) {

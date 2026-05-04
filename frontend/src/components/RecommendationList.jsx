@@ -4,27 +4,32 @@ const STREAMING_SERVICES = [
   {
     id: 'spotify',
     name: 'Spotify',
-    buildUrl: (q) => `https://open.spotify.com/search/${q}`,
+    buildAppUrl: (q) => `spotify:search:${q}`,
+    buildWebUrl: (q) => `https://open.spotify.com/search/${q}`,
   },
   {
     id: 'apple',
     name: 'Apple Music',
-    buildUrl: (q) => `https://music.apple.com/us/search?term=${q}`,
+    buildAppUrl: (q) => `music://music.apple.com/us/search?term=${q}`,
+    buildWebUrl: (q) => `https://music.apple.com/us/search?term=${q}`,
   },
   {
     id: 'youtube',
     name: 'YouTube Music',
-    buildUrl: (q) => `https://music.youtube.com/search?q=${q}`,
+    buildAppUrl: (q) => `youtubemusic://music.youtube.com/search?q=${q}`,
+    buildWebUrl: (q) => `https://music.youtube.com/search?q=${q}`,
   },
   {
     id: 'amazon',
     name: 'Amazon Music',
-    buildUrl: (q) => `https://music.amazon.com/search/${q}`,
+    buildAppUrl: (q) => `amazonmusic://music.amazon.com/search/${q}`,
+    buildWebUrl: (q) => `https://music.amazon.com/search/${q}`,
   },
   {
     id: 'tidal',
     name: 'Tidal',
-    buildUrl: (q) => `https://tidal.com/search?q=${q}`,
+    buildAppUrl: (q) => `tidal://search?query=${q}`,
+    buildWebUrl: (q) => `https://listen.tidal.com/search?q=${q}`,
   },
 ];
 
@@ -44,6 +49,68 @@ function SongRow({ song, idx }) {
   const rowRef = useRef(null);
   const query = encodeURIComponent(`${song.title} ${song.artist}`);
   const songSignal = buildSongSignal(song, idx);
+
+  const handleStreamingOpen = (event, service) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const appUrl = service.buildAppUrl(query);
+    const webUrl = service.buildWebUrl(query);
+    const fallbackTab = window.open('', '_blank');
+    let cleanedUp = false;
+
+    if (fallbackTab) {
+      try {
+        fallbackTab.opener = null;
+        fallbackTab.document.title = `Opening ${service.name}`;
+      } catch {
+        // Ignore cross-context restrictions on placeholder tabs.
+      }
+    }
+
+    const cleanup = (closeFallbackTab = true) => {
+      if (cleanedUp) return;
+      cleanedUp = true;
+      window.clearTimeout(fallbackTimer);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('pagehide', cleanup);
+      if (closeFallbackTab && fallbackTab && !fallbackTab.closed) {
+        fallbackTab.close();
+      }
+      if (iframe.parentNode) {
+        iframe.parentNode.removeChild(iframe);
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        cleanup();
+      }
+    };
+
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('aria-hidden', 'true');
+    iframe.tabIndex = -1;
+    iframe.style.display = 'none';
+
+    const fallbackTimer = window.setTimeout(() => {
+      cleanup(false);
+      if (fallbackTab && !fallbackTab.closed) {
+        fallbackTab.location.replace(webUrl);
+        fallbackTab.focus();
+        return;
+      }
+      const webTab = window.open(webUrl, '_blank', 'noopener,noreferrer');
+      if (!webTab) {
+        window.location.assign(webUrl);
+      }
+    }, 1400);
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('pagehide', cleanup);
+    document.body.appendChild(iframe);
+    iframe.src = appUrl;
+  };
 
   useEffect(() => {
     if (!open) return undefined;
@@ -99,25 +166,24 @@ function SongRow({ song, idx }) {
         >
           {open ? '×' : '▶'}
         </button>
-        {open && (
-          <div className="streaming-menu" role="menu" onClick={(e) => e.stopPropagation()}>
-            <div className="streaming-menu-label">Listen on</div>
-            {STREAMING_SERVICES.map((service) => (
-              <a
-                key={service.id}
-                role="menuitem"
-                href={service.buildUrl(query)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="streaming-link"
-              >
-                <span>{service.name}</span>
-                <span aria-hidden="true">↗</span>
-              </a>
-            ))}
-          </div>
-        )}
       </div>
+      {open && (
+        <div className="streaming-menu" role="menu" onClick={(e) => e.stopPropagation()}>
+          <div className="streaming-menu-label">Open in app</div>
+          {STREAMING_SERVICES.map((service) => (
+            <a
+              key={service.id}
+              role="menuitem"
+              href={service.buildWebUrl(query)}
+              className="streaming-link"
+              onClick={(event) => handleStreamingOpen(event, service)}
+            >
+              <span>{service.name}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </div>
+      )}
     </article>
   );
 }
